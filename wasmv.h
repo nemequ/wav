@@ -31,6 +31,9 @@
  *   2021      Evan Nemerson <evan@nemerson.com>
  * */
 
+#if !defined(WASMV_H)
+#define WASMV_H
+
 #include <stdint.h>
 
 /* We don't actually use wasm_simd128.h internally, but we want the
@@ -6270,3 +6273,5 @@ wasmv_u32x4_load_extend(int32_t values[WASMV_ARRAY_PARAM(2)]) {
 }
 
 #pragma clang diagnostic pop
+
+#endif /* !defined(WASMV_H) */
