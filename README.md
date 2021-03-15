@@ -1,6 +1,7 @@
-# NOT READY YET
+# Not Yet Ready For Use
 
-This is currently nowhere near complete, and the API is not stable.
+While largely feature-complete, the API is not yet stable and it is
+largely untested.  Please don't depend on it for anything critical yet.
 
 Also, the project name will probably change, if anyone has any ideas
 please let me know.  I don't like the current one, but I wanted to
@@ -11,7 +12,7 @@ write code not think about a name.
 WASMV is an alternative to the wasm_simd128.h API provided by LLVM. It
 is primarily designed to provide a more type-safe API.
 
-The API is a bit of a blending of NEON, AltiVec, and SSE:
+The API is a bit of a blending of several different SIMD APIs:
 
  * The types feel a bit like NEON; it has different vector types for
    each element type (8/16/32/64-bit ints, signed and unsigned, as
@@ -43,7 +44,7 @@ add_data(
 }
 ```
 
-Or, if you prefer:
+Or, if you prefer to use non-overloaded functions:
 
 ```c
 #include <wasmv.h>
