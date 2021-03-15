@@ -2249,10 +2249,10 @@ wasmv_f64x2_nearest(wasmv_f64x2_t a) {
   WASMV_FUNCTION_ATTRIBUTES wasmv_f64x2_t wasmv_nearest(wasmv_f64x2_t a) { return wasmv_f64x2_nearest(a); }
 #endif
 
-/* extend -- Extension / promotion
+/* extend_low -- Integer to integer extension
  *
- * Converts low or high half of the smaller lane vector to a larger
- * lane vector, sign extended or zero (unsigned) extended.
+ * Converts low half of the smaller lane vector to a larger lane
+ * vector, sign extended or zero (unsigned) extended.
  */
 
 WASMV_FUNCTION_ATTRIBUTES
@@ -2352,6 +2352,44 @@ wasmv_u32x4_extend_low(wasmv_u32x4_t a) {
   WASMV_FUNCTION_ATTRIBUTES wasmv_u32x4_t wasmv_extend_low(wasmv_u16x8_t a) { return wasmv_u16x8_extend_low(a); }
   WASMV_FUNCTION_ATTRIBUTES wasmv_u64x2_t wasmv_extend_low(wasmv_u32x4_t a) { return wasmv_u32x4_extend_low(a); }
 #endif
+
+/* promote_low -- Single-precision floating point to double-precision
+ *
+ * Conversion of the two lower single-precision floating point lanes to
+ * the two double-precision lanes of the result.
+ */
+
+WASMV_UNIMPLEMENTED_SIMD128_ATTRIBUTE
+WASMV_FUNCTION_ATTRIBUTES
+wasmv_f64x2_t
+wasmv_f32x4_promote_low(wasmv_f32x4_t a) {
+  #if WASMV_BUILTIN_IS_NOOP
+    return (wasmv_f64x2_t) { __builtin_wasm_promote_low_f32x4_f64x2(a.values) };
+  #else
+    wasmv_f64x2_t r;
+    const float low __attribute__((__vector_size__(8))) = {
+      a.values[0], a.values[1],
+    };
+
+    r.values = __builtin_convertvector(low, __typeof__(r.values));
+
+    return r;
+  #endif
+}
+
+#if WASMV_OVERLOADS == WASMV_OVERLOADS_C11
+  #define wasmv_promote_low(a) \
+    (_Generic((a), \
+      wasmv_f32x4_t: wasmv_f32x4_promote_low) (a))
+#elif WASMV_OVERLOADS == WASMV_OVERLOADS_CXX
+  WASMV_FUNCTION_ATTRIBUTES wasmv_f64x2_t wasmv_promote_low(wasmv_f32x4_t a) { return wasmv_f32x4_promote_low(a); }
+#endif
+
+/* extend_high -- Integer to integer extension
+ *
+ * Converts high half of the smaller lane vector to a larger lane
+ * vector, sign extended or zero (unsigned) extended.
+ */
 
 WASMV_FUNCTION_ATTRIBUTES
 wasmv_i16x8_t
@@ -2464,6 +2502,36 @@ wasmv_u32x4_narrow(wasmv_u32x4_t a, wasmv_u32x4_t b) {
   WASMV_FUNCTION_ATTRIBUTES wasmv_i16x8_t wasmv_narrow(wasmv_i32x4_t a, wasmv_i32x4_t b) { return wasmv_i32x4_narrow(a, b); }
   WASMV_FUNCTION_ATTRIBUTES wasmv_u8x16_t wasmv_narrow(wasmv_u16x8_t a, wasmv_u16x8_t b) { return wasmv_u16x8_narrow(a, b); }
   WASMV_FUNCTION_ATTRIBUTES wasmv_u16x8_t wasmv_narrow(wasmv_u32x4_t a, wasmv_u32x4_t b) { return wasmv_u32x4_narrow(a, b); }
+#endif
+
+/* demote -- Double-precision floating point to single-precision
+ *
+ * Conversion of the two double-precision floating point lanes to two
+ * lower single-precision lanes of the result. The two higher lanes of
+ * the result are initialized to zero. If the conversion result is not
+ * representable as a single-precision floating point number, it is
+ * rounded to the nearest-even representable number.
+ */
+
+WASMV_UNIMPLEMENTED_SIMD128_ATTRIBUTE
+WASMV_FUNCTION_ATTRIBUTES
+wasmv_f32x4_t
+wasmv_f64x2_demote(wasmv_f64x2_t a) {
+  #if WASMV_BUILTIN_IS_NOOP
+    return (wasmv_f32x4_t) { __builtin_wasm_demote_zero_f64x2_f32x4(a.values) };
+  #else
+    return (wasmv_f32x4_t) {
+      (float) a.values[0], (float) a.values[1], 0.0f, 0.0f
+    };
+  #endif
+}
+
+#if WASMV_OVERLOADS == WASMV_OVERLOADS_C11
+  #define wasmv_demote(a) \
+    (_Generic((a), \
+      wasmv_f64x2_t: wasmv_f64x2_demote) (a))
+#elif WASMV_OVERLOADS == WASMV_OVERLOADS_CXX
+  WASMV_FUNCTION_ATTRIBUTES wasmv_f32x4_t wasmv_demote(wasmv_f64x2_t a) { return wasmv_f64x2_demote(a); }
 #endif
 
 /* extmul_low -- Extended wultiplication.
