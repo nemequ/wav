@@ -12,19 +12,7 @@ write code not think about a name.
 WASMV is an alternative to the wasm_simd128.h API provided by LLVM. It
 is primarily designed to provide a more type-safe API.
 
-The API is a bit of a blending of several different SIMD APIs:
-
- * The types feel a bit like NEON; it has different vector types for
-   each element type (8/16/32/64-bit ints, signed and unsigned, as
-   well as 32/64-bit floats) without requiring a keyword (like
-   "vector" in AltiVec).
- * The (optional) type-generic functions feel like AltiVec (e.g.,
-   `wasmv_add` is similar to `vec_add`).
- * It only provides the features of the underlying WASM SIMD
-   instruction set, which means annoying gaps in the API which provide
-   a definite SSE/AVX feel as well.
-
-The end result is something which looks like this:
+A quick example:
 
 ```c
 #include <wasmv.h>
@@ -34,12 +22,12 @@ add_data(
     size_t element_count,
     float sum[], float a[], float b[]) {
   for (size_t o = 0 ; o < element_count ; o += 4) {
-    wasmv_f32x4_t av = wasmv_load(&(a[i]));
-    wasmv_f32x4_t bv = wasmv_load(&(b[i]));
+    wasmv_f32x4_t av = wasmv_load(&(a[o]));
+    wasmv_f32x4_t bv = wasmv_load(&(b[o]));
 
     wasmv_f32x4_t r = wasmv_add(av, bv);
 
-    wasmv_store(&(sum[i]), r);
+    wasmv_store(&(sum[o]), r);
   }
 }
 ```
@@ -54,23 +42,25 @@ add_data(
     size_t element_count,
     float sum[], float a[], float b[]) {
   for (size_t o = 0 ; o < element_count ; o += 4) {
-    wasmv_f32x4_t av = wasmv_f32x4_load(&(a[i]));
-    wasmv_f32x4_t bv = wasmv_f32x4_load(&(b[i]));
+    wasmv_f32x4_t av = wasmv_f32x4_load(&(a[o]));
+    wasmv_f32x4_t bv = wasmv_f32x4_load(&(b[o]));
 
     wasmv_f32x4_t r = wasmv_f32x4_add(av, bv);
 
-    wasmv_f32x4_store(&(sum[i]), r);
+    wasmv_f32x4_store(&(sum[o]), r);
   }
 }
 ```
 
-In C++ there are overloaded operators in addition to the overloaded function names (i.e., `wasmv_add(a, b) == (a + b)`).
+In C++ there are overloaded operators in addition to the overloaded
+function names (i.e., `wasmv_add(a, b) == (a + b)`).
 
 WASMV will make it as difficult as we can to use incorrectly.  For
 example:
 
 ```c
-wasmv_i8x16_t foo(wasmv_i16x4_t bar, wasmv_i32x2_t baz) {
+wasmv_i8x16_t
+foo(wasmv_i16x4_t bar, wasmv_i32x2_t baz) {
   return wasm_add(bar, baz);
 }
 ```
@@ -78,16 +68,14 @@ wasmv_i8x16_t foo(wasmv_i16x4_t bar, wasmv_i32x2_t baz) {
 Will trigger compile-time errors. You can't add a vector of 8-bit
 signed integers to a vector of 16-bit signed integers.
 
-Note that all of this happens exclusively at compile time; this really
-is intended as an alternative to wasm_simd128.h, and the most
-important part of that is retaining the performance.  Functions almost
-always compile to a single instruction just like they do with
-wasm_simd128.h (there are a few which don't, but wasm_simd128.h
-doesn't either).
+Note that all of this happens exclusively at compile time; there is
+no run-time checking, and almost all functions compile down to a single
+instruction just like if you were using `wasm_simd128.h` (there are a
+few which don't, but in those cases `wasm_simd128.h` doesn't either).
 
 WASMV also provides functions to convert between its types and
-`v128_t` from wasm_simd128.h, so you can freely switch between APIs if
-you need to:
+`v128_t` from `wasm_simd128.h`, so you can freely switch between APIs
+if you need to:
 
 ```c
 wasmv_i8x16_t
@@ -135,11 +123,9 @@ unstable since we may change the names in the future to match
 
  * `make` -- present in `wasm_simd128.h`, but not WASM SIMD.
  * `blend` -- similar to `bitselect`, but slightly different semantics.
- * `move` -- `load_zero`, but takes value types instead of pointer
-   types.
- * `loadu`/`storeu` -- there are really closer to what the WASM SIMD
-   spec does than WASMV's `load`/`store`, but they're not type-safe.
- * `loadu_zero` -- same situation as `loadu`/`storeu`.
+ * `loadu`/`storeu`/`loadu_zero` -- these are really closer to what the
+   WASM SIMD spec does than WASMV's `load`/`store`, but they're not
+   type-safe.
 
 ## FAQ
 
@@ -149,22 +135,15 @@ unstable since we may change the names in the future to match
   required to turn it into one is pretty low… *Most* functions are
   implemented using portable code instead of calling builtins.
 
-  If WASMV becomes popular I will probably add an implementation
-  to [SIMDe](https://github.com/simd-everywhere/simde), so if you're
-  using it please let us know!
-
 * *Why not just use `wasm_simd128.h`?*
 
-  `wasm_simd128.h` is intended as a straightforward translation of the
-  WASM SIMD specification into C.  WASMV, on the other hand, looks at
-  the WASM SIMD spec and asks how to present it in a way which makes it
-  easy to use and difficult to misuse by enlisting the compiler's help
-  as much as possible.
+  `wasm_simd128.h` is a straightforward, consise way to expose the WASM
+  SIMD specification in C/C++.  It does that extremely well; the
+  semantics mirror the specification very closely.
 
-  Frankly, it comes down to personal prefernce (or at least it will
-  once WASMV implements the full specrification).  I prefer a style
-  more like WASMV, which I why I'm writing it, but I'm sure others will
-  prefer the `wasm_simd128.h` style.
+  WASMV, on the other hand, has a different goal.  It tries to create a
+  an API to expose the WASM SIMD specification in the safest way it can
+  without creating any run-time overhead.
 
 * *So it's a wrapper around `wasm_simd128.h`?*
 
@@ -173,6 +152,9 @@ unstable since we may change the names in the future to match
   use the header for anything else; functions are either implemented
   using portable code which clang recognizes and generates the correct
   instructions for or we call the builtins directly.
+
+  It could be made into a wrapper of `wasm_simd128.h`.  It could also
+  provide the same API as `wasm_simd128.h` using the WASMV functions.
 
 * *"WASMV" is a stupid name.*
 
