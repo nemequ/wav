@@ -2381,7 +2381,7 @@ wav_f32x4_promote_low(wav_f32x4_t a) {
     (_Generic((a), \
       wav_f32x4_t: wav_f32x4_promote_low) (a))
 #elif WAV_OVERLOADS == WAV_OVERLOADS_CXX
-  WAV_FUNCTION_ATTRIBUTES wav_f64x2_t wav_promote_low(wav_f32x4_t a) { return wav_f32x4_promote_low(a); }
+  WAV_UNIMPLEMENTED_SIMD128_ATTRIBUTE WAV_FUNCTION_ATTRIBUTES wav_f64x2_t wav_promote_low(wav_f32x4_t a) { return wav_f32x4_promote_low(a); }
 #endif
 
 /* extend_high -- Integer to integer extension
@@ -2530,7 +2530,7 @@ wav_f64x2_demote(wav_f64x2_t a) {
     (_Generic((a), \
       wav_f64x2_t: wav_f64x2_demote) (a))
 #elif WAV_OVERLOADS == WAV_OVERLOADS_CXX
-  WAV_FUNCTION_ATTRIBUTES wav_f32x4_t wav_demote(wav_f64x2_t a) { return wav_f64x2_demote(a); }
+  WAV_UNIMPLEMENTED_SIMD128_ATTRIBUTE WAV_FUNCTION_ATTRIBUTES wav_f32x4_t wav_demote(wav_f64x2_t a) { return wav_f64x2_demote(a); }
 #endif
 
 /* extmul_low -- Extended wultiplication.
@@ -2823,7 +2823,7 @@ wav_i16x8_dot(wav_i16x8_t a, wav_i16x8_t b) {
     (_Generic((a) \
       wav_i16x8_t: wav_i16x8_dot) (a, b))
 #elif WAV_OVERLOADS == WAV_OVERLOADS_CXX
-  WAV_FUNCTION_ATTRIBUTES wav_i32x4_t wav_dot(wav_i16x8_t a, wav_i16x8_t b) { return wav_i16x8_dot(a, b); }
+  WAV_UNIMPLEMENTED_SIMD128_ATTRIBUTE WAV_FUNCTION_ATTRIBUTES wav_i32x4_t wav_dot(wav_i16x8_t a, wav_i16x8_t b) { return wav_i16x8_dot(a, b); }
 #endif
 
 /* add_saturate -- Saturating integer addition
