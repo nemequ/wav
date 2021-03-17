@@ -2830,93 +2830,125 @@ wav_i16x8_dot(wav_i16x8_t a, wav_i16x8_t b) {
   WAV_UNIMPLEMENTED_SIMD128_ATTRIBUTE WAV_FUNCTION_ATTRIBUTES wav_i32x4_t wav_dot(wav_i16x8_t a, wav_i16x8_t b) { return wav_i16x8_dot(a, b); }
 #endif
 
-/* add_saturate -- Saturating integer addition
+/* add_sat -- Saturating integer addition
  *
  * Lane-wise saturating addition.
  */
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i8x16_t
-wav_i8x16_add_saturate(wav_i8x16_t a, wav_i8x16_t b) {
-  return (wav_i8x16_t) { __builtin_wasm_add_saturate_s_i8x16(a.values, b.values) };
+wav_i8x16_add_sat(wav_i8x16_t a, wav_i8x16_t b) {
+  #if __has_builtin(__builtin_wasm_add_sat_s_i8x16)
+    return (wav_i8x16_t) { __builtin_wasm_add_sat_s_i8x16(a.values, b.values) };
+  #else
+    return (wav_i8x16_t) { __builtin_wasm_add_saturate_s_i8x16(a.values, b.values) };
+  #endif
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i16x8_t
-wav_i16x8_add_saturate(wav_i16x8_t a, wav_i16x8_t b) {
-  return (wav_i16x8_t) { __builtin_wasm_add_saturate_s_i16x8(a.values, b.values) };
+wav_i16x8_add_sat(wav_i16x8_t a, wav_i16x8_t b) {
+  #if __has_builtin(__builtin_wasm_add_sat_s_i16x8)
+    return (wav_i16x8_t) { __builtin_wasm_add_sat_s_i16x8(a.values, b.values) };
+  #else
+    return (wav_i16x8_t) { __builtin_wasm_add_saturate_s_i16x8(a.values, b.values) };
+  #endif
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u8x16_t
-wav_u8x16_add_saturate(wav_u8x16_t a, wav_u8x16_t b) {
-  return (wav_u8x16_t) { __builtin_wasm_add_saturate_u_i8x16(a.values, b.values) };
+wav_u8x16_add_sat(wav_u8x16_t a, wav_u8x16_t b) {
+  #if __has_builtin(__builtin_wasm_add_sat_u_i8x16)
+    return (wav_u8x16_t) { __builtin_wasm_add_sat_u_i8x16(a.values, b.values) };
+  #else
+    return (wav_u8x16_t) { __builtin_wasm_add_saturate_u_i8x16(a.values, b.values) };
+  #endif
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u16x8_t
-wav_u16x8_add_saturate(wav_u16x8_t a, wav_u16x8_t b) {
-  return (wav_u16x8_t) { __builtin_wasm_add_saturate_u_i16x8(a.values, b.values) };
+wav_u16x8_add_sat(wav_u16x8_t a, wav_u16x8_t b) {
+  #if __has_builtin(__builtin_wasm_add_sat_u_i16x8)
+    return (wav_u16x8_t) { __builtin_wasm_add_sat_u_i16x8(a.values, b.values) };
+  #else
+    return (wav_u16x8_t) { __builtin_wasm_add_saturate_u_i16x8(a.values, b.values) };
+  #endif
 }
 
 #if WAV_OVERLOADS == WAV_OVERLOADS_C11
-  #define wav_add_saturate(a, b) \
+  #define wav_add_sat(a, b) \
     (_Generic((a), \
-      wav_i8x16_t: wav_i8x16_add_saturate, \
-      wav_i16x8_t: wav_i16x8_add_saturate, \
-      wav_u8x16_t: wav_u8x16_add_saturate, \
-      wav_u16x8_t: wav_u16x8_add_saturate) (a, b))
+      wav_i8x16_t: wav_i8x16_add_sat, \
+      wav_i16x8_t: wav_i16x8_add_sat, \
+      wav_u8x16_t: wav_u8x16_add_sat, \
+      wav_u16x8_t: wav_u16x8_add_sat) (a, b))
 #elif WAV_OVERLOADS == WAV_OVERLOADS_CXX
-  WAV_FUNCTION_ATTRIBUTES wav_i8x16_t wav_add_saturate(wav_i8x16_t a, wav_i8x16_t b) { return wav_i8x16_add_saturate(a, b); }
-  WAV_FUNCTION_ATTRIBUTES wav_i16x8_t wav_add_saturate(wav_i16x8_t a, wav_i16x8_t b) { return wav_i16x8_add_saturate(a, b); }
-  WAV_FUNCTION_ATTRIBUTES wav_u8x16_t wav_add_saturate(wav_u8x16_t a, wav_u8x16_t b) { return wav_u8x16_add_saturate(a, b); }
-  WAV_FUNCTION_ATTRIBUTES wav_u16x8_t wav_add_saturate(wav_u16x8_t a, wav_u16x8_t b) { return wav_u16x8_add_saturate(a, b); }
+  WAV_FUNCTION_ATTRIBUTES wav_i8x16_t wav_add_sat(wav_i8x16_t a, wav_i8x16_t b) { return wav_i8x16_add_sat(a, b); }
+  WAV_FUNCTION_ATTRIBUTES wav_i16x8_t wav_add_sat(wav_i16x8_t a, wav_i16x8_t b) { return wav_i16x8_add_sat(a, b); }
+  WAV_FUNCTION_ATTRIBUTES wav_u8x16_t wav_add_sat(wav_u8x16_t a, wav_u8x16_t b) { return wav_u8x16_add_sat(a, b); }
+  WAV_FUNCTION_ATTRIBUTES wav_u16x8_t wav_add_sat(wav_u16x8_t a, wav_u16x8_t b) { return wav_u16x8_add_sat(a, b); }
 #endif
 
-/* sub_saturate -- Saturating integer subtraction
+/* sub_sat -- Saturating integer subtraction
  *
  * Lane-wise saturating subtraction.
  */
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i8x16_t
-wav_i8x16_sub_saturate(wav_i8x16_t a, wav_i8x16_t b) {
-  return (wav_i8x16_t) { __builtin_wasm_sub_saturate_s_i8x16(a.values, b.values) };
+wav_i8x16_sub_sat(wav_i8x16_t a, wav_i8x16_t b) {
+  #if __has_builtin(__builtin_wasm_sub_sat_s_i8x16)
+    return (wav_i8x16_t) { __builtin_wasm_sub_sat_s_i8x16(a.values, b.values) };
+  #else
+    return (wav_i8x16_t) { __builtin_wasm_sub_saturate_s_i8x16(a.values, b.values) };
+  #endif
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i16x8_t
-wav_i16x8_sub_saturate(wav_i16x8_t a, wav_i16x8_t b) {
-  return (wav_i16x8_t) { __builtin_wasm_sub_saturate_s_i16x8(a.values, b.values) };
+wav_i16x8_sub_sat(wav_i16x8_t a, wav_i16x8_t b) {
+  #if __has_builtin(__builtin_wasm_sub_sat_s_i16x8)
+    return (wav_i16x8_t) { __builtin_wasm_sub_sat_s_i16x8(a.values, b.values) };
+  #else
+    return (wav_i16x8_t) { __builtin_wasm_sub_saturate_s_i16x8(a.values, b.values) };
+  #endif
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u8x16_t
-wav_u8x16_sub_saturate(wav_u8x16_t a, wav_u8x16_t b) {
-  return (wav_u8x16_t) { __builtin_wasm_sub_saturate_u_i8x16(a.values, b.values) };
+wav_u8x16_sub_sat(wav_u8x16_t a, wav_u8x16_t b) {
+  #if __has_builtin(__builtin_wasm_sub_sat_u_i8x16)
+    return (wav_u8x16_t) { __builtin_wasm_sub_sat_u_i8x16(a.values, b.values) };
+  #else
+    return (wav_u8x16_t) { __builtin_wasm_sub_saturate_u_i8x16(a.values, b.values) };
+  #endif
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u16x8_t
-wav_u16x8_sub_saturate(wav_u16x8_t a, wav_u16x8_t b) {
-  return (wav_u16x8_t) { __builtin_wasm_sub_saturate_u_i16x8(a.values, b.values) };
+wav_u16x8_sub_sat(wav_u16x8_t a, wav_u16x8_t b) {
+  #if __has_builtin(__builtin_wasm_sub_sat_u_i16x8)
+    return (wav_u16x8_t) { __builtin_wasm_sub_sat_u_i16x8(a.values, b.values) };
+  #else
+    return (wav_u16x8_t) { __builtin_wasm_sub_saturate_u_i16x8(a.values, b.values) };
+  #endif
 }
 
 #if WAV_OVERLOADS == WAV_OVERLOADS_C11
-  #define wav_sub_saturate(a, b) \
+  #define wav_sub_sat(a, b) \
     (_Generic((a), \
-      wav_i8x16_t: wav_i8x16_sub_saturate, \
-      wav_i16x8_t: wav_i16x8_sub_saturate, \
-      wav_u8x16_t: wav_u8x16_sub_saturate, \
-      wav_u16x8_t: wav_u16x8_sub_saturate) (a, b))
+      wav_i8x16_t: wav_i8x16_sub_sat, \
+      wav_i16x8_t: wav_i16x8_sub_sat, \
+      wav_u8x16_t: wav_u8x16_sub_sat, \
+      wav_u16x8_t: wav_u16x8_sub_sat) (a, b))
 #elif WAV_OVERLOADS == WAV_OVERLOADS_CXX
-  WAV_FUNCTION_ATTRIBUTES wav_i8x16_t wav_sub_saturate(wav_i8x16_t a, wav_i8x16_t b) { return wav_i8x16_sub_saturate(a, b); }
-  WAV_FUNCTION_ATTRIBUTES wav_i16x8_t wav_sub_saturate(wav_i16x8_t a, wav_i16x8_t b) { return wav_i16x8_sub_saturate(a, b); }
-  WAV_FUNCTION_ATTRIBUTES wav_u8x16_t wav_sub_saturate(wav_u8x16_t a, wav_u8x16_t b) { return wav_u8x16_sub_saturate(a, b); }
-  WAV_FUNCTION_ATTRIBUTES wav_u16x8_t wav_sub_saturate(wav_u16x8_t a, wav_u16x8_t b) { return wav_u16x8_sub_saturate(a, b); }
+  WAV_FUNCTION_ATTRIBUTES wav_i8x16_t wav_sub_sat(wav_i8x16_t a, wav_i8x16_t b) { return wav_i8x16_sub_sat(a, b); }
+  WAV_FUNCTION_ATTRIBUTES wav_i16x8_t wav_sub_sat(wav_i16x8_t a, wav_i16x8_t b) { return wav_i16x8_sub_sat(a, b); }
+  WAV_FUNCTION_ATTRIBUTES wav_u8x16_t wav_sub_sat(wav_u8x16_t a, wav_u8x16_t b) { return wav_u8x16_sub_sat(a, b); }
+  WAV_FUNCTION_ATTRIBUTES wav_u16x8_t wav_sub_sat(wav_u16x8_t a, wav_u16x8_t b) { return wav_u16x8_sub_sat(a, b); }
 #endif
 
-/* q15mulr_saturate -- Saturating integer Q-format rounding multiplication
+/* q15mulr_sat -- Saturating integer Q-format rounding multiplication
  *
  * Lane-wise saturating rounding multiplication in Q15 format
  */
@@ -2925,8 +2957,12 @@ wav_u16x8_sub_saturate(wav_u16x8_t a, wav_u16x8_t b) {
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i16x8_t
-wav_i16x8_q15mulr_saturate(wav_i16x8_t a, wav_i16x8_t b) {
-  return (wav_i16x8_t) { __builtin_wasm_q15mulr_saturate_s_i16x8(a.values, b.values) };
+wav_i16x8_q15mulr_sat(wav_i16x8_t a, wav_i16x8_t b) {
+  #if __has_builtin(__builtin_wasm_q15mulr_sat_s_i16x8)
+    return (wav_i16x8_t) { __builtin_wasm_q15mulr_sat_s_i16x8(a.values, b.values) };
+  #else
+    return (wav_i16x8_t) { __builtin_wasm_q15mulr_saturate_s_i16x8(a.values, b.values) };
+  #endif
 }
 
 #endif
