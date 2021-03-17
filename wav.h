@@ -140,7 +140,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i8x16_t, wav_b8x16_t, wav_b8x16_as_i8x16)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i8x16_t, wav_b16x8_t, wav_b16x8_as_i8x16)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i8x16_t, wav_b32x4_t, wav_b32x4_as_i8x16)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i8x16_t, wav_b64x2_t, wav_b64x2_as_i8x16)
-WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i8x16_t,        v128_t, wav_v128_as_i8x16)
+WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i8x16_t,      v128_t,  wav_v128_as_i8x16)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i16x8_t, wav_i8x16_t, wav_i8x16_as_i16x8)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i16x8_t, wav_i32x4_t, wav_i32x4_as_i16x8)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i16x8_t, wav_i64x2_t, wav_i64x2_as_i16x8)
@@ -154,7 +154,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i16x8_t, wav_b8x16_t, wav_b8x16_as_i16x8)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i16x8_t, wav_b16x8_t, wav_b16x8_as_i16x8)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i16x8_t, wav_b32x4_t, wav_b32x4_as_i16x8)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i16x8_t, wav_b64x2_t, wav_b64x2_as_i16x8)
-WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i16x8_t,        v128_t, wav_v128_as_i16x8)
+WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i16x8_t,      v128_t,  wav_v128_as_i16x8)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i32x4_t, wav_i8x16_t, wav_i8x16_as_i32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i32x4_t, wav_i16x8_t, wav_i16x8_as_i32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i32x4_t, wav_i64x2_t, wav_i64x2_as_i32x4)
@@ -168,7 +168,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i32x4_t, wav_b8x16_t, wav_b8x16_as_i32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i32x4_t, wav_b16x8_t, wav_b16x8_as_i32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i32x4_t, wav_b32x4_t, wav_b32x4_as_i32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i32x4_t, wav_b64x2_t, wav_b64x2_as_i32x4)
-WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i32x4_t,        v128_t, wav_v128_as_i32x4)
+WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i32x4_t,      v128_t,  wav_v128_as_i32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i64x2_t, wav_i8x16_t, wav_i8x16_as_i64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i64x2_t, wav_i16x8_t, wav_i16x8_as_i64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i64x2_t, wav_i32x4_t, wav_i32x4_as_i64x2)
@@ -182,7 +182,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i64x2_t, wav_b8x16_t, wav_b8x16_as_i64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i64x2_t, wav_b16x8_t, wav_b16x8_as_i64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i64x2_t, wav_b32x4_t, wav_b32x4_as_i64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i64x2_t, wav_b64x2_t, wav_b64x2_as_i64x2)
-WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i64x2_t,        v128_t, wav_v128_as_i64x2)
+WAV_DEFINE_REINTERPRET_FUNCTION_(wav_i64x2_t,      v128_t,  wav_v128_as_i64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u8x16_t, wav_i8x16_t, wav_i8x16_as_u8x16)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u8x16_t, wav_i16x8_t, wav_i16x8_as_u8x16)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u8x16_t, wav_i32x4_t, wav_i32x4_as_u8x16)
@@ -196,7 +196,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u8x16_t, wav_b8x16_t, wav_b8x16_as_u8x16)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u8x16_t, wav_b16x8_t, wav_b16x8_as_u8x16)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u8x16_t, wav_b32x4_t, wav_b32x4_as_u8x16)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u8x16_t, wav_b64x2_t, wav_b64x2_as_u8x16)
-WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u8x16_t,        v128_t, wav_v128_as_u8x16)
+WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u8x16_t,      v128_t,  wav_v128_as_u8x16)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u16x8_t, wav_i8x16_t, wav_i8x16_as_u16x8)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u16x8_t, wav_i16x8_t, wav_i16x8_as_u16x8)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u16x8_t, wav_i32x4_t, wav_i32x4_as_u16x8)
@@ -210,7 +210,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u16x8_t, wav_b8x16_t, wav_b8x16_as_u16x8)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u16x8_t, wav_b16x8_t, wav_b16x8_as_u16x8)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u16x8_t, wav_b32x4_t, wav_b32x4_as_u16x8)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u16x8_t, wav_b64x2_t, wav_b64x2_as_u16x8)
-WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u16x8_t,        v128_t, wav_v128_as_u16x8)
+WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u16x8_t,      v128_t,  wav_v128_as_u16x8)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u32x4_t, wav_i8x16_t, wav_i8x16_as_u32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u32x4_t, wav_i16x8_t, wav_i16x8_as_u32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u32x4_t, wav_i32x4_t, wav_i32x4_as_u32x4)
@@ -224,7 +224,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u32x4_t, wav_b8x16_t, wav_b8x16_as_u32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u32x4_t, wav_b16x8_t, wav_b16x8_as_u32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u32x4_t, wav_b32x4_t, wav_b32x4_as_u32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u32x4_t, wav_b64x2_t, wav_b64x2_as_u32x4)
-WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u32x4_t,        v128_t, wav_v128_as_u32x4)
+WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u32x4_t,      v128_t,  wav_v128_as_u32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u64x2_t, wav_i8x16_t, wav_i8x16_as_u64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u64x2_t, wav_i16x8_t, wav_i16x8_as_u64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u64x2_t, wav_i32x4_t, wav_i32x4_as_u64x2)
@@ -238,7 +238,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u64x2_t, wav_b8x16_t, wav_b8x16_as_u64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u64x2_t, wav_b16x8_t, wav_b16x8_as_u64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u64x2_t, wav_b32x4_t, wav_b32x4_as_u64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u64x2_t, wav_b64x2_t, wav_b64x2_as_u64x2)
-WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u64x2_t,        v128_t, wav_v128_as_u64x2)
+WAV_DEFINE_REINTERPRET_FUNCTION_(wav_u64x2_t,      v128_t,  wav_v128_as_u64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_f32x4_t, wav_i8x16_t, wav_i8x16_as_f32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_f32x4_t, wav_i16x8_t, wav_i16x8_as_f32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_f32x4_t, wav_i32x4_t, wav_i32x4_as_f32x4)
@@ -252,7 +252,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(wav_f32x4_t, wav_b8x16_t, wav_b8x16_as_f32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_f32x4_t, wav_b16x8_t, wav_b16x8_as_f32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_f32x4_t, wav_b32x4_t, wav_b32x4_as_f32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_f32x4_t, wav_b64x2_t, wav_b64x2_as_f32x4)
-WAV_DEFINE_REINTERPRET_FUNCTION_(wav_f32x4_t,        v128_t, wav_v128_as_f32x4)
+WAV_DEFINE_REINTERPRET_FUNCTION_(wav_f32x4_t,      v128_t,  wav_v128_as_f32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_f64x2_t, wav_i8x16_t, wav_i8x16_as_f64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_f64x2_t, wav_i16x8_t, wav_i16x8_as_f64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_f64x2_t, wav_i32x4_t, wav_i32x4_as_f64x2)
@@ -266,7 +266,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(wav_f64x2_t, wav_b8x16_t, wav_b8x16_as_f64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_f64x2_t, wav_b16x8_t, wav_b16x8_as_f64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_f64x2_t, wav_b32x4_t, wav_b32x4_as_f64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_f64x2_t, wav_b64x2_t, wav_b64x2_as_f64x2)
-WAV_DEFINE_REINTERPRET_FUNCTION_(wav_f64x2_t,        v128_t, wav_v128_as_f64x2)
+WAV_DEFINE_REINTERPRET_FUNCTION_(wav_f64x2_t,      v128_t,  wav_v128_as_f64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b8x16_t, wav_i8x16_t, wav_i8x16_as_b8x16)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b8x16_t, wav_i16x8_t, wav_i16x8_as_b8x16)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b8x16_t, wav_i32x4_t, wav_i32x4_as_b8x16)
@@ -280,7 +280,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b8x16_t, wav_f64x2_t, wav_f64x2_as_b8x16)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b8x16_t, wav_b16x8_t, wav_b16x8_as_b8x16)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b8x16_t, wav_b32x4_t, wav_b32x4_as_b8x16)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b8x16_t, wav_b64x2_t, wav_b64x2_as_b8x16)
-WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b8x16_t,        v128_t, wav_v128_as_b8x16)
+WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b8x16_t,      v128_t,  wav_v128_as_b8x16)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b16x8_t, wav_i8x16_t, wav_i8x16_as_b16x8)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b16x8_t, wav_i16x8_t, wav_i16x8_as_b16x8)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b16x8_t, wav_i32x4_t, wav_i32x4_as_b16x8)
@@ -294,7 +294,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b16x8_t, wav_f64x2_t, wav_f64x2_as_b16x8)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b16x8_t, wav_b8x16_t, wav_b8x16_as_b16x8)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b16x8_t, wav_b32x4_t, wav_b32x4_as_b16x8)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b16x8_t, wav_b64x2_t, wav_b64x2_as_b16x8)
-WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b16x8_t,        v128_t, wav_v128_as_b16x8)
+WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b16x8_t,      v128_t , wav_v128_as_b16x8)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b32x4_t, wav_i8x16_t, wav_i8x16_as_b32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b32x4_t, wav_i16x8_t, wav_i16x8_as_b32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b32x4_t, wav_i32x4_t, wav_i32x4_as_b32x4)
@@ -308,7 +308,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b32x4_t, wav_f64x2_t, wav_f64x2_as_b32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b32x4_t, wav_b8x16_t, wav_b8x16_as_b32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b32x4_t, wav_b16x8_t, wav_b16x8_as_b32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b32x4_t, wav_b64x2_t, wav_b64x2_as_b32x4)
-WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b32x4_t,        v128_t, wav_v128_as_b32x4)
+WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b32x4_t,      v128_t,  wav_v128_as_b32x4)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b64x2_t, wav_i8x16_t, wav_i8x16_as_b64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b64x2_t, wav_i16x8_t, wav_i16x8_as_b64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b64x2_t, wav_i32x4_t, wav_i32x4_as_b64x2)
@@ -322,21 +322,21 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b64x2_t, wav_f64x2_t, wav_f64x2_as_b64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b64x2_t, wav_b8x16_t, wav_b8x16_as_b64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b64x2_t, wav_b16x8_t, wav_b16x8_as_b64x2)
 WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b64x2_t, wav_b32x4_t, wav_b32x4_as_b64x2)
-WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b64x2_t,        v128_t, wav_v128_as_b64x2)
-WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_i8x16_t, wav_i8x16_as_v128)
-WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_i16x8_t, wav_i16x8_as_v128)
-WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_i32x4_t, wav_i32x4_as_v128)
-WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_i64x2_t, wav_i64x2_as_v128)
-WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_u8x16_t, wav_u8x16_as_v128)
-WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_u16x8_t, wav_u16x8_as_v128)
-WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_u32x4_t, wav_u32x4_as_v128)
-WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_u64x2_t, wav_u64x2_as_v128)
-WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_f32x4_t, wav_f32x4_as_v128)
-WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_f64x2_t, wav_f64x2_as_v128)
-WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b8x16_t, wav_b8x16_as_v128)
-WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b16x8_t, wav_b16x8_as_v128)
-WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b32x4_t, wav_b32x4_as_v128)
-WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
+WAV_DEFINE_REINTERPRET_FUNCTION_(wav_b64x2_t,      v128_t,  wav_v128_as_b64x2)
+WAV_DEFINE_REINTERPRET_FUNCTION_(     v128_t, wav_i8x16_t, wav_i8x16_as_v128)
+WAV_DEFINE_REINTERPRET_FUNCTION_(     v128_t, wav_i16x8_t, wav_i16x8_as_v128)
+WAV_DEFINE_REINTERPRET_FUNCTION_(     v128_t, wav_i32x4_t, wav_i32x4_as_v128)
+WAV_DEFINE_REINTERPRET_FUNCTION_(     v128_t, wav_i64x2_t, wav_i64x2_as_v128)
+WAV_DEFINE_REINTERPRET_FUNCTION_(     v128_t, wav_u8x16_t, wav_u8x16_as_v128)
+WAV_DEFINE_REINTERPRET_FUNCTION_(     v128_t, wav_u16x8_t, wav_u16x8_as_v128)
+WAV_DEFINE_REINTERPRET_FUNCTION_(     v128_t, wav_u32x4_t, wav_u32x4_as_v128)
+WAV_DEFINE_REINTERPRET_FUNCTION_(     v128_t, wav_u64x2_t, wav_u64x2_as_v128)
+WAV_DEFINE_REINTERPRET_FUNCTION_(     v128_t, wav_f32x4_t, wav_f32x4_as_v128)
+WAV_DEFINE_REINTERPRET_FUNCTION_(     v128_t, wav_f64x2_t, wav_f64x2_as_v128)
+WAV_DEFINE_REINTERPRET_FUNCTION_(     v128_t, wav_b8x16_t, wav_b8x16_as_v128)
+WAV_DEFINE_REINTERPRET_FUNCTION_(     v128_t, wav_b16x8_t, wav_b16x8_as_v128)
+WAV_DEFINE_REINTERPRET_FUNCTION_(     v128_t, wav_b32x4_t, wav_b32x4_as_v128)
+WAV_DEFINE_REINTERPRET_FUNCTION_(     v128_t, wav_b64x2_t, wav_b64x2_as_v128)
 
 #if WAV_OVERLOADS == WAV_OVERLOADS_C11
   #define wav_as_i8x16(v) \
@@ -354,7 +354,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
       wav_b16x8_t: wav_b16x8_as_i8x16, \
       wav_b32x4_t: wav_b32x4_as_i8x16, \
       wav_b64x2_t: wav_b64x2_as_i8x16, \
-             v128_t: wav_v128_as_i8x16) (v))
+         v128_t:   wav_v128_as_i8x16) (v))
   #define wav_as_i16x8(v) \
     (_Generic( \
       wav_i8x16_t: wav_i8x16_as_i16x8, \
@@ -370,7 +370,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
       wav_b16x8_t: wav_b16x8_as_i16x8, \
       wav_b32x4_t: wav_b32x4_as_i16x8, \
       wav_b64x2_t: wav_b64x2_as_i16x8, \
-             v128_t: wav_v128_as_i16x8) (v))
+         v128_t:   wav_v128_as_i16x8) (v))
   #define wav_as_i32x4(v) \
     (_Generic( \
       wav_i8x16_t: wav_i8x16_as_i32x4, \
@@ -386,7 +386,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
       wav_b16x8_t: wav_b16x8_as_i32x4, \
       wav_b32x4_t: wav_b32x4_as_i32x4, \
       wav_b64x2_t: wav_b64x2_as_i32x4, \
-             v128_t: wav_v128_as_i32x4) (v))
+         v128_t:   wav_v128_as_i32x4) (v))
   #define wav_as_i64x2(v) \
     (_Generic( \
       wav_i8x16_t: wav_i8x16_as_i64x2, \
@@ -402,7 +402,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
       wav_b16x8_t: wav_b16x8_as_i64x2, \
       wav_b32x4_t: wav_b32x4_as_i64x2, \
       wav_b64x2_t: wav_b64x2_as_i64x2, \
-             v128_t: wav_v128_as_i64x2) (v))
+         v128_t:   wav_v128_as_i64x2) (v))
   #define wav_as_u8x16(v) \
     (_Generic( \
       wav_i8x16_t: wav_i8x16_as_u8x16, \
@@ -418,7 +418,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
       wav_b16x8_t: wav_b16x8_as_u8x16, \
       wav_b32x4_t: wav_b32x4_as_u8x16, \
       wav_b64x2_t: wav_b64x2_as_u8x16, \
-             v128_t: wav_v128_as_u8x16) (v))
+         v128_t:   wav_v128_as_u8x16) (v))
   #define wav_as_u16x8(v) \
     (_Generic( \
       wav_i8x16_t: wav_i8x16_as_u16x8, \
@@ -434,7 +434,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
       wav_b16x8_t: wav_b16x8_as_u16x8, \
       wav_b32x4_t: wav_b32x4_as_u16x8, \
       wav_b64x2_t: wav_b64x2_as_u16x8, \
-             v128_t: wav_v128_as_u16x8) (v))
+         v128_t:   wav_v128_as_u16x8) (v))
   #define wav_as_u32x4(v) \
     (_Generic( \
       wav_i8x16_t: wav_i8x16_as_u32x4, \
@@ -450,7 +450,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
       wav_b16x8_t: wav_b16x8_as_u32x4, \
       wav_b32x4_t: wav_b32x4_as_u32x4, \
       wav_b64x2_t: wav_b64x2_as_u32x4, \
-             v128_t: wav_v128_as_u32x4) (v))
+         v128_t:   wav_v128_as_u32x4) (v))
   #define wav_as_u64x2(v) \
     (_Generic( \
       wav_i8x16_t: wav_i8x16_as_u64x2, \
@@ -466,7 +466,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
       wav_b16x8_t: wav_b16x8_as_u64x2, \
       wav_b32x4_t: wav_b32x4_as_u64x2, \
       wav_b64x2_t: wav_b64x2_as_u64x2, \
-             v128_t: wav_v128_as_u64x2) (v))
+         v128_t:   wav_v128_as_u64x2) (v))
   #define wav_as_f32x4(v) \
     (_Generic( \
       wav_i8x16_t: wav_i8x16_as_f32x4, \
@@ -482,7 +482,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
       wav_b16x8_t: wav_b16x8_as_f32x4, \
       wav_b32x4_t: wav_b32x4_as_f32x4, \
       wav_b64x2_t: wav_b64x2_as_f32x4, \
-             v128_t: wav_v128_as_f32x4) (v))
+         v128_t:   wav_v128_as_f32x4) (v))
   #define wav_as_f64x2(v) \
     (_Generic( \
       wav_i8x16_t: wav_i8x16_as_f64x2, \
@@ -498,7 +498,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
       wav_b16x8_t: wav_b16x8_as_f64x2, \
       wav_b32x4_t: wav_b32x4_as_f64x2, \
       wav_b64x2_t: wav_b64x2_as_f64x2, \
-             v128_t: wav_v128_as_f64x2) (v))
+         v128_t:   wav_v128_as_f64x2) (v))
   #define wav_as_b8x16(v) \
     (_Generic( \
       wav_i8x16_t: wav_i8x16_as_b8x16, \
@@ -514,7 +514,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
       wav_b16x8_t: wav_b16x8_as_b8x16, \
       wav_b32x4_t: wav_b32x4_as_b8x16, \
       wav_b64x2_t: wav_b64x2_as_b8x16, \
-             v128_t: wav_v128_as_b8x16) (v))
+         v128_t:   wav_v128_as_b8x16) (v))
   #define wav_as_b16x8(v) \
     (_Generic( \
       wav_i8x16_t: wav_i8x16_as_b16x8, \
@@ -530,7 +530,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
       wav_b8x16_t: wav_b8x16_as_b16x8, \
       wav_b32x4_t: wav_b32x4_as_b16x8, \
       wav_b64x2_t: wav_b64x2_as_b16x8, \
-             v128_t: wav_v128_as_b16x8) (v))
+         v128_t:   wav_v128_as_b16x8) (v))
   #define wav_as_b32x4(v) \
     (_Generic( \
       wav_i8x16_t: wav_i8x16_as_b32x4, \
@@ -546,7 +546,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
       wav_b8x16_t: wav_b8x16_as_b32x4, \
       wav_b16x8_t: wav_b16x8_as_b32x4, \
       wav_b64x2_t: wav_b64x2_as_b32x4, \
-             v128_t: wav_v128_as_b32x4) (v))
+         v128_t:   wav_v128_as_b32x4) (v))
   #define wav_as_b64x2(v) \
     (_Generic( \
       wav_i8x16_t: wav_i8x16_as_b64x2, \
@@ -562,7 +562,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
       wav_b8x16_t: wav_b8x16_as_b64x2, \
       wav_b16x8_t: wav_b16x8_as_b64x2, \
       wav_b32x4_t: wav_b32x4_as_b64x2, \
-             v128_t: wav_v128_as_b64x2) (v))
+         v128_t:   wav_v128_as_b64x2) (v))
   #define wav_as_v128(v) \
     (_Generic( \
       wav_i8x16_t: wav_i8x16_as_v128, \
@@ -593,7 +593,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
   WAV_FUNCTION_ATTRIBUTES wav_i8x16_t wav_as_i8x16(wav_b16x8_t value) { return wav_b16x8_as_i8x16(value); }
   WAV_FUNCTION_ATTRIBUTES wav_i8x16_t wav_as_i8x16(wav_b32x4_t value) { return wav_b32x4_as_i8x16(value); }
   WAV_FUNCTION_ATTRIBUTES wav_i8x16_t wav_as_i8x16(wav_b64x2_t value) { return wav_b64x2_as_i8x16(value); }
-  WAV_FUNCTION_ATTRIBUTES wav_i8x16_t wav_as_i8x16(       v128_t value) { return wav_v128_as_i8x16(value); }
+  WAV_FUNCTION_ATTRIBUTES wav_i8x16_t wav_as_i8x16(     v128_t value) { return  wav_v128_as_i8x16(value); }
   WAV_FUNCTION_ATTRIBUTES wav_i16x8_t wav_as_i16x8(wav_i8x16_t value) { return wav_i8x16_as_i16x8(value); }
   WAV_FUNCTION_ATTRIBUTES wav_i16x8_t wav_as_i16x8(wav_i32x4_t value) { return wav_i32x4_as_i16x8(value); }
   WAV_FUNCTION_ATTRIBUTES wav_i16x8_t wav_as_i16x8(wav_i64x2_t value) { return wav_i64x2_as_i16x8(value); }
@@ -607,7 +607,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
   WAV_FUNCTION_ATTRIBUTES wav_i16x8_t wav_as_i16x8(wav_b16x8_t value) { return wav_b16x8_as_i16x8(value); }
   WAV_FUNCTION_ATTRIBUTES wav_i16x8_t wav_as_i16x8(wav_b32x4_t value) { return wav_b32x4_as_i16x8(value); }
   WAV_FUNCTION_ATTRIBUTES wav_i16x8_t wav_as_i16x8(wav_b64x2_t value) { return wav_b64x2_as_i16x8(value); }
-  WAV_FUNCTION_ATTRIBUTES wav_i16x8_t wav_as_i16x8(       v128_t value) { return wav_v128_as_i16x8(value); }
+  WAV_FUNCTION_ATTRIBUTES wav_i16x8_t wav_as_i16x8(     v128_t value) { return  wav_v128_as_i16x8(value); }
   WAV_FUNCTION_ATTRIBUTES wav_i32x4_t wav_as_i32x4(wav_i8x16_t value) { return wav_i8x16_as_i32x4(value); }
   WAV_FUNCTION_ATTRIBUTES wav_i32x4_t wav_as_i32x4(wav_i16x8_t value) { return wav_i16x8_as_i32x4(value); }
   WAV_FUNCTION_ATTRIBUTES wav_i32x4_t wav_as_i32x4(wav_i64x2_t value) { return wav_i64x2_as_i32x4(value); }
@@ -621,7 +621,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
   WAV_FUNCTION_ATTRIBUTES wav_i32x4_t wav_as_i32x4(wav_b16x8_t value) { return wav_b16x8_as_i32x4(value); }
   WAV_FUNCTION_ATTRIBUTES wav_i32x4_t wav_as_i32x4(wav_b32x4_t value) { return wav_b32x4_as_i32x4(value); }
   WAV_FUNCTION_ATTRIBUTES wav_i32x4_t wav_as_i32x4(wav_b64x2_t value) { return wav_b64x2_as_i32x4(value); }
-  WAV_FUNCTION_ATTRIBUTES wav_i32x4_t wav_as_i32x4(       v128_t value) { return wav_v128_as_i32x4(value); }
+  WAV_FUNCTION_ATTRIBUTES wav_i32x4_t wav_as_i32x4(     v128_t value) { return  wav_v128_as_i32x4(value); }
   WAV_FUNCTION_ATTRIBUTES wav_i64x2_t wav_as_i64x2(wav_i8x16_t value) { return wav_i8x16_as_i64x2(value); }
   WAV_FUNCTION_ATTRIBUTES wav_i64x2_t wav_as_i64x2(wav_i16x8_t value) { return wav_i16x8_as_i64x2(value); }
   WAV_FUNCTION_ATTRIBUTES wav_i64x2_t wav_as_i64x2(wav_i32x4_t value) { return wav_i32x4_as_i64x2(value); }
@@ -635,7 +635,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
   WAV_FUNCTION_ATTRIBUTES wav_i64x2_t wav_as_i64x2(wav_b16x8_t value) { return wav_b16x8_as_i64x2(value); }
   WAV_FUNCTION_ATTRIBUTES wav_i64x2_t wav_as_i64x2(wav_b32x4_t value) { return wav_b32x4_as_i64x2(value); }
   WAV_FUNCTION_ATTRIBUTES wav_i64x2_t wav_as_i64x2(wav_b64x2_t value) { return wav_b64x2_as_i64x2(value); }
-  WAV_FUNCTION_ATTRIBUTES wav_i64x2_t wav_as_i64x2(       v128_t value) { return wav_v128_as_i64x2(value); }
+  WAV_FUNCTION_ATTRIBUTES wav_i64x2_t wav_as_i64x2(     v128_t value) { return  wav_v128_as_i64x2(value); }
   WAV_FUNCTION_ATTRIBUTES wav_u8x16_t wav_as_u8x16(wav_i8x16_t value) { return wav_i8x16_as_u8x16(value); }
   WAV_FUNCTION_ATTRIBUTES wav_u8x16_t wav_as_u8x16(wav_i16x8_t value) { return wav_i16x8_as_u8x16(value); }
   WAV_FUNCTION_ATTRIBUTES wav_u8x16_t wav_as_u8x16(wav_i32x4_t value) { return wav_i32x4_as_u8x16(value); }
@@ -649,7 +649,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
   WAV_FUNCTION_ATTRIBUTES wav_u8x16_t wav_as_u8x16(wav_b16x8_t value) { return wav_b16x8_as_u8x16(value); }
   WAV_FUNCTION_ATTRIBUTES wav_u8x16_t wav_as_u8x16(wav_b32x4_t value) { return wav_b32x4_as_u8x16(value); }
   WAV_FUNCTION_ATTRIBUTES wav_u8x16_t wav_as_u8x16(wav_b64x2_t value) { return wav_b64x2_as_u8x16(value); }
-  WAV_FUNCTION_ATTRIBUTES wav_u8x16_t wav_as_u8x16(       v128_t value) { return wav_v128_as_u8x16(value); }
+  WAV_FUNCTION_ATTRIBUTES wav_u8x16_t wav_as_u8x16(     v128_t value) { return  wav_v128_as_u8x16(value); }
   WAV_FUNCTION_ATTRIBUTES wav_u16x8_t wav_as_u16x8(wav_i8x16_t value) { return wav_i8x16_as_u16x8(value); }
   WAV_FUNCTION_ATTRIBUTES wav_u16x8_t wav_as_u16x8(wav_i16x8_t value) { return wav_i16x8_as_u16x8(value); }
   WAV_FUNCTION_ATTRIBUTES wav_u16x8_t wav_as_u16x8(wav_i32x4_t value) { return wav_i32x4_as_u16x8(value); }
@@ -663,7 +663,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
   WAV_FUNCTION_ATTRIBUTES wav_u16x8_t wav_as_u16x8(wav_b16x8_t value) { return wav_b16x8_as_u16x8(value); }
   WAV_FUNCTION_ATTRIBUTES wav_u16x8_t wav_as_u16x8(wav_b32x4_t value) { return wav_b32x4_as_u16x8(value); }
   WAV_FUNCTION_ATTRIBUTES wav_u16x8_t wav_as_u16x8(wav_b64x2_t value) { return wav_b64x2_as_u16x8(value); }
-  WAV_FUNCTION_ATTRIBUTES wav_u16x8_t wav_as_u16x8(       v128_t value) { return wav_v128_as_u16x8(value); }
+  WAV_FUNCTION_ATTRIBUTES wav_u16x8_t wav_as_u16x8(     v128_t value) { return  wav_v128_as_u16x8(value); }
   WAV_FUNCTION_ATTRIBUTES wav_u32x4_t wav_as_u32x4(wav_i8x16_t value) { return wav_i8x16_as_u32x4(value); }
   WAV_FUNCTION_ATTRIBUTES wav_u32x4_t wav_as_u32x4(wav_i16x8_t value) { return wav_i16x8_as_u32x4(value); }
   WAV_FUNCTION_ATTRIBUTES wav_u32x4_t wav_as_u32x4(wav_i32x4_t value) { return wav_i32x4_as_u32x4(value); }
@@ -677,7 +677,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
   WAV_FUNCTION_ATTRIBUTES wav_u32x4_t wav_as_u32x4(wav_b16x8_t value) { return wav_b16x8_as_u32x4(value); }
   WAV_FUNCTION_ATTRIBUTES wav_u32x4_t wav_as_u32x4(wav_b32x4_t value) { return wav_b32x4_as_u32x4(value); }
   WAV_FUNCTION_ATTRIBUTES wav_u32x4_t wav_as_u32x4(wav_b64x2_t value) { return wav_b64x2_as_u32x4(value); }
-  WAV_FUNCTION_ATTRIBUTES wav_u32x4_t wav_as_u32x4(       v128_t value) { return wav_v128_as_u32x4(value); }
+  WAV_FUNCTION_ATTRIBUTES wav_u32x4_t wav_as_u32x4(     v128_t value) { return  wav_v128_as_u32x4(value); }
   WAV_FUNCTION_ATTRIBUTES wav_u64x2_t wav_as_u64x2(wav_i8x16_t value) { return wav_i8x16_as_u64x2(value); }
   WAV_FUNCTION_ATTRIBUTES wav_u64x2_t wav_as_u64x2(wav_i16x8_t value) { return wav_i16x8_as_u64x2(value); }
   WAV_FUNCTION_ATTRIBUTES wav_u64x2_t wav_as_u64x2(wav_i32x4_t value) { return wav_i32x4_as_u64x2(value); }
@@ -691,7 +691,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
   WAV_FUNCTION_ATTRIBUTES wav_u64x2_t wav_as_u64x2(wav_b16x8_t value) { return wav_b16x8_as_u64x2(value); }
   WAV_FUNCTION_ATTRIBUTES wav_u64x2_t wav_as_u64x2(wav_b32x4_t value) { return wav_b32x4_as_u64x2(value); }
   WAV_FUNCTION_ATTRIBUTES wav_u64x2_t wav_as_u64x2(wav_b64x2_t value) { return wav_b64x2_as_u64x2(value); }
-  WAV_FUNCTION_ATTRIBUTES wav_u64x2_t wav_as_u64x2(       v128_t value) { return wav_v128_as_u64x2(value); }
+  WAV_FUNCTION_ATTRIBUTES wav_u64x2_t wav_as_u64x2(     v128_t value) { return  wav_v128_as_u64x2(value); }
   WAV_FUNCTION_ATTRIBUTES wav_f32x4_t wav_as_f32x4(wav_i8x16_t value) { return wav_i8x16_as_f32x4(value); }
   WAV_FUNCTION_ATTRIBUTES wav_f32x4_t wav_as_f32x4(wav_i16x8_t value) { return wav_i16x8_as_f32x4(value); }
   WAV_FUNCTION_ATTRIBUTES wav_f32x4_t wav_as_f32x4(wav_i32x4_t value) { return wav_i32x4_as_f32x4(value); }
@@ -705,7 +705,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
   WAV_FUNCTION_ATTRIBUTES wav_f32x4_t wav_as_f32x4(wav_b16x8_t value) { return wav_b16x8_as_f32x4(value); }
   WAV_FUNCTION_ATTRIBUTES wav_f32x4_t wav_as_f32x4(wav_b32x4_t value) { return wav_b32x4_as_f32x4(value); }
   WAV_FUNCTION_ATTRIBUTES wav_f32x4_t wav_as_f32x4(wav_b64x2_t value) { return wav_b64x2_as_f32x4(value); }
-  WAV_FUNCTION_ATTRIBUTES wav_f32x4_t wav_as_f32x4(       v128_t value) { return wav_v128_as_f32x4(value); }
+  WAV_FUNCTION_ATTRIBUTES wav_f32x4_t wav_as_f32x4(     v128_t value) { return  wav_v128_as_f32x4(value); }
   WAV_FUNCTION_ATTRIBUTES wav_f64x2_t wav_as_f64x2(wav_i8x16_t value) { return wav_i8x16_as_f64x2(value); }
   WAV_FUNCTION_ATTRIBUTES wav_f64x2_t wav_as_f64x2(wav_i16x8_t value) { return wav_i16x8_as_f64x2(value); }
   WAV_FUNCTION_ATTRIBUTES wav_f64x2_t wav_as_f64x2(wav_i32x4_t value) { return wav_i32x4_as_f64x2(value); }
@@ -719,7 +719,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
   WAV_FUNCTION_ATTRIBUTES wav_f64x2_t wav_as_f64x2(wav_b16x8_t value) { return wav_b16x8_as_f64x2(value); }
   WAV_FUNCTION_ATTRIBUTES wav_f64x2_t wav_as_f64x2(wav_b32x4_t value) { return wav_b32x4_as_f64x2(value); }
   WAV_FUNCTION_ATTRIBUTES wav_f64x2_t wav_as_f64x2(wav_b64x2_t value) { return wav_b64x2_as_f64x2(value); }
-  WAV_FUNCTION_ATTRIBUTES wav_f64x2_t wav_as_f64x2(       v128_t value) { return wav_v128_as_f64x2(value); }
+  WAV_FUNCTION_ATTRIBUTES wav_f64x2_t wav_as_f64x2(     v128_t value) { return  wav_v128_as_f64x2(value); }
   WAV_FUNCTION_ATTRIBUTES wav_b8x16_t wav_as_b8x16(wav_i8x16_t value) { return wav_i8x16_as_b8x16(value); }
   WAV_FUNCTION_ATTRIBUTES wav_b8x16_t wav_as_b8x16(wav_i16x8_t value) { return wav_i16x8_as_b8x16(value); }
   WAV_FUNCTION_ATTRIBUTES wav_b8x16_t wav_as_b8x16(wav_i32x4_t value) { return wav_i32x4_as_b8x16(value); }
@@ -733,7 +733,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
   WAV_FUNCTION_ATTRIBUTES wav_b8x16_t wav_as_b8x16(wav_b16x8_t value) { return wav_b16x8_as_b8x16(value); }
   WAV_FUNCTION_ATTRIBUTES wav_b8x16_t wav_as_b8x16(wav_b32x4_t value) { return wav_b32x4_as_b8x16(value); }
   WAV_FUNCTION_ATTRIBUTES wav_b8x16_t wav_as_b8x16(wav_b64x2_t value) { return wav_b64x2_as_b8x16(value); }
-  WAV_FUNCTION_ATTRIBUTES wav_b8x16_t wav_as_b8x16(       v128_t value) { return wav_v128_as_b8x16(value); }
+  WAV_FUNCTION_ATTRIBUTES wav_b8x16_t wav_as_b8x16(     v128_t value) { return  wav_v128_as_b8x16(value); }
   WAV_FUNCTION_ATTRIBUTES wav_b16x8_t wav_as_b16x8(wav_i8x16_t value) { return wav_i8x16_as_b16x8(value); }
   WAV_FUNCTION_ATTRIBUTES wav_b16x8_t wav_as_b16x8(wav_i16x8_t value) { return wav_i16x8_as_b16x8(value); }
   WAV_FUNCTION_ATTRIBUTES wav_b16x8_t wav_as_b16x8(wav_i32x4_t value) { return wav_i32x4_as_b16x8(value); }
@@ -747,7 +747,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
   WAV_FUNCTION_ATTRIBUTES wav_b16x8_t wav_as_b16x8(wav_b8x16_t value) { return wav_b8x16_as_b16x8(value); }
   WAV_FUNCTION_ATTRIBUTES wav_b16x8_t wav_as_b16x8(wav_b32x4_t value) { return wav_b32x4_as_b16x8(value); }
   WAV_FUNCTION_ATTRIBUTES wav_b16x8_t wav_as_b16x8(wav_b64x2_t value) { return wav_b64x2_as_b16x8(value); }
-  WAV_FUNCTION_ATTRIBUTES wav_b16x8_t wav_as_b16x8(       v128_t value) { return wav_v128_as_b16x8(value); }
+  WAV_FUNCTION_ATTRIBUTES wav_b16x8_t wav_as_b16x8(     v128_t value) { return  wav_v128_as_b16x8(value); }
   WAV_FUNCTION_ATTRIBUTES wav_b32x4_t wav_as_b32x4(wav_i8x16_t value) { return wav_i8x16_as_b32x4(value); }
   WAV_FUNCTION_ATTRIBUTES wav_b32x4_t wav_as_b32x4(wav_i16x8_t value) { return wav_i16x8_as_b32x4(value); }
   WAV_FUNCTION_ATTRIBUTES wav_b32x4_t wav_as_b32x4(wav_i32x4_t value) { return wav_i32x4_as_b32x4(value); }
@@ -761,7 +761,7 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
   WAV_FUNCTION_ATTRIBUTES wav_b32x4_t wav_as_b32x4(wav_b8x16_t value) { return wav_b8x16_as_b32x4(value); }
   WAV_FUNCTION_ATTRIBUTES wav_b32x4_t wav_as_b32x4(wav_b16x8_t value) { return wav_b16x8_as_b32x4(value); }
   WAV_FUNCTION_ATTRIBUTES wav_b32x4_t wav_as_b32x4(wav_b64x2_t value) { return wav_b64x2_as_b32x4(value); }
-  WAV_FUNCTION_ATTRIBUTES wav_b32x4_t wav_as_b32x4(       v128_t value) { return wav_v128_as_b32x4(value); }
+  WAV_FUNCTION_ATTRIBUTES wav_b32x4_t wav_as_b32x4(     v128_t value) { return  wav_v128_as_b32x4(value); }
   WAV_FUNCTION_ATTRIBUTES wav_b64x2_t wav_as_b64x2(wav_i8x16_t value) { return wav_i8x16_as_b64x2(value); }
   WAV_FUNCTION_ATTRIBUTES wav_b64x2_t wav_as_b64x2(wav_i16x8_t value) { return wav_i16x8_as_b64x2(value); }
   WAV_FUNCTION_ATTRIBUTES wav_b64x2_t wav_as_b64x2(wav_i32x4_t value) { return wav_i32x4_as_b64x2(value); }
@@ -775,21 +775,21 @@ WAV_DEFINE_REINTERPRET_FUNCTION_(       v128_t, wav_b64x2_t, wav_b64x2_as_v128)
   WAV_FUNCTION_ATTRIBUTES wav_b64x2_t wav_as_b64x2(wav_b8x16_t value) { return wav_b8x16_as_b64x2(value); }
   WAV_FUNCTION_ATTRIBUTES wav_b64x2_t wav_as_b64x2(wav_b16x8_t value) { return wav_b16x8_as_b64x2(value); }
   WAV_FUNCTION_ATTRIBUTES wav_b64x2_t wav_as_b64x2(wav_b32x4_t value) { return wav_b32x4_as_b64x2(value); }
-  WAV_FUNCTION_ATTRIBUTES wav_b64x2_t wav_as_b64x2(       v128_t value) { return wav_v128_as_b64x2(value); }
-  WAV_FUNCTION_ATTRIBUTES        v128_t  wav_as_v128(wav_i8x16_t value) { return wav_i8x16_as_v128(value); }
-  WAV_FUNCTION_ATTRIBUTES        v128_t  wav_as_v128(wav_i16x8_t value) { return wav_i16x8_as_v128(value); }
-  WAV_FUNCTION_ATTRIBUTES        v128_t  wav_as_v128(wav_i32x4_t value) { return wav_i32x4_as_v128(value); }
-  WAV_FUNCTION_ATTRIBUTES        v128_t  wav_as_v128(wav_i64x2_t value) { return wav_i64x2_as_v128(value); }
-  WAV_FUNCTION_ATTRIBUTES        v128_t  wav_as_v128(wav_u8x16_t value) { return wav_u8x16_as_v128(value); }
-  WAV_FUNCTION_ATTRIBUTES        v128_t  wav_as_v128(wav_u16x8_t value) { return wav_u16x8_as_v128(value); }
-  WAV_FUNCTION_ATTRIBUTES        v128_t  wav_as_v128(wav_u32x4_t value) { return wav_u32x4_as_v128(value); }
-  WAV_FUNCTION_ATTRIBUTES        v128_t  wav_as_v128(wav_u64x2_t value) { return wav_u64x2_as_v128(value); }
-  WAV_FUNCTION_ATTRIBUTES        v128_t  wav_as_v128(wav_f32x4_t value) { return wav_f32x4_as_v128(value); }
-  WAV_FUNCTION_ATTRIBUTES        v128_t  wav_as_v128(wav_f64x2_t value) { return wav_f64x2_as_v128(value); }
-  WAV_FUNCTION_ATTRIBUTES        v128_t  wav_as_v128(wav_b8x16_t value) { return wav_b8x16_as_v128(value); }
-  WAV_FUNCTION_ATTRIBUTES        v128_t  wav_as_v128(wav_b16x8_t value) { return wav_b16x8_as_v128(value); }
-  WAV_FUNCTION_ATTRIBUTES        v128_t  wav_as_v128(wav_b32x4_t value) { return wav_b32x4_as_v128(value); }
-  WAV_FUNCTION_ATTRIBUTES        v128_t  wav_as_v128(wav_b64x2_t value) { return wav_b64x2_as_v128(value); }
+  WAV_FUNCTION_ATTRIBUTES wav_b64x2_t wav_as_b64x2(     v128_t value) { return  wav_v128_as_b64x2(value); }
+  WAV_FUNCTION_ATTRIBUTES      v128_t  wav_as_v128(wav_i8x16_t value) { return  wav_i8x16_as_v128(value); }
+  WAV_FUNCTION_ATTRIBUTES      v128_t  wav_as_v128(wav_i16x8_t value) { return  wav_i16x8_as_v128(value); }
+  WAV_FUNCTION_ATTRIBUTES      v128_t  wav_as_v128(wav_i32x4_t value) { return  wav_i32x4_as_v128(value); }
+  WAV_FUNCTION_ATTRIBUTES      v128_t  wav_as_v128(wav_i64x2_t value) { return  wav_i64x2_as_v128(value); }
+  WAV_FUNCTION_ATTRIBUTES      v128_t  wav_as_v128(wav_u8x16_t value) { return  wav_u8x16_as_v128(value); }
+  WAV_FUNCTION_ATTRIBUTES      v128_t  wav_as_v128(wav_u16x8_t value) { return  wav_u16x8_as_v128(value); }
+  WAV_FUNCTION_ATTRIBUTES      v128_t  wav_as_v128(wav_u32x4_t value) { return  wav_u32x4_as_v128(value); }
+  WAV_FUNCTION_ATTRIBUTES      v128_t  wav_as_v128(wav_u64x2_t value) { return  wav_u64x2_as_v128(value); }
+  WAV_FUNCTION_ATTRIBUTES      v128_t  wav_as_v128(wav_f32x4_t value) { return  wav_f32x4_as_v128(value); }
+  WAV_FUNCTION_ATTRIBUTES      v128_t  wav_as_v128(wav_f64x2_t value) { return  wav_f64x2_as_v128(value); }
+  WAV_FUNCTION_ATTRIBUTES      v128_t  wav_as_v128(wav_b8x16_t value) { return  wav_b8x16_as_v128(value); }
+  WAV_FUNCTION_ATTRIBUTES      v128_t  wav_as_v128(wav_b16x8_t value) { return  wav_b16x8_as_v128(value); }
+  WAV_FUNCTION_ATTRIBUTES      v128_t  wav_as_v128(wav_b32x4_t value) { return  wav_b32x4_as_v128(value); }
+  WAV_FUNCTION_ATTRIBUTES      v128_t  wav_as_v128(wav_b64x2_t value) { return  wav_b64x2_as_v128(value); }
 #endif
 
 /* load
