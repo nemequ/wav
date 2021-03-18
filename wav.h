@@ -50,6 +50,7 @@
 #pragma clang diagnostic ignored "-Wc11-extensions"
 #pragma clang diagnostic ignored "-Wc++98-compat-pedantic"
 #pragma clang diagnostic ignored "-Wold-style-cast"
+#pragma clang diagnostic ignored "-Wgcc-compat"
 
 /*
  * Configuration
@@ -99,6 +100,10 @@ typedef struct {   double values __attribute__((__vector_size__(16),__aligned__(
 #define WAV_FUNCTION_ATTRIBUTES               static inline __attribute__((__target__("simd128"),__artificial__,__always_inline__))
 #define WAV_FUNCTION_ATTRIBUTES_UNIMPLEMENTED static inline __attribute__((__target__("unimplemented-simd128"),__artificial__,__always_inline__))
 
+#define WAV_OVERLOAD_ATTRIBUTES_BASIC         static inline __attribute__((__overloadable__,__artificial__,__always_inline__))
+#define WAV_OVERLOAD_ATTRIBUTES               static inline __attribute__((__overloadable__,__target__("simd128"),__artificial__,__always_inline__))
+#define WAV_OVERLOAD_ATTRIBUTES_UNIMPLEMENTED static inline __attribute__((__overloadable__,__target__("unimplemented-simd128"),__artificial__,__always_inline__))
+
 #if defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)
   #define WAV_ARRAY_PARAM(Length) Length
 #else
@@ -112,6 +117,9 @@ typedef struct {   double values __attribute__((__vector_size__(16),__aligned__(
     WAV_REQUIRE_CONSTANT(value); \
     _Static_assert((value <= max) && (value >= min), #value " is not between " #min " and " #max "."); \
   }))
+
+#define WAV_REQUIRE_CONSTANT_PARAM(parameter) \
+  __attribute__((__diagnose_if__(!__builtin_constant_p(parameter), #parameter " is not constant", "error")))
 
 #define WAV_REQUIRE_TYPE(Type, Value) (__extension__ ({ \
     const Type wav_require_type_value_ = Value; \
@@ -1409,61 +1417,291 @@ wav_f64x2_make(double c0, double c1) {
 /* const
  *
  * Create a vector with all lanes are known at compile time.
- *
- * Slow; splat + 15 replace_lanes
- *
- * Anyone have any idea how to make a generic macro for this in C?
  */
 
-#define \
-  wav_i8x16_const( \
-      c0, c1,  c2,  c3,  c4,  c5,  c6,  c7, \
-      c8, c9, c10, c11, c12, c13, c14, c15) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT(c0); \
-    WAV_REQUIRE_CONSTANT(c1); \
-    WAV_REQUIRE_CONSTANT(c2); \
-    WAV_REQUIRE_CONSTANT(c3); \
-    WAV_REQUIRE_CONSTANT(c4); \
-    WAV_REQUIRE_CONSTANT(c5); \
-    WAV_REQUIRE_CONSTANT(c6); \
-    WAV_REQUIRE_CONSTANT(c7); \
-    WAV_REQUIRE_CONSTANT(c8); \
-    WAV_REQUIRE_CONSTANT(c9); \
-    WAV_REQUIRE_CONSTANT(c10); \
-    WAV_REQUIRE_CONSTANT(c11); \
-    WAV_REQUIRE_CONSTANT(c12); \
-    WAV_REQUIRE_CONSTANT(c13); \
-    WAV_REQUIRE_CONSTANT(c14); \
-    WAV_REQUIRE_CONSTANT(c15); \
-    \
-    (wav_i8x16_t) { \
-      c0, c1,  c2,  c3,  c4,  c5,  c6,  c7, \
-      c8, c9, c10, c11, c12, c13, c14, c15 }; \
-  }))
+WAV_FUNCTION_ATTRIBUTES_BASIC
+wav_i8x16_t
+wav_i8x16_const(
+    int8_t c0, int8_t c1, int8_t  c2, int8_t  c3, int8_t  c4, int8_t  c5, int8_t  c6, int8_t  c7,
+    int8_t c8, int8_t c9, int8_t c10, int8_t c11, int8_t c12, int8_t c13, int8_t c14, int8_t c15)
+  WAV_REQUIRE_CONSTANT_PARAM(c0)
+  WAV_REQUIRE_CONSTANT_PARAM(c1)
+  WAV_REQUIRE_CONSTANT_PARAM(c2)
+  WAV_REQUIRE_CONSTANT_PARAM(c3)
+  WAV_REQUIRE_CONSTANT_PARAM(c4)
+  WAV_REQUIRE_CONSTANT_PARAM(c5)
+  WAV_REQUIRE_CONSTANT_PARAM(c6)
+  WAV_REQUIRE_CONSTANT_PARAM(c7)
+  WAV_REQUIRE_CONSTANT_PARAM(c8)
+  WAV_REQUIRE_CONSTANT_PARAM(c9)
+  WAV_REQUIRE_CONSTANT_PARAM(c10)
+  WAV_REQUIRE_CONSTANT_PARAM(c11)
+  WAV_REQUIRE_CONSTANT_PARAM(c12)
+  WAV_REQUIRE_CONSTANT_PARAM(c13)
+  WAV_REQUIRE_CONSTANT_PARAM(c14)
+  WAV_REQUIRE_CONSTANT_PARAM(c15) {
+  return (wav_i8x16_t) { {
+    c0, c1,  c2,  c3,  c4,  c5,  c6,  c7,
+    c8, c9, c10, c11, c12, c13, c14, c15
+  } };
+}
 
-#define \
-  wav_i16x8_const(c0, c1,  c2,  c3,  c4,  c5,  c6,  c7) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT(c0); \
-    WAV_REQUIRE_CONSTANT(c1); \
-    WAV_REQUIRE_CONSTANT(c2); \
-    WAV_REQUIRE_CONSTANT(c3); \
-    WAV_REQUIRE_CONSTANT(c4); \
-    WAV_REQUIRE_CONSTANT(c5); \
-    WAV_REQUIRE_CONSTANT(c6); \
-    WAV_REQUIRE_CONSTANT(c7); \
-    \
-    (wav_i16x8_t) { c0, c1, c2, c3, c4, c5, c6, c7 }; \
-  }))
+WAV_FUNCTION_ATTRIBUTES_BASIC
+wav_i16x8_t
+wav_i16x8_const(
+    int16_t c0, int16_t c1, int16_t  c2, int16_t  c3, int16_t  c4, int16_t  c5, int16_t  c6, int16_t  c7)
+  WAV_REQUIRE_CONSTANT_PARAM(c0)
+  WAV_REQUIRE_CONSTANT_PARAM(c1)
+  WAV_REQUIRE_CONSTANT_PARAM(c2)
+  WAV_REQUIRE_CONSTANT_PARAM(c3)
+  WAV_REQUIRE_CONSTANT_PARAM(c4)
+  WAV_REQUIRE_CONSTANT_PARAM(c5)
+  WAV_REQUIRE_CONSTANT_PARAM(c6)
+  WAV_REQUIRE_CONSTANT_PARAM(c7) {
+  return (wav_i16x8_t) { {
+    c0, c1,  c2,  c3,  c4,  c5,  c6,  c7
+  } };
+}
 
-#define \
-  wav_i32x4_const(c0, c1,  c2,  c3) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT(c0); \
-    WAV_REQUIRE_CONSTANT(c1); \
-    WAV_REQUIRE_CONSTANT(c2); \
-    WAV_REQUIRE_CONSTANT(c3); \
-    \
-    (wav_i32x4_t) { c0, c1, c2, c3 }; \
-  }))
+WAV_FUNCTION_ATTRIBUTES_BASIC
+wav_i32x4_t
+wav_i32x4_const(int32_t c0, int32_t c1, int32_t c2, int32_t c3)
+  WAV_REQUIRE_CONSTANT_PARAM(c0)
+  WAV_REQUIRE_CONSTANT_PARAM(c1)
+  WAV_REQUIRE_CONSTANT_PARAM(c2)
+  WAV_REQUIRE_CONSTANT_PARAM(c3) {
+  return (wav_i32x4_t) { { c0, c1, c2, c3 } };
+}
+
+WAV_FUNCTION_ATTRIBUTES_BASIC
+wav_i64x2_t
+wav_i64x2_const(int64_t c0, int64_t c1)
+  WAV_REQUIRE_CONSTANT_PARAM(c0)
+  WAV_REQUIRE_CONSTANT_PARAM(c1) {
+  return (wav_i64x2_t) { { c0, c1 } };
+}
+
+WAV_FUNCTION_ATTRIBUTES_BASIC
+wav_u8x16_t
+wav_u8x16_const(
+    uint8_t c0, uint8_t c1, uint8_t  c2, uint8_t  c3, uint8_t  c4, uint8_t  c5, uint8_t  c6, uint8_t  c7,
+    uint8_t c8, uint8_t c9, uint8_t c10, uint8_t c11, uint8_t c12, uint8_t c13, uint8_t c14, uint8_t c15)
+  WAV_REQUIRE_CONSTANT_PARAM(c0)
+  WAV_REQUIRE_CONSTANT_PARAM(c1)
+  WAV_REQUIRE_CONSTANT_PARAM(c2)
+  WAV_REQUIRE_CONSTANT_PARAM(c3)
+  WAV_REQUIRE_CONSTANT_PARAM(c4)
+  WAV_REQUIRE_CONSTANT_PARAM(c5)
+  WAV_REQUIRE_CONSTANT_PARAM(c6)
+  WAV_REQUIRE_CONSTANT_PARAM(c7)
+  WAV_REQUIRE_CONSTANT_PARAM(c8)
+  WAV_REQUIRE_CONSTANT_PARAM(c9)
+  WAV_REQUIRE_CONSTANT_PARAM(c10)
+  WAV_REQUIRE_CONSTANT_PARAM(c11)
+  WAV_REQUIRE_CONSTANT_PARAM(c12)
+  WAV_REQUIRE_CONSTANT_PARAM(c13)
+  WAV_REQUIRE_CONSTANT_PARAM(c14)
+  WAV_REQUIRE_CONSTANT_PARAM(c15) {
+  return (wav_u8x16_t) { {
+    c0, c1,  c2,  c3,  c4,  c5,  c6,  c7,
+    c8, c9, c10, c11, c12, c13, c14, c15
+  } };
+}
+
+WAV_FUNCTION_ATTRIBUTES_BASIC
+wav_u16x8_t
+wav_u16x8_const(
+    uint16_t c0, uint16_t c1, uint16_t  c2, uint16_t  c3, uint16_t  c4, uint16_t  c5, uint16_t  c6, uint16_t  c7)
+  WAV_REQUIRE_CONSTANT_PARAM(c0)
+  WAV_REQUIRE_CONSTANT_PARAM(c1)
+  WAV_REQUIRE_CONSTANT_PARAM(c2)
+  WAV_REQUIRE_CONSTANT_PARAM(c3)
+  WAV_REQUIRE_CONSTANT_PARAM(c4)
+  WAV_REQUIRE_CONSTANT_PARAM(c5)
+  WAV_REQUIRE_CONSTANT_PARAM(c6)
+  WAV_REQUIRE_CONSTANT_PARAM(c7) {
+  return (wav_u16x8_t) { {
+    c0, c1,  c2,  c3,  c4,  c5,  c6,  c7
+  } };
+}
+
+WAV_FUNCTION_ATTRIBUTES_BASIC
+wav_u32x4_t
+wav_u32x4_const(uint32_t c0, uint32_t c1, uint32_t c2, uint32_t c3)
+  WAV_REQUIRE_CONSTANT_PARAM(c0)
+  WAV_REQUIRE_CONSTANT_PARAM(c1)
+  WAV_REQUIRE_CONSTANT_PARAM(c2)
+  WAV_REQUIRE_CONSTANT_PARAM(c3) {
+  return (wav_u32x4_t) { { c0, c1, c2, c3 } };
+}
+
+WAV_FUNCTION_ATTRIBUTES_BASIC
+wav_u64x2_t
+wav_u64x2_const(uint64_t c0, uint64_t c1)
+  WAV_REQUIRE_CONSTANT_PARAM(c0)
+  WAV_REQUIRE_CONSTANT_PARAM(c1) {
+  return (wav_u64x2_t) { { c0, c1 } };
+}
+
+WAV_FUNCTION_ATTRIBUTES_BASIC
+wav_f32x4_t
+wav_f32x4_const(float c0, float c1, float c2, float c3)
+  WAV_REQUIRE_CONSTANT_PARAM(c0)
+  WAV_REQUIRE_CONSTANT_PARAM(c1)
+  WAV_REQUIRE_CONSTANT_PARAM(c2)
+  WAV_REQUIRE_CONSTANT_PARAM(c3) {
+  return (wav_f32x4_t) { { c0, c1, c2, c3 } };
+}
+
+WAV_FUNCTION_ATTRIBUTES_BASIC
+wav_f64x2_t
+wav_f64x2_const(double c0, double c1)
+  WAV_REQUIRE_CONSTANT_PARAM(c0)
+  WAV_REQUIRE_CONSTANT_PARAM(c1) {
+  return (wav_f64x2_t) { { c0, c1 } };
+}
+
+WAV_OVERLOAD_ATTRIBUTES_BASIC
+wav_i8x16_t
+wav_const(
+    int8_t c0, int8_t c1, int8_t  c2, int8_t  c3, int8_t  c4, int8_t  c5, int8_t  c6, int8_t  c7,
+    int8_t c8, int8_t c9, int8_t c10, int8_t c11, int8_t c12, int8_t c13, int8_t c14, int8_t c15)
+  WAV_REQUIRE_CONSTANT_PARAM(c0)
+  WAV_REQUIRE_CONSTANT_PARAM(c1)
+  WAV_REQUIRE_CONSTANT_PARAM(c2)
+  WAV_REQUIRE_CONSTANT_PARAM(c3)
+  WAV_REQUIRE_CONSTANT_PARAM(c4)
+  WAV_REQUIRE_CONSTANT_PARAM(c5)
+  WAV_REQUIRE_CONSTANT_PARAM(c6)
+  WAV_REQUIRE_CONSTANT_PARAM(c7)
+  WAV_REQUIRE_CONSTANT_PARAM(c8)
+  WAV_REQUIRE_CONSTANT_PARAM(c9)
+  WAV_REQUIRE_CONSTANT_PARAM(c10)
+  WAV_REQUIRE_CONSTANT_PARAM(c11)
+  WAV_REQUIRE_CONSTANT_PARAM(c12)
+  WAV_REQUIRE_CONSTANT_PARAM(c13)
+  WAV_REQUIRE_CONSTANT_PARAM(c14)
+  WAV_REQUIRE_CONSTANT_PARAM(c15) {
+  return (wav_i8x16_t) { {
+    c0, c1,  c2,  c3,  c4,  c5,  c6,  c7,
+    c8, c9, c10, c11, c12, c13, c14, c15
+  } };
+}
+
+WAV_OVERLOAD_ATTRIBUTES_BASIC
+wav_i16x8_t
+wav_const(
+    int16_t c0, int16_t c1, int16_t  c2, int16_t  c3, int16_t  c4, int16_t  c5, int16_t  c6, int16_t  c7)
+  WAV_REQUIRE_CONSTANT_PARAM(c0)
+  WAV_REQUIRE_CONSTANT_PARAM(c1)
+  WAV_REQUIRE_CONSTANT_PARAM(c2)
+  WAV_REQUIRE_CONSTANT_PARAM(c3)
+  WAV_REQUIRE_CONSTANT_PARAM(c4)
+  WAV_REQUIRE_CONSTANT_PARAM(c5)
+  WAV_REQUIRE_CONSTANT_PARAM(c6)
+  WAV_REQUIRE_CONSTANT_PARAM(c7) {
+  return (wav_i16x8_t) { {
+    c0, c1,  c2,  c3,  c4,  c5,  c6,  c7
+  } };
+}
+
+WAV_OVERLOAD_ATTRIBUTES_BASIC
+wav_i32x4_t
+wav_const(int32_t c0, int32_t c1, int32_t c2, int32_t c3)
+  WAV_REQUIRE_CONSTANT_PARAM(c0)
+  WAV_REQUIRE_CONSTANT_PARAM(c1)
+  WAV_REQUIRE_CONSTANT_PARAM(c2)
+  WAV_REQUIRE_CONSTANT_PARAM(c3) {
+  return (wav_i32x4_t) { { c0, c1, c2, c3 } };
+}
+
+WAV_OVERLOAD_ATTRIBUTES_BASIC
+wav_i64x2_t
+wav_const(int64_t c0, int64_t c1)
+  WAV_REQUIRE_CONSTANT_PARAM(c0)
+  WAV_REQUIRE_CONSTANT_PARAM(c1) {
+  return (wav_i64x2_t) { { c0, c1 } };
+}
+
+WAV_OVERLOAD_ATTRIBUTES_BASIC
+wav_u8x16_t
+wav_const(
+    uint8_t c0, uint8_t c1, uint8_t  c2, uint8_t  c3, uint8_t  c4, uint8_t  c5, uint8_t  c6, uint8_t  c7,
+    uint8_t c8, uint8_t c9, uint8_t c10, uint8_t c11, uint8_t c12, uint8_t c13, uint8_t c14, uint8_t c15)
+  WAV_REQUIRE_CONSTANT_PARAM(c0)
+  WAV_REQUIRE_CONSTANT_PARAM(c1)
+  WAV_REQUIRE_CONSTANT_PARAM(c2)
+  WAV_REQUIRE_CONSTANT_PARAM(c3)
+  WAV_REQUIRE_CONSTANT_PARAM(c4)
+  WAV_REQUIRE_CONSTANT_PARAM(c5)
+  WAV_REQUIRE_CONSTANT_PARAM(c6)
+  WAV_REQUIRE_CONSTANT_PARAM(c7)
+  WAV_REQUIRE_CONSTANT_PARAM(c8)
+  WAV_REQUIRE_CONSTANT_PARAM(c9)
+  WAV_REQUIRE_CONSTANT_PARAM(c10)
+  WAV_REQUIRE_CONSTANT_PARAM(c11)
+  WAV_REQUIRE_CONSTANT_PARAM(c12)
+  WAV_REQUIRE_CONSTANT_PARAM(c13)
+  WAV_REQUIRE_CONSTANT_PARAM(c14)
+  WAV_REQUIRE_CONSTANT_PARAM(c15) {
+  return (wav_u8x16_t) { {
+    c0, c1,  c2,  c3,  c4,  c5,  c6,  c7,
+    c8, c9, c10, c11, c12, c13, c14, c15
+  } };
+}
+
+WAV_OVERLOAD_ATTRIBUTES_BASIC
+wav_u16x8_t
+wav_const(
+    uint16_t c0, uint16_t c1, uint16_t  c2, uint16_t  c3, uint16_t  c4, uint16_t  c5, uint16_t  c6, uint16_t  c7)
+  WAV_REQUIRE_CONSTANT_PARAM(c0)
+  WAV_REQUIRE_CONSTANT_PARAM(c1)
+  WAV_REQUIRE_CONSTANT_PARAM(c2)
+  WAV_REQUIRE_CONSTANT_PARAM(c3)
+  WAV_REQUIRE_CONSTANT_PARAM(c4)
+  WAV_REQUIRE_CONSTANT_PARAM(c5)
+  WAV_REQUIRE_CONSTANT_PARAM(c6)
+  WAV_REQUIRE_CONSTANT_PARAM(c7) {
+  return (wav_u16x8_t) { {
+    c0, c1,  c2,  c3,  c4,  c5,  c6,  c7
+  } };
+}
+
+WAV_OVERLOAD_ATTRIBUTES_BASIC
+wav_u32x4_t
+wav_const(uint32_t c0, uint32_t c1, uint32_t c2, uint32_t c3)
+  WAV_REQUIRE_CONSTANT_PARAM(c0)
+  WAV_REQUIRE_CONSTANT_PARAM(c1)
+  WAV_REQUIRE_CONSTANT_PARAM(c2)
+  WAV_REQUIRE_CONSTANT_PARAM(c3) {
+  return (wav_u32x4_t) { { c0, c1, c2, c3 } };
+}
+
+WAV_OVERLOAD_ATTRIBUTES_BASIC
+wav_u64x2_t
+wav_const(uint64_t c0, uint64_t c1)
+  WAV_REQUIRE_CONSTANT_PARAM(c0)
+  WAV_REQUIRE_CONSTANT_PARAM(c1) {
+  return (wav_u64x2_t) { { c0, c1 } };
+}
+
+WAV_OVERLOAD_ATTRIBUTES_BASIC
+wav_f32x4_t
+wav_const(float c0, float c1, float c2, float c3)
+  WAV_REQUIRE_CONSTANT_PARAM(c0)
+  WAV_REQUIRE_CONSTANT_PARAM(c1)
+  WAV_REQUIRE_CONSTANT_PARAM(c2)
+  WAV_REQUIRE_CONSTANT_PARAM(c3) {
+  return (wav_f32x4_t) { { c0, c1, c2, c3 } };
+}
+
+WAV_OVERLOAD_ATTRIBUTES_BASIC
+wav_f64x2_t
+wav_const(double c0, double c1)
+  WAV_REQUIRE_CONSTANT_PARAM(c0)
+  WAV_REQUIRE_CONSTANT_PARAM(c1) {
+  return (wav_f64x2_t) { { c0, c1 } };
+}
 
 /* extract_lane -- Extract lane as a scalar
  *
