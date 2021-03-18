@@ -2183,7 +2183,7 @@ wav_i16x8_extend_high(wav_i16x8_t a) {
   return wav_i16x8_extend_low(high);
 }
 
-WAV_FUNCTION_ATTRIBUTES
+WAV_FUNCTION_ATTRIBUTES_UNIMPLEMENTED
 wav_i64x2_t
 wav_i32x4_extend_high(wav_i32x4_t a) {
   wav_i32x4_t high;
@@ -2207,7 +2207,7 @@ wav_u16x8_extend_high(wav_u16x8_t a) {
   return wav_u16x8_extend_low(high);
 }
 
-WAV_FUNCTION_ATTRIBUTES
+WAV_FUNCTION_ATTRIBUTES_UNIMPLEMENTED
 wav_u64x2_t
 wav_u32x4_extend_high(wav_u32x4_t a) {
   wav_u32x4_t high;
@@ -2217,10 +2217,10 @@ wav_u32x4_extend_high(wav_u32x4_t a) {
 
 WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t wav_extend_high(wav_i8x16_t a) { return wav_i8x16_extend_high(a); }
 WAV_OVERLOAD_ATTRIBUTES wav_i32x4_t wav_extend_high(wav_i16x8_t a) { return wav_i16x8_extend_high(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_i64x2_t wav_extend_high(wav_i32x4_t a) { return wav_i32x4_extend_high(a); }
+WAV_OVERLOAD_ATTRIBUTES_UNIMPLEMENTED wav_i64x2_t wav_extend_high(wav_i32x4_t a) { return wav_i32x4_extend_high(a); }
 WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t wav_extend_high(wav_u8x16_t a) { return wav_u8x16_extend_high(a); }
 WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t wav_extend_high(wav_u16x8_t a) { return wav_u16x8_extend_high(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_extend_high(wav_u32x4_t a) { return wav_u32x4_extend_high(a); }
+WAV_OVERLOAD_ATTRIBUTES_UNIMPLEMENTED wav_u64x2_t wav_extend_high(wav_u32x4_t a) { return wav_u32x4_extend_high(a); }
 
 /* narrow -- Narrowing / demotion
  *
