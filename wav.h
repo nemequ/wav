@@ -2075,9 +2075,10 @@ wav_i16x8_extend_low(wav_i16x8_t a) {
   return r;
 }
 
-WAV_FUNCTION_ATTRIBUTES
+WAV_FUNCTION_ATTRIBUTES_UNIMPLEMENTED
 wav_i64x2_t
 wav_i32x4_extend_low(wav_i32x4_t a) {
+  /* Generates a shuffle and some shifts. */
   wav_i64x2_t r;
   const int32_t low __attribute__((__vector_size__(8))) = {
     a.values[0], a.values[1],
@@ -2130,10 +2131,10 @@ wav_u32x4_extend_low(wav_u32x4_t a) {
 
 WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t wav_extend_low(wav_i8x16_t a) { return wav_i8x16_extend_low(a); }
 WAV_OVERLOAD_ATTRIBUTES wav_i32x4_t wav_extend_low(wav_i16x8_t a) { return wav_i16x8_extend_low(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_i64x2_t wav_extend_low(wav_i32x4_t a) { return wav_i32x4_extend_low(a); }
+WAV_OVERLOAD_ATTRIBUTES_UNIMPLEMENTED wav_i64x2_t wav_extend_low(wav_i32x4_t a) { return wav_i32x4_extend_low(a); }
 WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t wav_extend_low(wav_u8x16_t a) { return wav_u8x16_extend_low(a); }
 WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t wav_extend_low(wav_u16x8_t a) { return wav_u16x8_extend_low(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_extend_low(wav_u32x4_t a) { return wav_u32x4_extend_low(a); }
+WAV_OVERLOAD_ATTRIBUTES_UNIMPLEMENTED wav_u64x2_t wav_extend_low(wav_u32x4_t a) { return wav_u32x4_extend_low(a); }
 
 /* promote_low -- Single-precision floating point to double-precision
  *
