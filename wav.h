@@ -2975,7 +2975,7 @@ wav_i32x4_shr(wav_i32x4_t a, int count) {
   return (wav_i32x4_t) { a.values >> count };
 }
 
-WAV_FUNCTION_ATTRIBUTES
+WAV_FUNCTION_ATTRIBUTES_UNIMPLEMENTED
 wav_i64x2_t
 wav_i64x2_shr(wav_i64x2_t a, int count) {
   return (wav_i64x2_t) { a.values >> count };
@@ -2999,7 +2999,7 @@ wav_u32x4_shr(wav_u32x4_t a, int count) {
   return (wav_u32x4_t) { a.values >> count };
 }
 
-WAV_FUNCTION_ATTRIBUTES
+WAV_FUNCTION_ATTRIBUTES_UNIMPLEMENTED
 wav_u64x2_t
 wav_u64x2_shr(wav_u64x2_t a, int count) {
   return (wav_u64x2_t) { a.values >> count };
