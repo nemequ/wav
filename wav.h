@@ -1442,80 +1442,144 @@ WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_replace_lane(wav_f64x2_t v, const int la
       a, b, \
       c0, c1,  c2,  c3,  c4,  c5,  c6,  c7, \
       c8, c9, c10, c11, c12, c13, c14, c15) \
-    ((wav_i8x16_t) { __builtin_shufflevector(\
+    (__extension__ ({ \
+      _Pragma("clang diagnostic push") \
+      _Pragma("clang diagnostic ignored \"-Wc99-extensions\"") \
+      ((wav_i8x16_t) { { __builtin_shufflevector(\
         WAV_REQUIRE_TYPE(wav_i8x16_t, a).values, \
         WAV_REQUIRE_TYPE(wav_i8x16_t, b).values, \
         c0, c1,  c2,  c3,  c4,  c5,  c6,  c7, \
-        c8, c9, c10, c11, c12, c13, c14, c15) } )
+        c8, c9, c10, c11, c12, c13, c14, c15) } } ); \
+      _Pragma("clang diagnostic pop") \
+    }))
 
 #define \
   wav_i16x8_shuffle( \
-      a, b, c0, c1, c2, c3, c4, c5, c6, c7) \
-    ((wav_i16x8_t) { __builtin_shufflevector(\
+      a, b, \
+      c0, c1, c2, c3, c4, c5, c6, c7) \
+    (__extension__ ({ \
+      _Pragma("clang diagnostic push") \
+      _Pragma("clang diagnostic ignored \"-Wc99-extensions\"") \
+      ((wav_i16x8_t) { { __builtin_shufflevector(\
         WAV_REQUIRE_TYPE(wav_i16x8_t, a).values, \
         WAV_REQUIRE_TYPE(wav_i16x8_t, b).values, \
-        c0, c1,  c2,  c3,  c4,  c5,  c6,  c7) } )
+        c0, c1, c2, c3, c4, c5, c6, c7) } } ); \
+      _Pragma("clang diagnostic pop") \
+    }))
 
 #define \
-  wav_i32x4_shuffle(a, b, c0, c1, c2, c3) \
-    ((wav_i32x4_t) { __builtin_shufflevector(\
+  wav_i32x4_shuffle( \
+      a, b, \
+      c0, c1, c2, c3) \
+    (__extension__ ({ \
+      _Pragma("clang diagnostic push") \
+      _Pragma("clang diagnostic ignored \"-Wc99-extensions\"") \
+      ((wav_i32x4_t) { { __builtin_shufflevector(\
         WAV_REQUIRE_TYPE(wav_i32x4_t, a).values, \
         WAV_REQUIRE_TYPE(wav_i32x4_t, b).values, \
-        c0, c1, c2, c3) } )
+        c0, c1, c2, c3) } } ); \
+      _Pragma("clang diagnostic pop") \
+    }))
 
 #define \
-  wav_i64x2_shuffle(a, b, c0, c1) \
-    ((wav_i64x2_t) { __builtin_shufflevector(\
+  wav_i64x2_shuffle( \
+      a, b, \
+      c0, c1) \
+    (__extension__ ({ \
+      _Pragma("clang diagnostic push") \
+      _Pragma("clang diagnostic ignored \"-Wc99-extensions\"") \
+      ((wav_i64x2_t) { { __builtin_shufflevector(\
         WAV_REQUIRE_TYPE(wav_i64x2_t, a).values, \
         WAV_REQUIRE_TYPE(wav_i64x2_t, b).values, \
-        c0, c1) } )
+        c0, c1) } } ); \
+      _Pragma("clang diagnostic pop") \
+    }))
 
 #define \
   wav_u8x16_shuffle( \
       a, b, \
       c0, c1,  c2,  c3,  c4,  c5,  c6,  c7, \
       c8, c9, c10, c11, c12, c13, c14, c15) \
-    ((wav_u8x16_t) { __builtin_shufflevector(\
+    (__extension__ ({ \
+      _Pragma("clang diagnostic push") \
+      _Pragma("clang diagnostic ignored \"-Wc99-extensions\"") \
+      ((wav_u8x16_t) { { __builtin_shufflevector(\
         WAV_REQUIRE_TYPE(wav_u8x16_t, a).values, \
         WAV_REQUIRE_TYPE(wav_u8x16_t, b).values, \
         c0, c1,  c2,  c3,  c4,  c5,  c6,  c7, \
-        c8, c9, c10, c11, c12, c13, c14, c15) } )
+        c8, c9, c10, c11, c12, c13, c14, c15) } } ); \
+      _Pragma("clang diagnostic pop") \
+    }))
 
 #define \
   wav_u16x8_shuffle( \
-      a, b, c0, c1, c2, c3, c4, c5, c6, c7) \
-    ((wav_u16x8_t) { __builtin_shufflevector(\
+      a, b, \
+      c0, c1, c2, c3, c4, c5, c6, c7) \
+    (__extension__ ({ \
+      _Pragma("clang diagnostic push") \
+      _Pragma("clang diagnostic ignored \"-Wc99-extensions\"") \
+      ((wav_u16x8_t) { { __builtin_shufflevector(\
         WAV_REQUIRE_TYPE(wav_u16x8_t, a).values, \
         WAV_REQUIRE_TYPE(wav_u16x8_t, b).values, \
-        c0, c1,  c2,  c3,  c4,  c5,  c6,  c7) } )
+        c0, c1, c2, c3, c4, c5, c6, c7) } } ); \
+      _Pragma("clang diagnostic pop") \
+    }))
 
 #define \
-  wav_u32x4_shuffle(a, b, c0, c1, c2, c3) \
-    ((wav_u32x4_t) { __builtin_shufflevector(\
+  wav_u32x4_shuffle( \
+      a, b, \
+      c0, c1, c2, c3) \
+    (__extension__ ({ \
+      _Pragma("clang diagnostic push") \
+      _Pragma("clang diagnostic ignored \"-Wc99-extensions\"") \
+      ((wav_u32x4_t) { { __builtin_shufflevector(\
         WAV_REQUIRE_TYPE(wav_u32x4_t, a).values, \
         WAV_REQUIRE_TYPE(wav_u32x4_t, b).values, \
-        c0, c1, c2, c3) } )
+        c0, c1, c2, c3) } } ); \
+      _Pragma("clang diagnostic pop") \
+    }))
 
 #define \
-  wav_u64x2_shuffle(a, b, c0, c1) \
-    ((wav_u64x2_t) { __builtin_shufflevector(\
+  wav_u64x2_shuffle( \
+      a, b, \
+      c0, c1) \
+    (__extension__ ({ \
+      _Pragma("clang diagnostic push") \
+      _Pragma("clang diagnostic ignored \"-Wc99-extensions\"") \
+      ((wav_u64x2_t) { { __builtin_shufflevector(\
         WAV_REQUIRE_TYPE(wav_u64x2_t, a).values, \
         WAV_REQUIRE_TYPE(wav_u64x2_t, b).values, \
-        c0, c1) } )
+        c0, c1) } } ); \
+      _Pragma("clang diagnostic pop") \
+    }))
 
 #define \
-  wav_f32x4_shuffle(a, b, c0, c1, c2, c3) \
-    ((wav_f32x4_t) { __builtin_shufflevector(\
+  wav_f32x4_shuffle( \
+      a, b, \
+      c0, c1, c2, c3) \
+    (__extension__ ({ \
+      _Pragma("clang diagnostic push") \
+      _Pragma("clang diagnostic ignored \"-Wc99-extensions\"") \
+      ((wav_f32x4_t) { { __builtin_shufflevector(\
         WAV_REQUIRE_TYPE(wav_f32x4_t, a).values, \
         WAV_REQUIRE_TYPE(wav_f32x4_t, b).values, \
-        c0, c1, c2, c3) } )
+        c0, c1, c2, c3) } } ); \
+      _Pragma("clang diagnostic pop") \
+    }))
 
 #define \
-  wav_f64x2_shuffle(a, b, c0, c1) \
-    ((wav_f64x2_t) { __builtin_shufflevector(\
+  wav_f64x2_shuffle( \
+      a, b, \
+      c0, c1) \
+    (__extension__ ({ \
+      _Pragma("clang diagnostic push") \
+      _Pragma("clang diagnostic ignored \"-Wc99-extensions\"") \
+      ((wav_f64x2_t) { { __builtin_shufflevector(\
         WAV_REQUIRE_TYPE(wav_f64x2_t, a).values, \
         WAV_REQUIRE_TYPE(wav_f64x2_t, b).values, \
-        c0, c1) } )
+        c0, c1) } } ); \
+      _Pragma("clang diagnostic pop") \
+    }))
 
 #define \
   wav_shuffle(a, b, ...) \
