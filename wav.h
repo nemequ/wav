@@ -2857,12 +2857,6 @@ wav_i64x2_abs(wav_i64x2_t a) {
 }
 
 WAV_FUNCTION_ATTRIBUTES
-wav_u8x16_t
-wav_u8x16_abs(wav_u8x16_t a) {
-  return (wav_u8x16_t) { -a.values };
-}
-
-WAV_FUNCTION_ATTRIBUTES
 wav_f32x4_t
 wav_f32x4_abs(wav_f32x4_t a) {
   return (wav_f32x4_t) { -a.values };
