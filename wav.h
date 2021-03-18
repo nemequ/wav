@@ -1813,6 +1813,24 @@ wav_i64x2_mul(wav_i64x2_t a, wav_i64x2_t b) {
 }
 
 WAV_FUNCTION_ATTRIBUTES
+wav_u16x8_t
+wav_u16x8_mul(wav_u16x8_t a, wav_u16x8_t b) {
+  return (wav_u16x8_t) { a.values * b.values };
+}
+
+WAV_FUNCTION_ATTRIBUTES
+wav_u32x4_t
+wav_u32x4_mul(wav_u32x4_t a, wav_u32x4_t b) {
+  return (wav_u32x4_t) { a.values * b.values };
+}
+
+WAV_FUNCTION_ATTRIBUTES
+wav_u64x2_t
+wav_u64x2_mul(wav_u64x2_t a, wav_u64x2_t b) {
+  return (wav_u64x2_t) { a.values * b.values };
+}
+
+WAV_FUNCTION_ATTRIBUTES
 wav_f32x4_t
 wav_f32x4_mul(wav_f32x4_t a, wav_f32x4_t b) {
   return (wav_f32x4_t) { a.values * b.values };
@@ -1827,6 +1845,9 @@ wav_f64x2_mul(wav_f64x2_t a, wav_f64x2_t b) {
 WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t wav_mul(wav_i16x8_t a, wav_i16x8_t b) { return wav_i16x8_mul(a, b); }
 WAV_OVERLOAD_ATTRIBUTES wav_i32x4_t wav_mul(wav_i32x4_t a, wav_i32x4_t b) { return wav_i32x4_mul(a, b); }
 WAV_OVERLOAD_ATTRIBUTES wav_i64x2_t wav_mul(wav_i64x2_t a, wav_i64x2_t b) { return wav_i64x2_mul(a, b); }
+WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t wav_mul(wav_u16x8_t a, wav_u16x8_t b) { return wav_u16x8_mul(a, b); }
+WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t wav_mul(wav_u32x4_t a, wav_u32x4_t b) { return wav_u32x4_mul(a, b); }
+WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_mul(wav_u64x2_t a, wav_u64x2_t b) { return wav_u64x2_mul(a, b); }
 WAV_OVERLOAD_ATTRIBUTES wav_f32x4_t wav_mul(wav_f32x4_t a, wav_f32x4_t b) { return wav_f32x4_mul(a, b); }
 WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_mul(wav_f64x2_t a, wav_f64x2_t b) { return wav_f64x2_mul(a, b); }
 
@@ -1834,6 +1855,9 @@ WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_mul(wav_f64x2_t a, wav_f64x2_t b) { retu
   WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t operator*(wav_i16x8_t a, wav_i16x8_t b) { return wav_i16x8_mul(a, b); }
   WAV_OVERLOAD_ATTRIBUTES wav_i32x4_t operator*(wav_i32x4_t a, wav_i32x4_t b) { return wav_i32x4_mul(a, b); }
   WAV_OVERLOAD_ATTRIBUTES wav_i64x2_t operator*(wav_i64x2_t a, wav_i64x2_t b) { return wav_i64x2_mul(a, b); }
+  WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t operator*(wav_u16x8_t a, wav_u16x8_t b) { return wav_u16x8_mul(a, b); }
+  WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t operator*(wav_u32x4_t a, wav_u32x4_t b) { return wav_u32x4_mul(a, b); }
+  WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t operator*(wav_u64x2_t a, wav_u64x2_t b) { return wav_u64x2_mul(a, b); }
   WAV_OVERLOAD_ATTRIBUTES wav_f32x4_t operator*(wav_f32x4_t a, wav_f32x4_t b) { return wav_f32x4_mul(a, b); }
   WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t operator*(wav_f64x2_t a, wav_f64x2_t b) { return wav_f64x2_mul(a, b); }
 #endif
