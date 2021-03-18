@@ -107,6 +107,9 @@ typedef struct {   double values __attribute__((__vector_size__(16),__aligned__(
 #define WAV_REQUIRE_CONSTANT_PARAM(parameter) \
   __attribute__((__diagnose_if__(!__builtin_constant_p(parameter), #parameter " is not constant", "error")))
 
+#define WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(parameter, min, max) \
+  __attribute__((__diagnose_if__(!__builtin_constant_p(parameter), #parameter " is not constant", "error"), __diagnose_if__(((parameter < min) || (parameter > max)), #parameter " is not between " #min " and " #max, "error")))
+
 #define WAV_REQUIRE_TYPE(Type, Value) (__extension__ ({ \
     const Type wav_require_type_value_ = Value; \
     wav_require_type_value_; \
@@ -1377,71 +1380,27 @@ wav_const(double c0, double c1)
  * operand lane in v.
  */
 
-#define \
-  wav_i8x16_extract_lane(v, lane) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, 15); \
-    WAV_REQUIRE_TYPE(wav_i8x16_t, v).values[lane]; \
-  }))
+WAV_FUNCTION_ATTRIBUTES   int8_t wav_i8x16_extract_lane(wav_i8x16_t v, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0, 15) { return v.values[lane]; }
+WAV_FUNCTION_ATTRIBUTES  int16_t wav_i16x8_extract_lane(wav_i16x8_t v, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  7) { return v.values[lane]; }
+WAV_FUNCTION_ATTRIBUTES  int32_t wav_i32x4_extract_lane(wav_i32x4_t v, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  3) { return v.values[lane]; }
+WAV_FUNCTION_ATTRIBUTES  int64_t wav_i64x2_extract_lane(wav_i64x2_t v, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  1) { return v.values[lane]; }
+WAV_FUNCTION_ATTRIBUTES  uint8_t wav_u8x16_extract_lane(wav_u8x16_t v, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0, 15) { return v.values[lane]; }
+WAV_FUNCTION_ATTRIBUTES uint16_t wav_u16x8_extract_lane(wav_u16x8_t v, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  7) { return v.values[lane]; }
+WAV_FUNCTION_ATTRIBUTES uint32_t wav_u32x4_extract_lane(wav_u32x4_t v, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  3) { return v.values[lane]; }
+WAV_FUNCTION_ATTRIBUTES uint64_t wav_u64x2_extract_lane(wav_u64x2_t v, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  1) { return v.values[lane]; }
+WAV_FUNCTION_ATTRIBUTES    float wav_f32x4_extract_lane(wav_f32x4_t v, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  3) { return v.values[lane]; }
+WAV_FUNCTION_ATTRIBUTES   double wav_f64x2_extract_lane(wav_f64x2_t v, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  1) { return v.values[lane]; }
 
-#define \
-  wav_i16x8_extract_lane(v, lane) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, 7); \
-    WAV_REQUIRE_TYPE(wav_i16x8_t, v).values[lane]; \
-  }))
-
-#define \
-  wav_i32x4_extract_lane(v, lane) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, 3); \
-    WAV_REQUIRE_TYPE(wav_i32x4_t, v).values[lane]; \
-  }))
-
-#define \
-  wav_i64x2_extract_lane(v, lane) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, 1); \
-    WAV_REQUIRE_TYPE(wav_i64x2_t, v).values[lane]; \
-  }))
-
-#define \
-  wav_u8x16_extract_lane(v, lane) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, 15); \
-    WAV_REQUIRE_TYPE(wav_u8x16_t, v).values[lane]; \
-  }))
-
-#define \
-  wav_u16x8_extract_lane(v, lane) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, 7); \
-    WAV_REQUIRE_TYPE(wav_u16x8_t, v).values[lane]; \
-  }))
-
-#define \
-  wav_u32x4_extract_lane(v, lane) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, 3); \
-    WAV_REQUIRE_TYPE(wav_u32x4_t, v).values[lane]; \
-  }))
-
-#define \
-  wav_u64x2_extract_lane(v, lane) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, 1); \
-    WAV_REQUIRE_TYPE(wav_u64x2_t, v).values[lane]; \
-  }))
-
-#define \
-  wav_f32x4_extract_lane(v, lane) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, 3); \
-    WAV_REQUIRE_TYPE(wav_f32x4_t, v).values[lane]; \
-  }))
-
-#define \
-  wav_f64x2_extract_lane(v, lane) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, 1); \
-    WAV_REQUIRE_TYPE(wav_f64x2_t, v).values[lane]; \
-  }))
-
-#define wav_extract_lane(v, lane) \
-  (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, (sizeof(v.values) / sizeof(v.values[0])) - 1); \
-    v.values[lane]; \
-  }))
+WAV_OVERLOAD_ATTRIBUTES   int8_t wav_extract_lane(wav_i8x16_t v, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0, 15) { return v.values[lane]; }
+WAV_OVERLOAD_ATTRIBUTES  int16_t wav_extract_lane(wav_i16x8_t v, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  7) { return v.values[lane]; }
+WAV_OVERLOAD_ATTRIBUTES  int32_t wav_extract_lane(wav_i32x4_t v, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  3) { return v.values[lane]; }
+WAV_OVERLOAD_ATTRIBUTES  int64_t wav_extract_lane(wav_i64x2_t v, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  1) { return v.values[lane]; }
+WAV_OVERLOAD_ATTRIBUTES  uint8_t wav_extract_lane(wav_u8x16_t v, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0, 15) { return v.values[lane]; }
+WAV_OVERLOAD_ATTRIBUTES uint16_t wav_extract_lane(wav_u16x8_t v, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  7) { return v.values[lane]; }
+WAV_OVERLOAD_ATTRIBUTES uint32_t wav_extract_lane(wav_u32x4_t v, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  3) { return v.values[lane]; }
+WAV_OVERLOAD_ATTRIBUTES uint64_t wav_extract_lane(wav_u64x2_t v, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  1) { return v.values[lane]; }
+WAV_OVERLOAD_ATTRIBUTES    float wav_extract_lane(wav_f32x4_t v, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  3) { return v.values[lane]; }
+WAV_OVERLOAD_ATTRIBUTES   double wav_extract_lane(wav_f64x2_t v, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  1) { return v.values[lane]; }
 
 /* replace_lane -- Replace lane value
  *
@@ -1450,91 +1409,27 @@ wav_const(double c0, double c1)
  * value.
  */
 
-#define \
-  wav_i8x16_replace_lane(v, lane, value) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, 15); \
-    wav_i8x16_t v_ = v; \
-    v_.values[lane] = value; \
-    v_; \
-  }))
+WAV_FUNCTION_ATTRIBUTES void wav_i8x16_replace_lane(wav_i8x16_t v, const int lane,   int8_t value) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0, 15) { v.values[lane] = value; }
+WAV_FUNCTION_ATTRIBUTES void wav_i16x8_replace_lane(wav_i16x8_t v, const int lane,  int16_t value) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  7) { v.values[lane] = value; }
+WAV_FUNCTION_ATTRIBUTES void wav_i32x4_replace_lane(wav_i32x4_t v, const int lane,  int32_t value) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  3) { v.values[lane] = value; }
+WAV_FUNCTION_ATTRIBUTES void wav_i64x2_replace_lane(wav_i64x2_t v, const int lane,  int64_t value) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  1) { v.values[lane] = value; }
+WAV_FUNCTION_ATTRIBUTES void wav_u8x16_replace_lane(wav_u8x16_t v, const int lane,  uint8_t value) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0, 15) { v.values[lane] = value; }
+WAV_FUNCTION_ATTRIBUTES void wav_u16x8_replace_lane(wav_u16x8_t v, const int lane, uint16_t value) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  7) { v.values[lane] = value; }
+WAV_FUNCTION_ATTRIBUTES void wav_u32x4_replace_lane(wav_u32x4_t v, const int lane, uint32_t value) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  3) { v.values[lane] = value; }
+WAV_FUNCTION_ATTRIBUTES void wav_u64x2_replace_lane(wav_u64x2_t v, const int lane, uint64_t value) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  1) { v.values[lane] = value; }
+WAV_FUNCTION_ATTRIBUTES void wav_f32x4_replace_lane(wav_f32x4_t v, const int lane,    float value) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  3) { v.values[lane] = value; }
+WAV_FUNCTION_ATTRIBUTES void wav_f64x2_replace_lane(wav_f64x2_t v, const int lane,   double value) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  1) { v.values[lane] = value; }
 
-#define \
-  wav_i16x8_replace_lane(v, lane, value) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, 15); \
-    wav_i16x8_t v_ = v; \
-    v_.values[lane] = value; \
-    v_; \
-  }))
-
-#define \
-  wav_i32x4_replace_lane(v, lane, value) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, 15); \
-    wav_i32x4_t v_ = v; \
-    v_.values[lane] = value; \
-    v_; \
-  }))
-
-#define \
-  wav_i64x2_replace_lane(v, lane, value) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, 15); \
-    wav_i64x2_t v_ = v; \
-    v_.values[lane] = value; \
-    v_; \
-  }))
-
-#define \
-  wav_u8x16_replace_lane(v, lane, value) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, 15); \
-    wav_u8x16_t v_ = v; \
-    v_.values[lane] = value; \
-    v_; \
-  }))
-
-#define \
-  wav_u16x8_replace_lane(v, lane, value) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, 15); \
-    wav_u16x8_t v_ = v; \
-    v_.values[lane] = value; \
-    v_; \
-  }))
-
-#define \
-  wav_u32x4_replace_lane(v, lane, value) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, 15); \
-    wav_u32x4_t v_ = v; \
-    v_.values[lane] = value; \
-    v_; \
-  }))
-
-#define \
-  wav_u64x2_replace_lane(v, lane, value) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, 15); \
-    wav_u64x2_t v_ = v; \
-    v_.values[lane] = value; \
-    v_; \
-  }))
-
-#define \
-  wav_f32x4_replace_lane(v, lane, value) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, 15); \
-    wav_f32x4_t v_ = v; \
-    v_.values[lane] = value; \
-    v_; \
-  }))
-
-#define \
-  wav_f64x2_replace_lane(v, lane, value) (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, 15); \
-    wav_f64x2_t v_ = v; \
-    v_.values[lane] = value; \
-    v_; \
-  }))
-
-#define wav_replace_lane(v, lane, value) \
-  (__extension__ ({ \
-    WAV_REQUIRE_CONSTANT_RANGE(lane, 0, (sizeof(v.values) / sizeof(v.values[0])) - 1); \
-    v.values[lane] = (value); \
-  }))
+WAV_OVERLOAD_ATTRIBUTES void wav_replace_lane(wav_i8x16_t v, const int lane,   int8_t value) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0, 15) { v.values[lane] = value; }
+WAV_OVERLOAD_ATTRIBUTES void wav_replace_lane(wav_i16x8_t v, const int lane,  int16_t value) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  7) { v.values[lane] = value; }
+WAV_OVERLOAD_ATTRIBUTES void wav_replace_lane(wav_i32x4_t v, const int lane,  int32_t value) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  3) { v.values[lane] = value; }
+WAV_OVERLOAD_ATTRIBUTES void wav_replace_lane(wav_i64x2_t v, const int lane,  int64_t value) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  1) { v.values[lane] = value; }
+WAV_OVERLOAD_ATTRIBUTES void wav_replace_lane(wav_u8x16_t v, const int lane,  uint8_t value) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0, 15) { v.values[lane] = value; }
+WAV_OVERLOAD_ATTRIBUTES void wav_replace_lane(wav_u16x8_t v, const int lane, uint16_t value) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  7) { v.values[lane] = value; }
+WAV_OVERLOAD_ATTRIBUTES void wav_replace_lane(wav_u32x4_t v, const int lane, uint32_t value) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  3) { v.values[lane] = value; }
+WAV_OVERLOAD_ATTRIBUTES void wav_replace_lane(wav_u64x2_t v, const int lane, uint64_t value) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  1) { v.values[lane] = value; }
+WAV_OVERLOAD_ATTRIBUTES void wav_replace_lane(wav_f32x4_t v, const int lane,    float value) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  3) { v.values[lane] = value; }
+WAV_OVERLOAD_ATTRIBUTES void wav_replace_lane(wav_f64x2_t v, const int lane,   double value) WAV_REQUIRE_CONSTANT_RANGE_PARAMETER(lane, 0,  1) { v.values[lane] = value; }
 
 /* shuffle -- Shuffling using immediate indices
  *
