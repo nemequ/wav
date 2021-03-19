@@ -5568,7 +5568,7 @@ wav_f64x2_loadu_splat(const void * a) {
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i16x8_t
-wav_i8x16_load_extend(int8_t values[WAV_ARRAY_PARAM(8)]) {
+wav_i16x8_load_extend(int8_t values[WAV_ARRAY_PARAM(8)]) {
   wav_i16x8_t r;
   int8_t vec __attribute__((__vector_size__(8)));
   __builtin_memcpy(&vec, values, sizeof(vec));
@@ -5578,7 +5578,7 @@ wav_i8x16_load_extend(int8_t values[WAV_ARRAY_PARAM(8)]) {
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i32x4_t
-wav_i16x8_load_extend(int16_t values[WAV_ARRAY_PARAM(4)]) {
+wav_i32x4_load_extend(int16_t values[WAV_ARRAY_PARAM(4)]) {
   wav_i32x4_t r;
   int16_t vec __attribute__((__vector_size__(8)));
   __builtin_memcpy(&vec, values, sizeof(vec));
@@ -5588,7 +5588,7 @@ wav_i16x8_load_extend(int16_t values[WAV_ARRAY_PARAM(4)]) {
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i64x2_t
-wav_i32x4_load_extend(int32_t values[WAV_ARRAY_PARAM(2)]) {
+wav_i64x2_load_extend(int32_t values[WAV_ARRAY_PARAM(2)]) {
   wav_i64x2_t r;
   int32_t vec __attribute__((__vector_size__(8)));
   __builtin_memcpy(&vec, values, sizeof(vec));
@@ -5598,7 +5598,7 @@ wav_i32x4_load_extend(int32_t values[WAV_ARRAY_PARAM(2)]) {
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u16x8_t
-wav_u8x16_load_extend(int8_t values[WAV_ARRAY_PARAM(8)]) {
+wav_u16x8_load_extend(uint8_t values[WAV_ARRAY_PARAM(8)]) {
   wav_u16x8_t r;
   int8_t vec __attribute__((__vector_size__(8)));
   __builtin_memcpy(&vec, values, sizeof(vec));
@@ -5608,7 +5608,7 @@ wav_u8x16_load_extend(int8_t values[WAV_ARRAY_PARAM(8)]) {
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u32x4_t
-wav_u16x8_load_extend(int16_t values[WAV_ARRAY_PARAM(4)]) {
+wav_u32x4_load_extend(uint16_t values[WAV_ARRAY_PARAM(4)]) {
   wav_u32x4_t r;
   int16_t vec __attribute__((__vector_size__(8)));
   __builtin_memcpy(&vec, values, sizeof(vec));
@@ -5618,13 +5618,20 @@ wav_u16x8_load_extend(int16_t values[WAV_ARRAY_PARAM(4)]) {
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u64x2_t
-wav_u32x4_load_extend(int32_t values[WAV_ARRAY_PARAM(2)]) {
+wav_u64x2_load_extend(uint32_t values[WAV_ARRAY_PARAM(2)]) {
   wav_u64x2_t r;
   int32_t vec __attribute__((__vector_size__(8)));
   __builtin_memcpy(&vec, values, sizeof(vec));
   r.values = __builtin_convertvector(vec, __typeof__(r.values));
   return r;
 }
+
+WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t wav_load_extend(  int8_t a[WAV_ARRAY_PARAM(8)]) { return wav_i16x8_load_extend(a); }
+WAV_OVERLOAD_ATTRIBUTES wav_i32x4_t wav_load_extend( int16_t a[WAV_ARRAY_PARAM(4)]) { return wav_i32x4_load_extend(a); }
+WAV_OVERLOAD_ATTRIBUTES wav_i64x2_t wav_load_extend( int32_t a[WAV_ARRAY_PARAM(2)]) { return wav_i64x2_load_extend(a); }
+WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t wav_load_extend( uint8_t a[WAV_ARRAY_PARAM(8)]) { return wav_u16x8_load_extend(a); }
+WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t wav_load_extend(uint16_t a[WAV_ARRAY_PARAM(4)]) { return wav_u32x4_load_extend(a); }
+WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_load_extend(uint32_t a[WAV_ARRAY_PARAM(2)]) { return wav_u64x2_load_extend(a); }
 
 #pragma clang diagnostic pop
 
