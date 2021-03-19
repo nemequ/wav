@@ -239,10 +239,6 @@ WAV is, however, not yet API stable.  Depending on feedback things
 may change.  I don't expect many API-breaking changes, but can't
 promise that yet.
 
-Moving forward, I think the next priority is going to be writing
-tests.  A **lot** of tests.  We need to verify that every single
-function compiles to the intended instruction(s) in WebAssembly.
-
 As I mentioned earlier, adding functionality beyond what is provided
 by WebAssembly SIMD is outside of WAV's scope, which means once
 WAV's API is stable and complete we should be done, at least until
