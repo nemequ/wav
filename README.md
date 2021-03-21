@@ -191,8 +191,8 @@ functions to convert to/from `wasm_simd128.h`'s type (`v128_t`).  For
 example:
 
 ```c
-v128_t        wav_f32x4_as_v128(wav_f32x4_t value);
-wav_f32x4_t wav_v128_as_f32x4(       v128_t value);
+v128_t      wav_f32x4_as_v128(wav_f32x4_t value);
+wav_f32x4_t wav_v128_as_f32x4(     v128_t value);
 ```
 
 This makes it easy to convert between the two APIs so you can freely
