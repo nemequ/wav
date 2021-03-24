@@ -5257,19 +5257,19 @@ WAV_OVERLOAD_ATTRIBUTES_UNIMPLEMENTED wav_b64x2_t operator>=(wav_f64x2_t a, wav_
  * These functions return 1 if any bit in a is non-zero, 0 otherwise.
  */
 
-WAV_FUNCTION_ATTRIBUTES
+WAV_FUNCTION_ATTRIBUTES_UNIMPLEMENTED
 bool
 wav_i8x16_any_true(wav_i8x16_t value) {
   return __builtin_wasm_any_true_i8x16(value.values);
 }
 
-WAV_FUNCTION_ATTRIBUTES
+WAV_FUNCTION_ATTRIBUTES_UNIMPLEMENTED
 bool
 wav_i16x8_any_true(wav_i16x8_t value) {
   return __builtin_wasm_any_true_i16x8(value.values);
 }
 
-WAV_FUNCTION_ATTRIBUTES
+WAV_FUNCTION_ATTRIBUTES_UNIMPLEMENTED
 bool
 wav_i32x4_any_true(wav_i32x4_t value) {
   return __builtin_wasm_any_true_i32x4(value.values);
@@ -5281,19 +5281,19 @@ wav_i64x2_any_true(wav_i64x2_t value) {
   return __builtin_wasm_any_true_i64x2(value.values);
 }
 
-WAV_FUNCTION_ATTRIBUTES
+WAV_FUNCTION_ATTRIBUTES_UNIMPLEMENTED
 bool
 wav_u8x16_any_true(wav_u8x16_t value) {
   return wav_i8x16_any_true(wav_u8x16_as_i8x16(value));
 }
 
-WAV_FUNCTION_ATTRIBUTES
+WAV_FUNCTION_ATTRIBUTES_UNIMPLEMENTED
 bool
 wav_u16x8_any_true(wav_u16x8_t value) {
   return wav_i16x8_any_true(wav_u16x8_as_i16x8(value));
 }
 
-WAV_FUNCTION_ATTRIBUTES
+WAV_FUNCTION_ATTRIBUTES_UNIMPLEMENTED
 bool
 wav_u32x4_any_true(wav_u32x4_t value) {
   return wav_i32x4_any_true(wav_u32x4_as_i32x4(value));
@@ -5305,19 +5305,19 @@ wav_u64x2_any_true(wav_u64x2_t value) {
   return wav_i64x2_any_true(wav_u64x2_as_i64x2(value));
 }
 
-WAV_FUNCTION_ATTRIBUTES
+WAV_FUNCTION_ATTRIBUTES_UNIMPLEMENTED
 bool
 wav_b8x16_any_true(wav_b8x16_t value) {
   return wav_i8x16_any_true(wav_b8x16_as_i8x16(value));
 }
 
-WAV_FUNCTION_ATTRIBUTES
+WAV_FUNCTION_ATTRIBUTES_UNIMPLEMENTED
 bool
 wav_b16x8_any_true(wav_b16x8_t value) {
   return wav_i16x8_any_true(wav_b16x8_as_i16x8(value));
 }
 
-WAV_FUNCTION_ATTRIBUTES
+WAV_FUNCTION_ATTRIBUTES_UNIMPLEMENTED
 bool
 wav_b32x4_any_true(wav_b32x4_t value) {
   return wav_i32x4_any_true(wav_b32x4_as_i32x4(value));
@@ -5329,17 +5329,17 @@ wav_b64x2_any_true(wav_b64x2_t value) {
   return wav_i64x2_any_true(wav_b64x2_as_i64x2(value));
 }
 
-WAV_OVERLOAD_ATTRIBUTES bool wav_any_true(wav_i8x16_t a) { return wav_i8x16_any_true(a); }
-WAV_OVERLOAD_ATTRIBUTES bool wav_any_true(wav_i16x8_t a) { return wav_i16x8_any_true(a); }
-WAV_OVERLOAD_ATTRIBUTES bool wav_any_true(wav_i32x4_t a) { return wav_i32x4_any_true(a); }
+WAV_OVERLOAD_ATTRIBUTES_UNIMPLEMENTED bool wav_any_true(wav_i8x16_t a) { return wav_i8x16_any_true(a); }
+WAV_OVERLOAD_ATTRIBUTES_UNIMPLEMENTED bool wav_any_true(wav_i16x8_t a) { return wav_i16x8_any_true(a); }
+WAV_OVERLOAD_ATTRIBUTES_UNIMPLEMENTED bool wav_any_true(wav_i32x4_t a) { return wav_i32x4_any_true(a); }
 WAV_OVERLOAD_ATTRIBUTES_UNIMPLEMENTED bool wav_any_true(wav_i64x2_t a) { return wav_i64x2_any_true(a); }
-WAV_OVERLOAD_ATTRIBUTES bool wav_any_true(wav_u8x16_t a) { return wav_u8x16_any_true(a); }
-WAV_OVERLOAD_ATTRIBUTES bool wav_any_true(wav_u16x8_t a) { return wav_u16x8_any_true(a); }
-WAV_OVERLOAD_ATTRIBUTES bool wav_any_true(wav_u32x4_t a) { return wav_u32x4_any_true(a); }
+WAV_OVERLOAD_ATTRIBUTES_UNIMPLEMENTED bool wav_any_true(wav_u8x16_t a) { return wav_u8x16_any_true(a); }
+WAV_OVERLOAD_ATTRIBUTES_UNIMPLEMENTED bool wav_any_true(wav_u16x8_t a) { return wav_u16x8_any_true(a); }
+WAV_OVERLOAD_ATTRIBUTES_UNIMPLEMENTED bool wav_any_true(wav_u32x4_t a) { return wav_u32x4_any_true(a); }
 WAV_OVERLOAD_ATTRIBUTES_UNIMPLEMENTED bool wav_any_true(wav_u64x2_t a) { return wav_u64x2_any_true(a); }
-WAV_OVERLOAD_ATTRIBUTES bool wav_any_true(wav_b8x16_t a) { return wav_b8x16_any_true(a); }
-WAV_OVERLOAD_ATTRIBUTES bool wav_any_true(wav_b16x8_t a) { return wav_b16x8_any_true(a); }
-WAV_OVERLOAD_ATTRIBUTES bool wav_any_true(wav_b32x4_t a) { return wav_b32x4_any_true(a); }
+WAV_OVERLOAD_ATTRIBUTES_UNIMPLEMENTED bool wav_any_true(wav_b8x16_t a) { return wav_b8x16_any_true(a); }
+WAV_OVERLOAD_ATTRIBUTES_UNIMPLEMENTED bool wav_any_true(wav_b16x8_t a) { return wav_b16x8_any_true(a); }
+WAV_OVERLOAD_ATTRIBUTES_UNIMPLEMENTED bool wav_any_true(wav_b32x4_t a) { return wav_b32x4_any_true(a); }
 WAV_OVERLOAD_ATTRIBUTES_UNIMPLEMENTED bool wav_any_true(wav_b64x2_t a) { return wav_b64x2_any_true(a); }
 
 /* all_true -- Any bit true
