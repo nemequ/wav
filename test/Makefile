@@ -60,12 +60,12 @@ COMPILE_TESTS = \
 	bitselect \
 	blend \
 	popcount \
-	cmpeq \
-	cmpne \
-	cmplt \
-	cmple \
-	cmpgt \
-	cmpge \
+	eq \
+	ne \
+	lt \
+	le \
+	gt \
+	ge \
 	any_true \
 	all_true \
 	load_zero \
