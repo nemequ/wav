@@ -5828,6 +5828,97 @@ WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t wav_load_extend( uint8_t a[WAV_ARRAY_PARAM(8
 WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t wav_load_extend(uint16_t a[WAV_ARRAY_PARAM(4)]) { return wav_u32x4_load_extend(a); }
 WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_load_extend(uint32_t a[WAV_ARRAY_PARAM(2)]) { return wav_u64x2_load_extend(a); }
 
+/* bitmask -- Bitmask extraction
+ *
+ * These operations extract the high bit for each lane in a and produce
+ * a scalar mask with all bits concatenated.
+ */
+
+WAV_FUNCTION_ATTRIBUTES
+unsigned int
+wav_i8x16_bitmask(wav_i8x16_t a) {
+  return (unsigned int) __builtin_wasm_bitmask_i8x16(a.values);
+}
+
+WAV_FUNCTION_ATTRIBUTES
+unsigned int
+wav_i16x8_bitmask(wav_i16x8_t a) {
+  return (unsigned int) __builtin_wasm_bitmask_i16x8(a.values);
+}
+
+WAV_FUNCTION_ATTRIBUTES
+unsigned int
+wav_i32x4_bitmask(wav_i32x4_t a) {
+  return (unsigned int) __builtin_wasm_bitmask_i32x4(a.values);
+}
+
+WAV_FUNCTION_ATTRIBUTES
+unsigned int
+wav_i64x2_bitmask(wav_i64x2_t a) {
+  return (unsigned int) __builtin_wasm_bitmask_i64x2(a.values);
+}
+
+WAV_FUNCTION_ATTRIBUTES
+unsigned int
+wav_u8x16_bitmask(wav_u8x16_t a) {
+  return (unsigned int) __builtin_wasm_bitmask_i8x16((int8_t __attribute__((__vector_size__(16)))) a.values);
+}
+
+WAV_FUNCTION_ATTRIBUTES
+unsigned int
+wav_u16x8_bitmask(wav_u16x8_t a) {
+  return (unsigned int) __builtin_wasm_bitmask_i16x8((int16_t __attribute__((__vector_size__(16)))) a.values);
+}
+
+WAV_FUNCTION_ATTRIBUTES
+unsigned int
+wav_u32x4_bitmask(wav_u32x4_t a) {
+  return (unsigned int) __builtin_wasm_bitmask_i32x4((int32_t __attribute__((__vector_size__(16)))) a.values);
+}
+
+WAV_FUNCTION_ATTRIBUTES
+unsigned int
+wav_u64x2_bitmask(wav_u64x2_t a) {
+  return (unsigned int) __builtin_wasm_bitmask_i64x2((int64_t __attribute__((__vector_size__(16)))) a.values);
+}
+
+WAV_FUNCTION_ATTRIBUTES
+unsigned int
+wav_b8x16_bitmask(wav_b8x16_t a) {
+  return (unsigned int) __builtin_wasm_bitmask_i8x16((int8_t __attribute__((__vector_size__(16)))) a.values);
+}
+
+WAV_FUNCTION_ATTRIBUTES
+unsigned int
+wav_b16x8_bitmask(wav_b16x8_t a) {
+  return (unsigned int) __builtin_wasm_bitmask_i16x8((int16_t __attribute__((__vector_size__(16)))) a.values);
+}
+
+WAV_FUNCTION_ATTRIBUTES
+unsigned int
+wav_b32x4_bitmask(wav_b32x4_t a) {
+  return (unsigned int) __builtin_wasm_bitmask_i32x4((int32_t __attribute__((__vector_size__(16)))) a.values);
+}
+
+WAV_FUNCTION_ATTRIBUTES
+unsigned int
+wav_b64x2_bitmask(wav_b64x2_t a) {
+  return (unsigned int) __builtin_wasm_bitmask_i64x2((int64_t __attribute__((__vector_size__(16)))) a.values);
+}
+
+WAV_OVERLOAD_ATTRIBUTES unsigned int wav_bitmask(wav_i8x16_t a) { return wav_i8x16_bitmask(a); }
+WAV_OVERLOAD_ATTRIBUTES unsigned int wav_bitmask(wav_i16x8_t a) { return wav_i16x8_bitmask(a); }
+WAV_OVERLOAD_ATTRIBUTES unsigned int wav_bitmask(wav_i32x4_t a) { return wav_i32x4_bitmask(a); }
+WAV_OVERLOAD_ATTRIBUTES unsigned int wav_bitmask(wav_i64x2_t a) { return wav_i64x2_bitmask(a); }
+WAV_OVERLOAD_ATTRIBUTES unsigned int wav_bitmask(wav_u8x16_t a) { return wav_u8x16_bitmask(a); }
+WAV_OVERLOAD_ATTRIBUTES unsigned int wav_bitmask(wav_u16x8_t a) { return wav_u16x8_bitmask(a); }
+WAV_OVERLOAD_ATTRIBUTES unsigned int wav_bitmask(wav_u32x4_t a) { return wav_u32x4_bitmask(a); }
+WAV_OVERLOAD_ATTRIBUTES unsigned int wav_bitmask(wav_u64x2_t a) { return wav_u64x2_bitmask(a); }
+WAV_OVERLOAD_ATTRIBUTES unsigned int wav_bitmask(wav_b8x16_t a) { return wav_b8x16_bitmask(a); }
+WAV_OVERLOAD_ATTRIBUTES unsigned int wav_bitmask(wav_b16x8_t a) { return wav_b16x8_bitmask(a); }
+WAV_OVERLOAD_ATTRIBUTES unsigned int wav_bitmask(wav_b32x4_t a) { return wav_b32x4_bitmask(a); }
+WAV_OVERLOAD_ATTRIBUTES unsigned int wav_bitmask(wav_b64x2_t a) { return wav_b64x2_bitmask(a); }
+
 #pragma clang diagnostic pop
 
 #endif /* !defined(WAV_H) */
