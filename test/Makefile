@@ -73,6 +73,7 @@ COMPILE_TESTS = \
 	loadu_splat \
 	load_lane \
 	load_extend \
+	bitmask \
 	$(NULL)
 
 TARGETS = \
