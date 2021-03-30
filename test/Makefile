@@ -59,7 +59,7 @@ COMPILE_TESTS = \
 	andnot \
 	bitselect \
 	blend \
-	popcount \
+	popcnt \
 	eq \
 	ne \
 	lt \
