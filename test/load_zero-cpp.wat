@@ -1,39 +1,68 @@
 (module
-  (type (;0;) (func (param i32) (result v128)))
-  (import "env" "__linear_memory" (memory (;0;) 0))
-  (func $_Z15load_zero_i32x4Pi (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load32_zero)
-  (func $_Z15load_zero_i64x2Px (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load64_zero)
-  (func $_Z15load_zero_u32x4Pj (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load32_zero)
-  (func $_Z15load_zero_u64x2Py (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load64_zero)
-  (func $_Z15load_zero_f32x4Pf (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load32_zero)
-  (func $_Z15load_zero_f64x2Pd (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load64_zero)
-  (func $_Z17load_zero_i32x4_oPi (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load32_zero)
-  (func $_Z17load_zero_i64x2_oPx (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load64_zero)
-  (func $_Z17load_zero_u32x4_oPj (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load32_zero)
-  (func $_Z17load_zero_u64x2_oPy (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load64_zero)
-  (func $_Z17load_zero_f32x4_oPf (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load32_zero)
-  (func $_Z17load_zero_f64x2_oPd (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load64_zero))
+ (type $i32_=>_v128 (func (param i32) (result v128)))
+ (import "env" "__linear_memory" (memory $mimport$0 0))
+ (func $0 (param $0 i32) (result v128)
+  (v128.load32_zero
+   (local.get $0)
+  )
+ )
+ (func $1 (param $0 i32) (result v128)
+  (v128.load64_zero
+   (local.get $0)
+  )
+ )
+ (func $2 (param $0 i32) (result v128)
+  (v128.load32_zero
+   (local.get $0)
+  )
+ )
+ (func $3 (param $0 i32) (result v128)
+  (v128.load64_zero
+   (local.get $0)
+  )
+ )
+ (func $4 (param $0 i32) (result v128)
+  (v128.load32_zero
+   (local.get $0)
+  )
+ )
+ (func $5 (param $0 i32) (result v128)
+  (v128.load64_zero
+   (local.get $0)
+  )
+ )
+ (func $6 (param $0 i32) (result v128)
+  (v128.load32_zero
+   (local.get $0)
+  )
+ )
+ (func $7 (param $0 i32) (result v128)
+  (v128.load64_zero
+   (local.get $0)
+  )
+ )
+ (func $8 (param $0 i32) (result v128)
+  (v128.load32_zero
+   (local.get $0)
+  )
+ )
+ (func $9 (param $0 i32) (result v128)
+  (v128.load64_zero
+   (local.get $0)
+  )
+ )
+ (func $10 (param $0 i32) (result v128)
+  (v128.load32_zero
+   (local.get $0)
+  )
+ )
+ (func $11 (param $0 i32) (result v128)
+  (v128.load64_zero
+   (local.get $0)
+  )
+ )
+ ;; custom section "linking", size 320
+ ;; custom section "producers", size 157
+ ;; features section: simd
+)
+

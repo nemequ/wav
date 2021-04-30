@@ -1,35 +1,56 @@
 (module
-  (type (;0;) (func (param v128 v128) (result v128)))
-  (import "env" "__linear_memory" (memory (;0;) 0))
-  (func $_Z9add_i16x811wav_i16x8_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i8x16.narrow_i16x8_s)
-  (func $_Z9add_i32x411wav_i32x4_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i16x8.narrow_i32x4_s)
-  (func $_Z9add_u16x811wav_u16x8_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i8x16.narrow_i16x8_u)
-  (func $_Z9add_u32x411wav_u32x4_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i16x8.narrow_i32x4_u)
-  (func $_Z12add_i16x8_op11wav_i16x8_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i8x16.narrow_i16x8_s)
-  (func $_Z12add_i32x4_op11wav_i32x4_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i16x8.narrow_i32x4_s)
-  (func $_Z12add_u16x8_op11wav_u16x8_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i8x16.narrow_i16x8_u)
-  (func $_Z12add_u32x4_op11wav_u32x4_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i16x8.narrow_i32x4_u))
+ (type $v128_v128_=>_v128 (func (param v128 v128) (result v128)))
+ (import "env" "__linear_memory" (memory $mimport$0 0))
+ (func $0 (param $0 v128) (param $1 v128) (result v128)
+  (i8x16.narrow_i16x8_s
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $1 (param $0 v128) (param $1 v128) (result v128)
+  (i16x8.narrow_i32x4_s
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $2 (param $0 v128) (param $1 v128) (result v128)
+  (i8x16.narrow_i16x8_u
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $3 (param $0 v128) (param $1 v128) (result v128)
+  (i16x8.narrow_i32x4_u
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $4 (param $0 v128) (param $1 v128) (result v128)
+  (i8x16.narrow_i16x8_s
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $5 (param $0 v128) (param $1 v128) (result v128)
+  (i16x8.narrow_i32x4_s
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $6 (param $0 v128) (param $1 v128) (result v128)
+  (i8x16.narrow_i16x8_u
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $7 (param $0 v128) (param $1 v128) (result v128)
+  (i16x8.narrow_i32x4_u
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ ;; custom section "linking", size 272
+ ;; custom section "producers", size 157
+ ;; features section: simd
+)
+

@@ -1,63 +1,108 @@
 (module
-  (type (;0;) (func (param i32) (result v128)))
-  (import "env" "__linear_memory" (memory (;0;) 0))
-  (func $_Z10load_i8x16Pa (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load align=1)
-  (func $_Z10load_i16x8Ps (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load align=2)
-  (func $_Z10load_i32x4Pi (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load align=4)
-  (func $_Z10load_i64x2Px (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load align=8)
-  (func $_Z10load_u8x16Ph (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load align=1)
-  (func $_Z10load_u16x8Pt (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load align=2)
-  (func $_Z10load_u32x4Pj (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load align=4)
-  (func $_Z10load_u64x2Py (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load align=8)
-  (func $_Z10load_f32x4Pf (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load align=4)
-  (func $_Z10load_f64x2Pd (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load align=8)
-  (func $_Z12load_i8x16_oPa (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load align=1)
-  (func $_Z12load_i16x8_oPs (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load align=2)
-  (func $_Z12load_i32x4_oPi (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load align=4)
-  (func $_Z12load_i64x2_oPx (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load align=8)
-  (func $_Z12load_u8x16_oPh (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load align=1)
-  (func $_Z12load_u16x8_oPt (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load align=2)
-  (func $_Z12load_u32x4_oPj (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load align=4)
-  (func $_Z12load_u64x2_oPy (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load align=8)
-  (func $_Z12load_f32x4_oPf (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load align=4)
-  (func $_Z12load_f64x2_oPd (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load align=8))
+ (type $i32_=>_v128 (func (param i32) (result v128)))
+ (import "env" "__linear_memory" (memory $mimport$0 0))
+ (func $0 (param $0 i32) (result v128)
+  (v128.load align=1
+   (local.get $0)
+  )
+ )
+ (func $1 (param $0 i32) (result v128)
+  (v128.load align=2
+   (local.get $0)
+  )
+ )
+ (func $2 (param $0 i32) (result v128)
+  (v128.load align=4
+   (local.get $0)
+  )
+ )
+ (func $3 (param $0 i32) (result v128)
+  (v128.load align=8
+   (local.get $0)
+  )
+ )
+ (func $4 (param $0 i32) (result v128)
+  (v128.load align=1
+   (local.get $0)
+  )
+ )
+ (func $5 (param $0 i32) (result v128)
+  (v128.load align=2
+   (local.get $0)
+  )
+ )
+ (func $6 (param $0 i32) (result v128)
+  (v128.load align=4
+   (local.get $0)
+  )
+ )
+ (func $7 (param $0 i32) (result v128)
+  (v128.load align=8
+   (local.get $0)
+  )
+ )
+ (func $8 (param $0 i32) (result v128)
+  (v128.load align=4
+   (local.get $0)
+  )
+ )
+ (func $9 (param $0 i32) (result v128)
+  (v128.load align=8
+   (local.get $0)
+  )
+ )
+ (func $10 (param $0 i32) (result v128)
+  (v128.load align=1
+   (local.get $0)
+  )
+ )
+ (func $11 (param $0 i32) (result v128)
+  (v128.load align=2
+   (local.get $0)
+  )
+ )
+ (func $12 (param $0 i32) (result v128)
+  (v128.load align=4
+   (local.get $0)
+  )
+ )
+ (func $13 (param $0 i32) (result v128)
+  (v128.load align=8
+   (local.get $0)
+  )
+ )
+ (func $14 (param $0 i32) (result v128)
+  (v128.load align=1
+   (local.get $0)
+  )
+ )
+ (func $15 (param $0 i32) (result v128)
+  (v128.load align=2
+   (local.get $0)
+  )
+ )
+ (func $16 (param $0 i32) (result v128)
+  (v128.load align=4
+   (local.get $0)
+  )
+ )
+ (func $17 (param $0 i32) (result v128)
+  (v128.load align=8
+   (local.get $0)
+  )
+ )
+ (func $18 (param $0 i32) (result v128)
+  (v128.load align=4
+   (local.get $0)
+  )
+ )
+ (func $19 (param $0 i32) (result v128)
+  (v128.load align=8
+   (local.get $0)
+  )
+ )
+ ;; custom section "linking", size 428
+ ;; custom section "producers", size 157
+ ;; features section: simd
+)
+

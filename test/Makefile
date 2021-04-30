@@ -2,8 +2,8 @@ EMSDK = /opt/emscripten
 
 CC := $(EMSDK)/upstream/emscripten/emcc
 CXX := $(EMSDK)/upstream/emscripten/em++
-WASM2WAT := /home/nemequ/local/src/wabt/build/wasm2wat
-CFLAGS := -Weverything -Wno-missing-prototypes -Werror -O1 -msimd128 # -munimplemented-simd128
+WASM2WAT := $(EMSDK)/upstream/bin/wasm-dis
+CFLAGS := -Weverything -Wno-missing-prototypes -Werror -O1 -msimd128 # -D__wasm_unimplemented_simd128__
 CXXFLAGS := $(CFLAGS)
 
 NULL =

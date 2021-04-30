@@ -1,123 +1,188 @@
 (module
-  (type (;0;) (func (param v128 v128) (result v128)))
-  (import "env" "__linear_memory" (memory (;0;) 0))
-  (func $_Z12andnot_i8x1611wav_i8x16_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z12andnot_i16x811wav_i16x8_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z12andnot_i32x411wav_i32x4_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z12andnot_i64x211wav_i64x2_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z12andnot_u8x1611wav_u8x16_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z12andnot_u16x811wav_u16x8_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z12andnot_u32x411wav_u32x4_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z12andnot_u64x211wav_u64x2_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z12andnot_b8x1611wav_b8x16_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z12andnot_b16x811wav_b16x8_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z12andnot_b32x411wav_b32x4_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z12andnot_b64x211wav_b64x2_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z14andnot_i8x16_b11wav_i8x16_t11wav_b8x16_t (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z14andnot_i16x8_b11wav_i16x8_t11wav_b16x8_t (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z14andnot_i32x4_b11wav_i32x4_t11wav_b32x4_t (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z14andnot_i64x2_b11wav_i64x2_t11wav_b64x2_t (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z14andnot_u8x16_b11wav_u8x16_t11wav_b8x16_t (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z14andnot_u16x8_b11wav_u16x8_t11wav_b16x8_t (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z14andnot_u32x4_b11wav_u32x4_t11wav_b32x4_t (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z14andnot_u64x2_b11wav_u64x2_t11wav_b64x2_t (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z14andnot_f32x4_b11wav_f32x4_t11wav_b32x4_t (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z14andnot_f64x2_b11wav_f64x2_t11wav_b64x2_t (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z14andnot_b8x16_i11wav_b8x16_t11wav_i8x16_t (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z14andnot_b16x8_i11wav_b16x8_t11wav_i16x8_t (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z14andnot_b32x4_i11wav_b32x4_t11wav_i32x4_t (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z14andnot_b64x2_i11wav_b64x2_t11wav_i64x2_t (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z14andnot_b8x16_u11wav_b8x16_t11wav_u8x16_t (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z14andnot_b16x8_u11wav_b16x8_t11wav_u16x8_t (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z14andnot_b32x4_u11wav_b32x4_t11wav_u32x4_t (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot)
-  (func $_Z14andnot_b64x2_u11wav_b64x2_t11wav_u64x2_t (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    v128.andnot))
+ (type $v128_v128_=>_v128 (func (param v128 v128) (result v128)))
+ (import "env" "__linear_memory" (memory $mimport$0 0))
+ (func $0 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $1 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $2 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $3 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $4 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $5 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $6 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $7 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $8 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $9 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $10 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $11 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $12 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $13 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $14 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $15 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $16 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $17 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $18 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $19 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $20 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $21 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $22 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $23 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $24 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $25 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $26 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $27 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $28 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $29 (param $0 v128) (param $1 v128) (result v128)
+  (v128.andnot
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ ;; custom section "linking", size 1292
+ ;; custom section "producers", size 157
+ ;; features section: simd
+)
+

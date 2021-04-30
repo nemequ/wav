@@ -1,33 +1,58 @@
 (module
-  (type (;0;) (func (param i32) (result v128)))
-  (import "env" "__linear_memory" (memory (;0;) 0))
-  (func $loada_i8x16 (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load)
-  (func $loada_i16x8 (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load)
-  (func $loada_i32x4 (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load)
-  (func $loada_i64x2 (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load)
-  (func $loada_u8x16 (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load)
-  (func $loada_u16x8 (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load)
-  (func $loada_u32x4 (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load)
-  (func $loada_u64x2 (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load)
-  (func $loada_f32x4 (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load)
-  (func $loada_f64x2 (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load))
+ (type $i32_=>_v128 (func (param i32) (result v128)))
+ (import "env" "__linear_memory" (memory $mimport$0 0))
+ (func $0 (param $0 i32) (result v128)
+  (v128.load
+   (local.get $0)
+  )
+ )
+ (func $1 (param $0 i32) (result v128)
+  (v128.load
+   (local.get $0)
+  )
+ )
+ (func $2 (param $0 i32) (result v128)
+  (v128.load
+   (local.get $0)
+  )
+ )
+ (func $3 (param $0 i32) (result v128)
+  (v128.load
+   (local.get $0)
+  )
+ )
+ (func $4 (param $0 i32) (result v128)
+  (v128.load
+   (local.get $0)
+  )
+ )
+ (func $5 (param $0 i32) (result v128)
+  (v128.load
+   (local.get $0)
+  )
+ )
+ (func $6 (param $0 i32) (result v128)
+  (v128.load
+   (local.get $0)
+  )
+ )
+ (func $7 (param $0 i32) (result v128)
+  (v128.load
+   (local.get $0)
+  )
+ )
+ (func $8 (param $0 i32) (result v128)
+  (v128.load
+   (local.get $0)
+  )
+ )
+ (func $9 (param $0 i32) (result v128)
+  (v128.load
+   (local.get $0)
+  )
+ )
+ ;; custom section "linking", size 158
+ ;; custom section "producers", size 157
+ ;; features section: simd
+)
+

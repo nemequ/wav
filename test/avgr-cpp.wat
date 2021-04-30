@@ -1,19 +1,32 @@
 (module
-  (type (;0;) (func (param v128 v128) (result v128)))
-  (import "env" "__linear_memory" (memory (;0;) 0))
-  (func $_Z10avgr_u8x1611wav_u8x16_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i8x16.avgr_u)
-  (func $_Z10avgr_u16x811wav_u16x8_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i16x8.avgr_u)
-  (func $_Z12avgr_u8x16_o11wav_u8x16_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i8x16.avgr_u)
-  (func $_Z12avgr_u16x8_o11wav_u16x8_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i16x8.avgr_u))
+ (type $v128_v128_=>_v128 (func (param v128 v128) (result v128)))
+ (import "env" "__linear_memory" (memory $mimport$0 0))
+ (func $0 (param $0 v128) (param $1 v128) (result v128)
+  (i8x16.avgr_u
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $1 (param $0 v128) (param $1 v128) (result v128)
+  (i16x8.avgr_u
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $2 (param $0 v128) (param $1 v128) (result v128)
+  (i8x16.avgr_u
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $3 (param $0 v128) (param $1 v128) (result v128)
+  (i16x8.avgr_u
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ ;; custom section "linking", size 144
+ ;; custom section "producers", size 157
+ ;; features section: simd
+)
+

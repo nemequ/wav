@@ -1,63 +1,108 @@
 (module
-  (type (;0;) (func (param i32) (result v128)))
-  (import "env" "__linear_memory" (memory (;0;) 0))
-  (func $load_splat_i8x16 (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load8_splat)
-  (func $load_splat_i16x8 (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load16_splat)
-  (func $load_splat_i32x4 (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load32_splat)
-  (func $load_splat_i64x2 (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load64_splat)
-  (func $load_splat_u8x16 (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load8_splat)
-  (func $load_splat_u16x8 (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load16_splat)
-  (func $load_splat_u32x4 (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load32_splat)
-  (func $load_splat_u64x2 (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load64_splat)
-  (func $load_splat_f32x4 (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load32_splat)
-  (func $load_splat_f64x2 (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load64_splat)
-  (func $load_splat_i8x16_o (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load8_splat)
-  (func $load_splat_i16x8_o (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load16_splat)
-  (func $load_splat_i32x4_o (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load32_splat)
-  (func $load_splat_i64x2_o (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load64_splat)
-  (func $load_splat_u8x16_o (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load8_splat)
-  (func $load_splat_u16x8_o (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load16_splat)
-  (func $load_splat_u32x4_o (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load32_splat)
-  (func $load_splat_u64x2_o (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load64_splat)
-  (func $load_splat_f32x4_o (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load32_splat)
-  (func $load_splat_f64x2_o (type 0) (param i32) (result v128)
-    local.get 0
-    v128.load64_splat))
+ (type $i32_=>_v128 (func (param i32) (result v128)))
+ (import "env" "__linear_memory" (memory $mimport$0 0))
+ (func $0 (param $0 i32) (result v128)
+  (v128.load8_splat
+   (local.get $0)
+  )
+ )
+ (func $1 (param $0 i32) (result v128)
+  (v128.load16_splat
+   (local.get $0)
+  )
+ )
+ (func $2 (param $0 i32) (result v128)
+  (v128.load32_splat
+   (local.get $0)
+  )
+ )
+ (func $3 (param $0 i32) (result v128)
+  (v128.load64_splat
+   (local.get $0)
+  )
+ )
+ (func $4 (param $0 i32) (result v128)
+  (v128.load8_splat
+   (local.get $0)
+  )
+ )
+ (func $5 (param $0 i32) (result v128)
+  (v128.load16_splat
+   (local.get $0)
+  )
+ )
+ (func $6 (param $0 i32) (result v128)
+  (v128.load32_splat
+   (local.get $0)
+  )
+ )
+ (func $7 (param $0 i32) (result v128)
+  (v128.load64_splat
+   (local.get $0)
+  )
+ )
+ (func $8 (param $0 i32) (result v128)
+  (v128.load32_splat
+   (local.get $0)
+  )
+ )
+ (func $9 (param $0 i32) (result v128)
+  (v128.load64_splat
+   (local.get $0)
+  )
+ )
+ (func $10 (param $0 i32) (result v128)
+  (v128.load8_splat
+   (local.get $0)
+  )
+ )
+ (func $11 (param $0 i32) (result v128)
+  (v128.load16_splat
+   (local.get $0)
+  )
+ )
+ (func $12 (param $0 i32) (result v128)
+  (v128.load32_splat
+   (local.get $0)
+  )
+ )
+ (func $13 (param $0 i32) (result v128)
+  (v128.load64_splat
+   (local.get $0)
+  )
+ )
+ (func $14 (param $0 i32) (result v128)
+  (v128.load8_splat
+   (local.get $0)
+  )
+ )
+ (func $15 (param $0 i32) (result v128)
+  (v128.load16_splat
+   (local.get $0)
+  )
+ )
+ (func $16 (param $0 i32) (result v128)
+  (v128.load32_splat
+   (local.get $0)
+  )
+ )
+ (func $17 (param $0 i32) (result v128)
+  (v128.load64_splat
+   (local.get $0)
+  )
+ )
+ (func $18 (param $0 i32) (result v128)
+  (v128.load32_splat
+   (local.get $0)
+  )
+ )
+ (func $19 (param $0 i32) (result v128)
+  (v128.load64_splat
+   (local.get $0)
+  )
+ )
+ ;; custom section "linking", size 428
+ ;; custom section "producers", size 157
+ ;; features section: simd
+)
+

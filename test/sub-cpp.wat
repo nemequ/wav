@@ -1,123 +1,188 @@
 (module
-  (type (;0;) (func (param v128 v128) (result v128)))
-  (import "env" "__linear_memory" (memory (;0;) 0))
-  (func $_Z9sub_i8x1611wav_i8x16_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i8x16.sub)
-  (func $_Z9sub_i16x811wav_i16x8_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i16x8.sub)
-  (func $_Z9sub_i32x411wav_i32x4_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i32x4.sub)
-  (func $_Z9sub_i64x211wav_i64x2_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i64x2.sub)
-  (func $_Z9sub_u8x1611wav_u8x16_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i8x16.sub)
-  (func $_Z9sub_u16x811wav_u16x8_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i16x8.sub)
-  (func $_Z9sub_u32x411wav_u32x4_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i32x4.sub)
-  (func $_Z9sub_u64x211wav_u64x2_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i64x2.sub)
-  (func $_Z9sub_f32x411wav_f32x4_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    f32x4.sub)
-  (func $_Z9sub_f64x211wav_f64x2_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    f64x2.sub)
-  (func $_Z11sub_i8x16_o11wav_i8x16_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i8x16.sub)
-  (func $_Z11sub_i16x8_o11wav_i16x8_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i16x8.sub)
-  (func $_Z11sub_i32x4_o11wav_i32x4_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i32x4.sub)
-  (func $_Z11sub_i64x2_o11wav_i64x2_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i64x2.sub)
-  (func $_Z11sub_u8x16_o11wav_u8x16_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i8x16.sub)
-  (func $_Z11sub_u16x8_o11wav_u16x8_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i16x8.sub)
-  (func $_Z11sub_u32x4_o11wav_u32x4_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i32x4.sub)
-  (func $_Z11sub_u64x2_o11wav_u64x2_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i64x2.sub)
-  (func $_Z11sub_f32x4_o11wav_f32x4_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    f32x4.sub)
-  (func $_Z11sub_f64x2_o11wav_f64x2_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    f64x2.sub)
-  (func $_Z12sub_i8x16_op11wav_i8x16_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i8x16.sub)
-  (func $_Z12sub_i16x8_op11wav_i16x8_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i16x8.sub)
-  (func $_Z12sub_i32x4_op11wav_i32x4_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i32x4.sub)
-  (func $_Z12sub_i64x2_op11wav_i64x2_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i64x2.sub)
-  (func $_Z12sub_u8x16_op11wav_u8x16_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i8x16.sub)
-  (func $_Z12sub_u16x8_op11wav_u16x8_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i16x8.sub)
-  (func $_Z12sub_u32x4_op11wav_u32x4_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i32x4.sub)
-  (func $_Z12sub_u64x2_op11wav_u64x2_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    i64x2.sub)
-  (func $_Z12sub_f32x4_op11wav_f32x4_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    f32x4.sub)
-  (func $_Z12sub_f64x2_op11wav_f64x2_tS_ (type 0) (param v128 v128) (result v128)
-    local.get 0
-    local.get 1
-    f64x2.sub))
+ (type $v128_v128_=>_v128 (func (param v128 v128) (result v128)))
+ (import "env" "__linear_memory" (memory $mimport$0 0))
+ (func $0 (param $0 v128) (param $1 v128) (result v128)
+  (i8x16.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $1 (param $0 v128) (param $1 v128) (result v128)
+  (i16x8.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $2 (param $0 v128) (param $1 v128) (result v128)
+  (i32x4.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $3 (param $0 v128) (param $1 v128) (result v128)
+  (i64x2.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $4 (param $0 v128) (param $1 v128) (result v128)
+  (i8x16.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $5 (param $0 v128) (param $1 v128) (result v128)
+  (i16x8.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $6 (param $0 v128) (param $1 v128) (result v128)
+  (i32x4.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $7 (param $0 v128) (param $1 v128) (result v128)
+  (i64x2.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $8 (param $0 v128) (param $1 v128) (result v128)
+  (f32x4.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $9 (param $0 v128) (param $1 v128) (result v128)
+  (f64x2.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $10 (param $0 v128) (param $1 v128) (result v128)
+  (i8x16.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $11 (param $0 v128) (param $1 v128) (result v128)
+  (i16x8.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $12 (param $0 v128) (param $1 v128) (result v128)
+  (i32x4.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $13 (param $0 v128) (param $1 v128) (result v128)
+  (i64x2.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $14 (param $0 v128) (param $1 v128) (result v128)
+  (i8x16.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $15 (param $0 v128) (param $1 v128) (result v128)
+  (i16x8.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $16 (param $0 v128) (param $1 v128) (result v128)
+  (i32x4.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $17 (param $0 v128) (param $1 v128) (result v128)
+  (i64x2.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $18 (param $0 v128) (param $1 v128) (result v128)
+  (f32x4.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $19 (param $0 v128) (param $1 v128) (result v128)
+  (f64x2.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $20 (param $0 v128) (param $1 v128) (result v128)
+  (i8x16.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $21 (param $0 v128) (param $1 v128) (result v128)
+  (i16x8.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $22 (param $0 v128) (param $1 v128) (result v128)
+  (i32x4.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $23 (param $0 v128) (param $1 v128) (result v128)
+  (i64x2.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $24 (param $0 v128) (param $1 v128) (result v128)
+  (i8x16.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $25 (param $0 v128) (param $1 v128) (result v128)
+  (i16x8.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $26 (param $0 v128) (param $1 v128) (result v128)
+  (i32x4.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $27 (param $0 v128) (param $1 v128) (result v128)
+  (i64x2.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $28 (param $0 v128) (param $1 v128) (result v128)
+  (f32x4.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $29 (param $0 v128) (param $1 v128) (result v128)
+  (f64x2.sub
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ ;; custom section "linking", size 1008
+ ;; custom section "producers", size 157
+ ;; features section: simd
+)
+
