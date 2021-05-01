@@ -3,7 +3,7 @@ EMSDK = /opt/emscripten
 CC := $(EMSDK)/upstream/emscripten/emcc
 CXX := $(EMSDK)/upstream/emscripten/em++
 WASM2WAT := $(EMSDK)/upstream/bin/wasm-dis
-CFLAGS := -Weverything -Wno-missing-prototypes -Werror -O1 -msimd128 # -D__wasm_unimplemented_simd128__
+CFLAGS := -Weverything -Wno-missing-prototypes -Werror -O1 -msimd128 -fopenmp-simd # -D__wasm_unimplemented_simd128__
 CXXFLAGS := $(CFLAGS)
 
 NULL =

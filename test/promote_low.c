@@ -1,9 +1,5 @@
 #include "../wav.h"
 
-#if defined(__wasm_unimplemented_simd128__)
-wav_u64x2_t promote_low_u32x4(wav_u32x4_t a) { return wav_u32x4_promote_low(a); }
-#endif
+wav_f64x2_t promote_low_f32x4(wav_f32x4_t a) { return wav_f32x4_promote_low(a); }
 
-#if defined(__wasm_unimplemented_simd128__)
-wav_u64x2_t promote_low_u32x4_o(wav_u32x4_t a) { return wav_promote_low(a); }
-#endif
+wav_f64x2_t promote_low_f32x4_o(wav_f32x4_t a) { return wav_promote_low(a); }

@@ -104,108 +104,156 @@
   )
  )
  (func $17 (param $0 v128) (param $1 v128) (result v128)
-  (i8x16.eq
+  (i64x2.eq
    (local.get $0)
    (local.get $1)
   )
  )
  (func $18 (param $0 v128) (param $1 v128) (result v128)
-  (i16x8.eq
+  (i8x16.eq
    (local.get $0)
    (local.get $1)
   )
  )
  (func $19 (param $0 v128) (param $1 v128) (result v128)
-  (i32x4.eq
+  (i16x8.eq
    (local.get $0)
    (local.get $1)
   )
  )
  (func $20 (param $0 v128) (param $1 v128) (result v128)
-  (i8x16.eq
+  (i32x4.eq
    (local.get $0)
    (local.get $1)
   )
  )
  (func $21 (param $0 v128) (param $1 v128) (result v128)
-  (i16x8.eq
+  (i64x2.eq
    (local.get $0)
    (local.get $1)
   )
  )
  (func $22 (param $0 v128) (param $1 v128) (result v128)
-  (i32x4.eq
+  (i8x16.eq
    (local.get $0)
    (local.get $1)
   )
  )
  (func $23 (param $0 v128) (param $1 v128) (result v128)
-  (f32x4.eq
+  (i16x8.eq
    (local.get $0)
    (local.get $1)
   )
  )
  (func $24 (param $0 v128) (param $1 v128) (result v128)
-  (i8x16.eq
+  (i32x4.eq
    (local.get $0)
    (local.get $1)
   )
  )
  (func $25 (param $0 v128) (param $1 v128) (result v128)
-  (i16x8.eq
+  (i64x2.eq
    (local.get $0)
    (local.get $1)
   )
  )
  (func $26 (param $0 v128) (param $1 v128) (result v128)
-  (i32x4.eq
-   (local.get $0)
-   (local.get $1)
-  )
- )
- (func $27 (param $0 v128) (param $1 v128) (result v128)
-  (i8x16.eq
-   (local.get $0)
-   (local.get $1)
-  )
- )
- (func $28 (param $0 v128) (param $1 v128) (result v128)
-  (i16x8.eq
-   (local.get $0)
-   (local.get $1)
-  )
- )
- (func $29 (param $0 v128) (param $1 v128) (result v128)
-  (i32x4.eq
-   (local.get $0)
-   (local.get $1)
-  )
- )
- (func $30 (param $0 v128) (param $1 v128) (result v128)
-  (i8x16.eq
-   (local.get $0)
-   (local.get $1)
-  )
- )
- (func $31 (param $0 v128) (param $1 v128) (result v128)
-  (i16x8.eq
-   (local.get $0)
-   (local.get $1)
-  )
- )
- (func $32 (param $0 v128) (param $1 v128) (result v128)
-  (i32x4.eq
-   (local.get $0)
-   (local.get $1)
-  )
- )
- (func $33 (param $0 v128) (param $1 v128) (result v128)
   (f32x4.eq
    (local.get $0)
    (local.get $1)
   )
  )
- ;; custom section "linking", size 1098
+ (func $27 (param $0 v128) (param $1 v128) (result v128)
+  (f64x2.eq
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $28 (param $0 v128) (param $1 v128) (result v128)
+  (i8x16.eq
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $29 (param $0 v128) (param $1 v128) (result v128)
+  (i16x8.eq
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $30 (param $0 v128) (param $1 v128) (result v128)
+  (i32x4.eq
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $31 (param $0 v128) (param $1 v128) (result v128)
+  (i64x2.eq
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $32 (param $0 v128) (param $1 v128) (result v128)
+  (i8x16.eq
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $33 (param $0 v128) (param $1 v128) (result v128)
+  (i16x8.eq
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $34 (param $0 v128) (param $1 v128) (result v128)
+  (i32x4.eq
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $35 (param $0 v128) (param $1 v128) (result v128)
+  (i64x2.eq
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $36 (param $0 v128) (param $1 v128) (result v128)
+  (i8x16.eq
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $37 (param $0 v128) (param $1 v128) (result v128)
+  (i16x8.eq
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $38 (param $0 v128) (param $1 v128) (result v128)
+  (i32x4.eq
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $39 (param $0 v128) (param $1 v128) (result v128)
+  (i64x2.eq
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $40 (param $0 v128) (param $1 v128) (result v128)
+  (f32x4.eq
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ (func $41 (param $0 v128) (param $1 v128) (result v128)
+  (f64x2.eq
+   (local.get $0)
+   (local.get $1)
+  )
+ )
+ ;; custom section "linking", size 1366
  ;; custom section "producers", size 157
  ;; features section: simd
 )
