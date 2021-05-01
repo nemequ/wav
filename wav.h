@@ -5547,16 +5547,16 @@ wav_f64x2_load_splat(const double * a) {
   return wav_f64x2_splat(*a);
 }
 
-WAV_OVERLOAD_ATTRIBUTES wav_i8x16_t wav_load_splat(  int8_t* a) { return wav_i8x16_load_splat(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t wav_load_splat( int16_t* a) { return wav_i16x8_load_splat(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_i32x4_t wav_load_splat( int32_t* a) { return wav_i32x4_load_splat(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_i64x2_t wav_load_splat( int64_t* a) { return wav_i64x2_load_splat(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_u8x16_t wav_load_splat( uint8_t* a) { return wav_u8x16_load_splat(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t wav_load_splat(uint16_t* a) { return wav_u16x8_load_splat(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t wav_load_splat(uint32_t* a) { return wav_u32x4_load_splat(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_load_splat(uint64_t* a) { return wav_u64x2_load_splat(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_f32x4_t wav_load_splat(   float* a) { return wav_f32x4_load_splat(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_load_splat(  double* a) { return wav_f64x2_load_splat(a); }
+WAV_OVERLOAD_ATTRIBUTES wav_i8x16_t wav_load_splat(const   int8_t* a) { return wav_i8x16_load_splat(a); }
+WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t wav_load_splat(const  int16_t* a) { return wav_i16x8_load_splat(a); }
+WAV_OVERLOAD_ATTRIBUTES wav_i32x4_t wav_load_splat(const  int32_t* a) { return wav_i32x4_load_splat(a); }
+WAV_OVERLOAD_ATTRIBUTES wav_i64x2_t wav_load_splat(const  int64_t* a) { return wav_i64x2_load_splat(a); }
+WAV_OVERLOAD_ATTRIBUTES wav_u8x16_t wav_load_splat(const  uint8_t* a) { return wav_u8x16_load_splat(a); }
+WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t wav_load_splat(const uint16_t* a) { return wav_u16x8_load_splat(a); }
+WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t wav_load_splat(const uint32_t* a) { return wav_u32x4_load_splat(a); }
+WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_load_splat(const uint64_t* a) { return wav_u64x2_load_splat(a); }
+WAV_OVERLOAD_ATTRIBUTES wav_f32x4_t wav_load_splat(const    float* a) { return wav_f32x4_load_splat(a); }
+WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_load_splat(const   double* a) { return wav_f64x2_load_splat(a); }
 
 /* loadu_splat -- Load and Splat
  *
