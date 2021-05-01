@@ -5678,13 +5678,38 @@ wav_f64x2_loadu_splat(const void * a) {
   WAV_OVERLOAD_ATTRIBUTES wav_f32x4_t wav_load_lane(wav_f32x4_t v, const int lane, const    float * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  3) { v.values[lane] = *value; return v; }
   WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_load_lane(wav_f64x2_t v, const int lane, const   double * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  1) { v.values[lane] = *value; return v; }
 #else
-  #define wav_i8x16_load_lane(v, lane, value) (__extension__({ (wav_i8x16_t) { __builtin_wasm_load8_lane ((value), (v).values, (lane)) }; }))
-  #define wav_i16x8_load_lane(v, lane, value) (__extension__({ (wav_i16x8_t) { __builtin_wasm_load16_lane((value), (v).values, (lane)) }; }))
-  #define wav_i32x4_load_lane(v, lane, value) (__extension__({ (wav_i32x4_t) { __builtin_wasm_load32_lane((value), (v).values, (lane)) }; }))
-  #define wav_i64x2_load_lane(v, lane, value) (__extension__({ (wav_i64x2_t) { __builtin_wasm_load64_lane((value), (v).values, (lane)) }; }))
+  #define wav_i8x16_load_lane(v, lane, value) (__extension__({ \
+    _Pragma("clang diagnostic push") \
+    _Pragma("clang diagnostic ignored \"-Wold-style-cast\"") \
+    _Pragma("clang diagnostic ignored \"-Wcast-qual\"") \
+    (wav_i8x16_t) { __builtin_wasm_load8_lane ((int8_t *) (value), (v).values, (lane)) }; \
+    _Pragma("clang diagnostic pop") \
+  }))
+  #define wav_i16x8_load_lane(v, lane, value) (__extension__({ \
+    _Pragma("clang diagnostic push") \
+    _Pragma("clang diagnostic ignored \"-Wold-style-cast\"") \
+    _Pragma("clang diagnostic ignored \"-Wcast-qual\"") \
+    (wav_i16x8_t) { __builtin_wasm_load16_lane((int16_t *) (value), (v).values, (lane)) }; \
+    _Pragma("clang diagnostic pop") \
+  }))
+  #define wav_i32x4_load_lane(v, lane, value) (__extension__({ \
+    _Pragma("clang diagnostic push") \
+    _Pragma("clang diagnostic ignored \"-Wold-style-cast\"") \
+    _Pragma("clang diagnostic ignored \"-Wcast-qual\"") \
+    (wav_i32x4_t) { __builtin_wasm_load32_lane((int32_t *) (value), (v).values, (lane)) }; \
+    _Pragma("clang diagnostic pop") \
+  }))
+  #define wav_i64x2_load_lane(v, lane, value) (__extension__({ \
+    _Pragma("clang diagnostic push") \
+    _Pragma("clang diagnostic ignored \"-Wold-style-cast\"") \
+    _Pragma("clang diagnostic ignored \"-Wcast-qual\"") \
+    (wav_i64x2_t) { __builtin_wasm_load64_lane((int64_t *) (value), (v).values, (lane)) }; \
+    _Pragma("clang diagnostic pop") \
+  }))
   #define wav_u8x16_load_lane(v, lane, value) (__extension__({ \
     _Pragma("clang diagnostic push") \
     _Pragma("clang diagnostic ignored \"-Wold-style-cast\"") \
+    _Pragma("clang diagnostic ignored \"-Wcast-qual\"") \
     (__typeof__(v)) { \
       (__typeof__((v).values)) __builtin_wasm_load8_lane( \
         (int8_t *) (value), \
@@ -5697,6 +5722,7 @@ wav_f64x2_loadu_splat(const void * a) {
   #define wav_u16x8_load_lane(v, lane, value) (__extension__({ \
     _Pragma("clang diagnostic push") \
     _Pragma("clang diagnostic ignored \"-Wold-style-cast\"") \
+    _Pragma("clang diagnostic ignored \"-Wcast-qual\"") \
     (__typeof__(v)) { \
       (__typeof__((v).values)) __builtin_wasm_load16_lane( \
         (int16_t *) (value), \
@@ -5709,6 +5735,7 @@ wav_f64x2_loadu_splat(const void * a) {
   #define wav_u32x4_load_lane(v, lane, value) (__extension__({ \
     _Pragma("clang diagnostic push") \
     _Pragma("clang diagnostic ignored \"-Wold-style-cast\"") \
+    _Pragma("clang diagnostic ignored \"-Wcast-qual\"") \
     (__typeof__(v)) { \
       (__typeof__((v).values)) __builtin_wasm_load32_lane( \
         (int32_t *) (value), \
@@ -5721,6 +5748,7 @@ wav_f64x2_loadu_splat(const void * a) {
   #define wav_u64x2_load_lane(v, lane, value) (__extension__({ \
     _Pragma("clang diagnostic push") \
     _Pragma("clang diagnostic ignored \"-Wold-style-cast\"") \
+    _Pragma("clang diagnostic ignored \"-Wcast-qual\"") \
     (__typeof__(v)) { \
       (__typeof__((v).values)) __builtin_wasm_load64_lane( \
         (int64_t *) (value), \
@@ -5733,6 +5761,7 @@ wav_f64x2_loadu_splat(const void * a) {
   #define wav_f32x4_load_lane(v, lane, value) (__extension__({ \
     _Pragma("clang diagnostic push") \
     _Pragma("clang diagnostic ignored \"-Wold-style-cast\"") \
+    _Pragma("clang diagnostic ignored \"-Wcast-qual\"") \
     (__typeof__(v)) { \
       (__typeof__((v).values)) __builtin_wasm_load32_lane( \
         (int32_t *) (value), \
@@ -5745,6 +5774,7 @@ wav_f64x2_loadu_splat(const void * a) {
   #define wav_f64x2_load_lane(v, lane, value) (__extension__({ \
     _Pragma("clang diagnostic push") \
     _Pragma("clang diagnostic ignored \"-Wold-style-cast\"") \
+    _Pragma("clang diagnostic ignored \"-Wcast-qual\"") \
     (__typeof__(v)) { \
       (__typeof__((v).values)) __builtin_wasm_load64_lane( \
         (int64_t *) (value), \
