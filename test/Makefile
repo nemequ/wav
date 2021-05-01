@@ -43,6 +43,7 @@ COMPILE_TESTS = \
 	dot \
 	add_sat \
 	sub_sat \
+	store_lane \
 	q15mulr_sat \
 	min \
 	max \
