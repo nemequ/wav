@@ -109,6 +109,8 @@ typedef struct {   double values __attribute__((__vector_size__(16),__aligned__(
   #define WAV_ARRAY_PARAM(Length)
 #endif
 
+#define WAV_ALIGNED(alignment) __attribute__((__aligned__(alignment)))
+
 #define WAV_REQUIRE_CONSTANT(value) \
   _Static_assert(__builtin_constant_p(value), #value " is not constant")
 
@@ -756,63 +758,94 @@ wav_f64x2_loadu(const void * src) {
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i8x16_t
-wav_i8x16_loada(const void * src) {
-  return *((const wav_i8x16_t*) src);
+wav_i8x16_loada(WAV_ALIGNED(16) const int8_t src[WAV_ARRAY_PARAM(16)]) {
+  wav_i8x16_t dest;
+  __builtin_memcpy(&dest, __builtin_assume_aligned(src, __alignof__(dest)), sizeof(dest));
+  return dest;
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i16x8_t
-wav_i16x8_loada(const void * src) {
-  return *((const wav_i16x8_t*) src);
+wav_i16x8_loada(WAV_ALIGNED(16) const int16_t src[WAV_ARRAY_PARAM(8)]) {
+  wav_i16x8_t dest;
+  __builtin_memcpy(&dest, __builtin_assume_aligned(src, __alignof__(dest)), sizeof(dest));
+  return dest;
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i32x4_t
-wav_i32x4_loada(const void * src) {
-  return *((const wav_i32x4_t*) src);
+wav_i32x4_loada(WAV_ALIGNED(16) const int32_t src[WAV_ARRAY_PARAM(4)]) {
+  wav_i32x4_t dest;
+  __builtin_memcpy(&dest, __builtin_assume_aligned(src, __alignof__(dest)), sizeof(dest));
+  return dest;
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i64x2_t
-wav_i64x2_loada(const void * src) {
-  return *((const wav_i64x2_t*) src);
+wav_i64x2_loada(WAV_ALIGNED(16) const int64_t src[WAV_ARRAY_PARAM(2)]) {
+  wav_i64x2_t dest;
+  __builtin_memcpy(&dest, __builtin_assume_aligned(src, __alignof__(dest)), sizeof(dest));
+  return dest;
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u8x16_t
-wav_u8x16_loada(const void * src) {
-  return *((const wav_u8x16_t*) src);
+wav_u8x16_loada(WAV_ALIGNED(16) const uint8_t src[WAV_ARRAY_PARAM(16)]) {
+  wav_u8x16_t dest;
+  __builtin_memcpy(&dest, __builtin_assume_aligned(src, __alignof__(dest)), sizeof(dest));
+  return dest;
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u16x8_t
-wav_u16x8_loada(const void * src) {
-  return *((const wav_u16x8_t*) src);
+wav_u16x8_loada(WAV_ALIGNED(16) const uint16_t src[WAV_ARRAY_PARAM(8)]) {
+  wav_u16x8_t dest;
+  __builtin_memcpy(&dest, __builtin_assume_aligned(src, __alignof__(dest)), sizeof(dest));
+  return dest;
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u32x4_t
-wav_u32x4_loada(const void * src) {
-  return *((const wav_u32x4_t*) src);
+wav_u32x4_loada(WAV_ALIGNED(16) const uint32_t src[WAV_ARRAY_PARAM(4)]) {
+  wav_u32x4_t dest;
+  __builtin_memcpy(&dest, __builtin_assume_aligned(src, __alignof__(dest)), sizeof(dest));
+  return dest;
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u64x2_t
-wav_u64x2_loada(const void * src) {
-  return *((const wav_u64x2_t*) src);
+wav_u64x2_loada(WAV_ALIGNED(16) const uint64_t src[WAV_ARRAY_PARAM(2)]) {
+  wav_u64x2_t dest;
+  __builtin_memcpy(&dest, __builtin_assume_aligned(src, __alignof__(dest)), sizeof(dest));
+  return dest;
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_f32x4_t
-wav_f32x4_loada(const void * src) {
-  return *((const wav_f32x4_t*) src);
+wav_f32x4_loada(WAV_ALIGNED(16) const float src[WAV_ARRAY_PARAM(4)]) {
+  wav_f32x4_t dest;
+  __builtin_memcpy(&dest, __builtin_assume_aligned(src, __alignof__(dest)), sizeof(dest));
+  return dest;
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_f64x2_t
-wav_f64x2_loada(const void * src) {
-  return *((const wav_f64x2_t*) src);
+wav_f64x2_loada(WAV_ALIGNED(16) const double src[WAV_ARRAY_PARAM(2)]) {
+  wav_f64x2_t dest;
+  __builtin_memcpy(&dest, __builtin_assume_aligned(src, __alignof__(dest)), sizeof(dest));
+  return dest;
 }
+
+WAV_OVERLOAD_ATTRIBUTES wav_i8x16_t wav_loada(WAV_ALIGNED(16) const   int8_t src[WAV_ARRAY_PARAM(16)]) { return wav_i8x16_loada(src); }
+WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t wav_loada(WAV_ALIGNED(16) const  int16_t src[WAV_ARRAY_PARAM( 8)]) { return wav_i16x8_loada(src); }
+WAV_OVERLOAD_ATTRIBUTES wav_i32x4_t wav_loada(WAV_ALIGNED(16) const  int32_t src[WAV_ARRAY_PARAM( 4)]) { return wav_i32x4_loada(src); }
+WAV_OVERLOAD_ATTRIBUTES wav_i64x2_t wav_loada(WAV_ALIGNED(16) const  int64_t src[WAV_ARRAY_PARAM( 2)]) { return wav_i64x2_loada(src); }
+WAV_OVERLOAD_ATTRIBUTES wav_u8x16_t wav_loada(WAV_ALIGNED(16) const  uint8_t src[WAV_ARRAY_PARAM(16)]) { return wav_u8x16_loada(src); }
+WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t wav_loada(WAV_ALIGNED(16) const uint16_t src[WAV_ARRAY_PARAM( 8)]) { return wav_u16x8_loada(src); }
+WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t wav_loada(WAV_ALIGNED(16) const uint32_t src[WAV_ARRAY_PARAM( 4)]) { return wav_u32x4_loada(src); }
+WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_loada(WAV_ALIGNED(16) const uint64_t src[WAV_ARRAY_PARAM( 2)]) { return wav_u64x2_loada(src); }
+WAV_OVERLOAD_ATTRIBUTES wav_f32x4_t wav_loada(WAV_ALIGNED(16) const    float src[WAV_ARRAY_PARAM( 4)]) { return wav_f32x4_loada(src); }
+WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_loada(WAV_ALIGNED(16) const   double src[WAV_ARRAY_PARAM( 2)]) { return wav_f64x2_loada(src); }
 
 /* store
  *
@@ -826,49 +859,49 @@ wav_i8x16_store(int8_t dest[WAV_ARRAY_PARAM(16)], wav_i8x16_t src) {
 
 WAV_FUNCTION_ATTRIBUTES
 void
-wav_i16x8_store(int16_t dest[WAV_ARRAY_PARAM(16)], wav_i16x8_t src) {
+wav_i16x8_store(int16_t dest[WAV_ARRAY_PARAM(8)], wav_i16x8_t src) {
   __builtin_memcpy(dest, &src, sizeof(src));
 }
 
 WAV_FUNCTION_ATTRIBUTES
 void
-wav_i32x4_store(int32_t dest[WAV_ARRAY_PARAM(16)], wav_i32x4_t src) {
+wav_i32x4_store(int32_t dest[WAV_ARRAY_PARAM(4)], wav_i32x4_t src) {
   __builtin_memcpy(dest, &src, sizeof(src));
 }
 
 WAV_FUNCTION_ATTRIBUTES
 void
-wav_i64x2_store(int64_t dest[WAV_ARRAY_PARAM(16)], wav_i64x2_t src) {
+wav_i64x2_store(int64_t dest[WAV_ARRAY_PARAM(2)], wav_i64x2_t src) {
   __builtin_memcpy(dest, &src, sizeof(src));
 }
 
 WAV_FUNCTION_ATTRIBUTES
 void
-wav_u8x16_store(uint8_t dest[WAV_ARRAY_PARAM(16)], wav_u8x16_t src) {
+wav_u8x16_store(uint8_t dest[WAV_ARRAY_PARAM(8)], wav_u8x16_t src) {
   __builtin_memcpy(dest, &src, sizeof(src));
 }
 
 WAV_FUNCTION_ATTRIBUTES
 void
-wav_u16x8_store(uint16_t dest[WAV_ARRAY_PARAM(16)], wav_u16x8_t src) {
+wav_u16x8_store(uint16_t dest[WAV_ARRAY_PARAM(4)], wav_u16x8_t src) {
   __builtin_memcpy(dest, &src, sizeof(src));
 }
 
 WAV_FUNCTION_ATTRIBUTES
 void
-wav_u32x4_store(uint32_t dest[WAV_ARRAY_PARAM(16)], wav_u32x4_t src) {
+wav_u32x4_store(uint32_t dest[WAV_ARRAY_PARAM(2)], wav_u32x4_t src) {
   __builtin_memcpy(dest, &src, sizeof(src));
 }
 
 WAV_FUNCTION_ATTRIBUTES
 void
-wav_u64x2_store(uint64_t dest[WAV_ARRAY_PARAM(16)], wav_u64x2_t src) {
+wav_u64x2_store(uint64_t dest[WAV_ARRAY_PARAM(4)], wav_u64x2_t src) {
   __builtin_memcpy(dest, &src, sizeof(src));
 }
 
 WAV_FUNCTION_ATTRIBUTES
 void
-wav_f32x4_store(float dest[WAV_ARRAY_PARAM(16)], wav_f32x4_t src) {
+wav_f32x4_store(float dest[WAV_ARRAY_PARAM(2)], wav_f32x4_t src) {
   __builtin_memcpy(dest, &src, sizeof(src));
 }
 
@@ -895,74 +928,74 @@ WAV_OVERLOAD_ATTRIBUTES void wav_store(  double dest[WAV_ARRAY_PARAM( 2)], wav_f
 
 WAV_FUNCTION_ATTRIBUTES
 void
-wav_i8x16_storea(void * dest, wav_i8x16_t src) {
+wav_i8x16_storea(WAV_ALIGNED(16) int8_t dest[WAV_ARRAY_PARAM(16)], wav_i8x16_t src) {
   __builtin_memcpy(__builtin_assume_aligned(dest, __alignof__(src)), &src, sizeof(src));
 }
 
 WAV_FUNCTION_ATTRIBUTES
 void
-wav_i16x8_storea(void * dest, wav_i16x8_t src) {
+wav_i16x8_storea(WAV_ALIGNED(16) int16_t dest[WAV_ARRAY_PARAM(8)], wav_i16x8_t src) {
   __builtin_memcpy(__builtin_assume_aligned(dest, __alignof__(src)), &src, sizeof(src));
 }
 
 WAV_FUNCTION_ATTRIBUTES
 void
-wav_i32x4_storea(void * dest, wav_i32x4_t src) {
+wav_i32x4_storea(WAV_ALIGNED(16) int32_t dest[WAV_ARRAY_PARAM(4)], wav_i32x4_t src) {
   __builtin_memcpy(__builtin_assume_aligned(dest, __alignof__(src)), &src, sizeof(src));
 }
 
 WAV_FUNCTION_ATTRIBUTES
 void
-wav_i64x2_storea(void * dest, wav_i64x2_t src) {
+wav_i64x2_storea(WAV_ALIGNED(16) int64_t dest[WAV_ARRAY_PARAM(2)], wav_i64x2_t src) {
   __builtin_memcpy(__builtin_assume_aligned(dest, __alignof__(src)), &src, sizeof(src));
 }
 
 WAV_FUNCTION_ATTRIBUTES
 void
-wav_u8x16_storea(void * dest, wav_u8x16_t src) {
+wav_u8x16_storea(WAV_ALIGNED(16) uint8_t dest[WAV_ARRAY_PARAM(16)], wav_u8x16_t src) {
   __builtin_memcpy(__builtin_assume_aligned(dest, __alignof__(src)), &src, sizeof(src));
 }
 
 WAV_FUNCTION_ATTRIBUTES
 void
-wav_u16x8_storea(void * dest, wav_u16x8_t src) {
+wav_u16x8_storea(WAV_ALIGNED(16) uint16_t dest[WAV_ARRAY_PARAM(8)], wav_u16x8_t src) {
   __builtin_memcpy(__builtin_assume_aligned(dest, __alignof__(src)), &src, sizeof(src));
 }
 
 WAV_FUNCTION_ATTRIBUTES
 void
-wav_u32x4_storea(void * dest, wav_u32x4_t src) {
+wav_u32x4_storea(WAV_ALIGNED(16) uint32_t dest[WAV_ARRAY_PARAM(4)], wav_u32x4_t src) {
   __builtin_memcpy(__builtin_assume_aligned(dest, __alignof__(src)), &src, sizeof(src));
 }
 
 WAV_FUNCTION_ATTRIBUTES
 void
-wav_u64x2_storea(void * dest, wav_u64x2_t src) {
+wav_u64x2_storea(WAV_ALIGNED(16) uint64_t dest[WAV_ARRAY_PARAM(2)], wav_u64x2_t src) {
   __builtin_memcpy(__builtin_assume_aligned(dest, __alignof__(src)), &src, sizeof(src));
 }
 
 WAV_FUNCTION_ATTRIBUTES
 void
-wav_f32x4_storea(void * dest, wav_f32x4_t src) {
+wav_f32x4_storea(WAV_ALIGNED(16) float dest[WAV_ARRAY_PARAM(4)], wav_f32x4_t src) {
   __builtin_memcpy(__builtin_assume_aligned(dest, __alignof__(src)), &src, sizeof(src));
 }
 
 WAV_FUNCTION_ATTRIBUTES
 void
-wav_f64x2_storea(void * dest, wav_f64x2_t src) {
+wav_f64x2_storea(WAV_ALIGNED(16) double dest[WAV_ARRAY_PARAM(2)], wav_f64x2_t src) {
   __builtin_memcpy(__builtin_assume_aligned(dest, __alignof__(src)), &src, sizeof(src));
 }
 
-WAV_OVERLOAD_ATTRIBUTES void wav_storea(void * dest, wav_i8x16_t src) { wav_i8x16_storea(dest, src); }
-WAV_OVERLOAD_ATTRIBUTES void wav_storea(void * dest, wav_i16x8_t src) { wav_i16x8_storea(dest, src); }
-WAV_OVERLOAD_ATTRIBUTES void wav_storea(void * dest, wav_i32x4_t src) { wav_i32x4_storea(dest, src); }
-WAV_OVERLOAD_ATTRIBUTES void wav_storea(void * dest, wav_i64x2_t src) { wav_i64x2_storea(dest, src); }
-WAV_OVERLOAD_ATTRIBUTES void wav_storea(void * dest, wav_u8x16_t src) { wav_u8x16_storea(dest, src); }
-WAV_OVERLOAD_ATTRIBUTES void wav_storea(void * dest, wav_u16x8_t src) { wav_u16x8_storea(dest, src); }
-WAV_OVERLOAD_ATTRIBUTES void wav_storea(void * dest, wav_u32x4_t src) { wav_u32x4_storea(dest, src); }
-WAV_OVERLOAD_ATTRIBUTES void wav_storea(void * dest, wav_u64x2_t src) { wav_u64x2_storea(dest, src); }
-WAV_OVERLOAD_ATTRIBUTES void wav_storea(void * dest, wav_f32x4_t src) { wav_f32x4_storea(dest, src); }
-WAV_OVERLOAD_ATTRIBUTES void wav_storea(void * dest, wav_f64x2_t src) { wav_f64x2_storea(dest, src); }
+WAV_OVERLOAD_ATTRIBUTES void wav_storea(  int8_t dest[WAV_ARRAY_PARAM(16)], wav_i8x16_t src) { wav_i8x16_storea(dest, src); }
+WAV_OVERLOAD_ATTRIBUTES void wav_storea( int16_t dest[WAV_ARRAY_PARAM( 8)], wav_i16x8_t src) { wav_i16x8_storea(dest, src); }
+WAV_OVERLOAD_ATTRIBUTES void wav_storea( int32_t dest[WAV_ARRAY_PARAM( 4)], wav_i32x4_t src) { wav_i32x4_storea(dest, src); }
+WAV_OVERLOAD_ATTRIBUTES void wav_storea( int64_t dest[WAV_ARRAY_PARAM( 2)], wav_i64x2_t src) { wav_i64x2_storea(dest, src); }
+WAV_OVERLOAD_ATTRIBUTES void wav_storea( uint8_t dest[WAV_ARRAY_PARAM(16)], wav_u8x16_t src) { wav_u8x16_storea(dest, src); }
+WAV_OVERLOAD_ATTRIBUTES void wav_storea(uint16_t dest[WAV_ARRAY_PARAM( 8)], wav_u16x8_t src) { wav_u16x8_storea(dest, src); }
+WAV_OVERLOAD_ATTRIBUTES void wav_storea(uint32_t dest[WAV_ARRAY_PARAM( 4)], wav_u32x4_t src) { wav_u32x4_storea(dest, src); }
+WAV_OVERLOAD_ATTRIBUTES void wav_storea(uint64_t dest[WAV_ARRAY_PARAM( 2)], wav_u64x2_t src) { wav_u64x2_storea(dest, src); }
+WAV_OVERLOAD_ATTRIBUTES void wav_storea(   float dest[WAV_ARRAY_PARAM( 4)], wav_f32x4_t src) { wav_f32x4_storea(dest, src); }
+WAV_OVERLOAD_ATTRIBUTES void wav_storea(  double dest[WAV_ARRAY_PARAM( 2)], wav_f64x2_t src) { wav_f64x2_storea(dest, src); }
 
 /* storeu
  *
