@@ -51,7 +51,7 @@
    (local.get $0)
   )
  )
- ;; custom section "linking", size 218
+ ;; custom section "linking", size 228
  ;; custom section "producers", size 157
  ;; features section: simd
 )
