@@ -49,7 +49,7 @@
    (local.get $1)
   )
  )
- ;; custom section "linking", size 124
+ ;; custom section "linking", size 152
  ;; custom section "producers", size 157
  ;; features section: simd
 )

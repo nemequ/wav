@@ -9,6 +9,8 @@ CXXFLAGS := $(CFLAGS)
 NULL =
 
 COMPILE_TESTS = \
+	convert \
+	convert_low \
 	load \
 	loada \
 	loadu \
@@ -31,6 +33,7 @@ COMPILE_TESTS = \
 	ceil \
 	floor \
 	trunc \
+	trunc_sat \
 	nearest \
 	extend_low \
 	promote_low \
