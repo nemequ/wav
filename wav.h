@@ -42,8 +42,12 @@
 #endif
 
 /* We have a portable version in the code which is not optimized to
- * the instruction we want by LLVM. */
+ * the instruction we want by LLVM.  bugnum is a reference to the
+ * associated bug on the LLVM bugzilla (bugs.llvm.org) which isn't
+ * used for anything in WAV, it's just to help us keep track of
+ * things. */
 #define WAV_BUILTIN_MISSING_OPT 0
+#define WAV_PORTABLE_SLOW(bugnum) 0
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wc99-extensions"
@@ -59,6 +63,14 @@
     #define WAV_OPERATOR_OVERLOADING 0
   #endif
 #endif
+
+/* These are for internal use only. */
+typedef  int8_t wav_v_i8x16_ __attribute__((__vector_size__(16),__aligned__(16)));
+typedef int16_t wav_v_i16x8_ __attribute__((__vector_size__(16),__aligned__(16)));
+typedef int32_t wav_v_i32x4_ __attribute__((__vector_size__(16),__aligned__(16)));
+typedef int64_t wav_v_i64x2_ __attribute__((__vector_size__(16),__aligned__(16)));
+
+typedef double wav_v_f64x2_ __attribute__((__vector_size__(16),__aligned__(16)));
 
 /* We use structs to make sure types are incompatible.  If we just used
  * raw vectors the boolean types would be compatible with the unsigned
@@ -3362,7 +3374,7 @@ WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_extend_low(wav_u32x4_t a) { return wav_u
 WAV_FUNCTION_ATTRIBUTES
 wav_f64x2_t
 wav_f32x4_promote_low(wav_f32x4_t a) {
-  #if WAV_BUILTIN_MISSING_OPT
+  #if WAV_PORTABLE_SLOW(50232)
     wav_f64x2_t r;
     r.values = __builtin_convertvector(__builtin_shufflevector(a.values, a.values, 0, 1), __typeof__(r.values));
     return r;
