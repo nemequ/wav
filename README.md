@@ -4,9 +4,7 @@ WAV is an alternative to the
 [`wasm_simd128.h`](https://github.com/llvm/llvm-project/blob/main/clang/lib/Headers/wasm_simd128.h)
 header which ships with LLVM.
 
-While largely feature-complete, the API is not yet stable and it is
-largely untested.  Please don't depend on it for anything critical
-yet.
+While largely feature-complete, the API is not yet stable.
 
 ## Why?
 
@@ -31,6 +29,10 @@ numbers.  We could easily add some code to emulate saturated 32-bit
 addition, but that's not our place; neither API is an abstraction
 layer, they are an interface to the WASM SIMD functionality that
 actually exists.
+
+Both APIs also offer exactly the same performance.  Every function in
+WAV is tested to make sure it outputs the expected WebAssembly
+instruction(s), which are the same ones `wasm_simd128.h` outputs.
 
 So, what makes WAV so different?
 
@@ -63,7 +65,7 @@ Where `wasm_simd128.h` offers one type (`v128_t`), WAV has 14:
    * `wav_f64x2_t`
 
 This allows us to enlist the compiler's help to make sure we don't
-accidentally try to add, for example, a vector of 32-bit floats to a
+accidentally try to, for example, add a vector of 32-bit floats to a
 vector of 16-bit integers.  Here are the relevant functions from
 `wasm_simd128.h`:
 
@@ -101,11 +103,13 @@ wav_i8x16_t wav_f32x4_as_i8x16(wav_f32x4_t value);
 
 Yes, it's a bit more verbose than just passing the value directly to
 `wasm_f32x4_add`, and some people will hate that.  If that's you then
-you'll probably be happier with `wasm_simd128.h`.
+you'll probably be happier with `wasm_simd128.h`.  However, I think
+most people will find that the API is actually very easy to use, and
+well worth the safety features.
 
 The idea of a type-safe SIMD API isn't new.  For example:
 
- * NEON has, for example, `int8x16_t` and `float32x4_t`.
+ * NEON has types like `int8x16_t` and `float32x4_t`.
  * SVE has `svint8x16_t` and `svfloat32x4_t`.
  * AltiVec and System Z add a `vector` keyword to the language, so
    they have types like `vector signed char` and `vector float`.
@@ -130,9 +134,8 @@ multiply_add (wav_f32x4_t a, wav_f32x4_t b, wav_f32x4_t) {
 }
 ```
 
-This is implemented using C11 generic selections or C++ method
-overloading.  In C++ WAV also supports operator overloading, so if
-you prefer you also do this:
+This works in both C and C++.  In C++ WAV also supports operator
+overloading, so if you prefer you can also do this:
 
 ```c
 wav_f32x4_t
@@ -143,20 +146,15 @@ multiply_add (wav_f32x4_t a, wav_f32x4_t b, wav_f32x4_t) {
 
 Operator overloading doesn't work in C, so if you want your code to
 work in both languages you'll have to use the named versions.
-However, the *named* overloads (*e.g.*, `wav_add`) do work in C,
-even if you're not targeting C11.
+However, the *named* overloads (*e.g.*, `wav_add`) do work in C.
 
 Of course the type system still protects you; you can't pass a
 `wav_f32x4_t` and a `wav_i32x4_t` to `wav_add` and expect it to
-work… the types have to match.
-
-Since (AFAIK) LLVM is the only game in town for compiling C/C++ to
-WebAssembly SIMD, WAV doesn't have to worry about compatibility with
-other compilers, which means we can actually use C11 generic
-selections even in earlier modes; we just have to suppress the
-`-Wc11-extensions` diagnostic that clang wants to emit (which we do in
-`wav.h`, you don't have to worry about it).  That means that you get
-the overloaded methods in C even if you're not working in C11.
+work… the types have to match.  Critically, we also don't support
+operations which WASM SIMD128 doesn't support; for example, attempting
+to multiply vectors of 8-bit integers will result in an error.  This is
+in contrast to GCC-style vector extensions which will emulate the
+instruction in software, often resulting in performance problems.
 
 Between the distinct types and the overloading, one way to look at
 this is that WAV takes the opposite approach as `wasm_simd128.h`.
@@ -177,6 +175,24 @@ and `wav_b64x2_t`).
 Boolean types are used for the results of comparison functions, and
 the value of each lane is assumed to have either all bits unset (`0`)
 or all bits set (`~0`).
+
+You can convert between boolean types and other types (using
+`wav_*_as_*`), but this usually isn't necessary; operations where it
+makes sense to mix boolean and non-boolean types generally have
+functions to do just that.  For example:
+
+```c
+wav_f32x4_t wav_f32x4_and_b32x4(wav_f32x4_t a, wav_b32x4_t b);
+wav_f32x4_t wav_b32x4_and_f32x4(wav_b32x4_t a, wav_f32x4_t b);
+```
+
+And of course the overloaded functions work as expected as well, so
+you can pass a vector of booleans and a vector of floats to `wav_and`
+(or, in C++, the `&` operator) and everything will work.  However,
+WAV will stop you from passing the wrong size boolean vector (*e.g.*,
+mixing a `wav_f32x4_t` and a `wav_b16x8_t`); if you want to do that
+you'll need to make it explicit by using a function like
+`wav_b16x8_as_b32x4`.
 
 ### Can't We All Just Get Along?
 
