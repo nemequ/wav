@@ -2,9 +2,10 @@
 
 WAV is an alternative to the
 [`wasm_simd128.h`](https://github.com/llvm/llvm-project/blob/main/clang/lib/Headers/wasm_simd128.h)
-header which ships with LLVM.
+header which ships with LLVM.  It is intended to be safer and easier to
+use, while offering exactly the same performance.
 
-While largely feature-complete, the API is not yet stable.
+While feature-complete, the API is not yet stable.
 
 ## Why?
 
@@ -16,11 +17,8 @@ I'd say they did a phenomenal job.
 
 WAV, on the other hand, takes a very different approach.  WAV's
 primary goal is safety and, to the extent it doesn't sacrifice safety,
-convenience.  The result is an API which is (IMHO) pleasant to use and
-helps you avoid shooting yourself in the foot.  While the API is
-simple and unsurprising, `wav.h` is currently almost 6 times the
-size of `wasm_simd128.h`.  The API is straightforward and unsurprising,
-but I wouldn't call it succinct.
+convenience.  The result is an API which is pleasant to use and helps
+you avoid shooting yourself in the foot.
 
 Both APIs are limited to what the underlying [WASM SIMD
 specification](https://github.com/WebAssembly/simd/) supports.  For
@@ -83,7 +81,7 @@ wav_f32x4_t wav_f32x4_add(wav_f32x4_t a, wav_f32x4_t b);
 
 As you can see, nothing prevents you from passing a vector of 16 8-bit
 signed integers to `wasm_f32x4_add`; 4 8-bit values will be
-reinterpreted as (not converted to) a single 32-bit floating point
+interpreted as (not converted to) a single 32-bit floating point
 value, and the result will likely be complete garbage.
 
 On the WAV side of things, however, you'll end up with an error from
@@ -102,8 +100,7 @@ wav_i8x16_t wav_f32x4_as_i8x16(wav_f32x4_t value);
 ```
 
 Yes, it's a bit more verbose than just passing the value directly to
-`wasm_f32x4_add`, and some people will hate that.  If that's you then
-you'll probably be happier with `wasm_simd128.h`.  However, I think
+`wasm_f32x4_add`, and some people will hate that.  However, I think
 most people will find that the API is actually very easy to use, and
 well worth the safety features.
 
@@ -116,7 +113,7 @@ The idea of a type-safe SIMD API isn't new.  For example:
  * MIPS uses `v16i8` and `v4f32`.
 
 Even the x86 APIs (SSE, AVX, AVX-512, etc.) aren't as aggressively
-untyped as `wasm_simd128.h` as it has distinct types for floats
+uni-typed as `wasm_simd128.h` as it has distinct types for floats
 (`__m128`) and doubles (`__m128d`); only integer vectors use one type
 (`__m128i`) for everything.  `wasm_simd128.h` is really the exception,
 not the rule.
@@ -153,8 +150,9 @@ Of course the type system still protects you; you can't pass a
 work… the types have to match.  Critically, we also don't support
 operations which WASM SIMD128 doesn't support; for example, attempting
 to multiply vectors of 8-bit integers will result in an error.  This is
-in contrast to GCC-style vector extensions which will emulate the
-instruction in software, often resulting in performance problems.
+in contrast to raw GCC-style vector extensions which will emulate the
+instruction in software, often resulting in unexpected performance
+problems.
 
 Between the distinct types and the overloading, one way to look at
 this is that WAV takes the opposite approach as `wasm_simd128.h`.
@@ -169,7 +167,7 @@ many horrible mistakes by combining them in invalid ways.
 ### It's True, WAV Has Boolean Types
 
 Another significant difference from `wasm_simd128.h` is the presence
-of boolean types (`wav_b8x16_t`, `wav_b16x8_t`, `wav_32x4_t`,
+of boolean types (`wav_b8x16_t`, `wav_b16x8_t`, `wav_b32x4_t`,
 and `wav_b64x2_t`).
 
 Boolean types are used for the results of comparison functions, and
@@ -241,21 +239,29 @@ add_using_wav(v128_t a, v128_t b) {
 Most likely you'll be doing more work than a single add function at a
 time, but the idea is the same no matter how much code there is.
 
+## Emulation
+
+WAV allows you to define `WAV_EMULATION` to 1 prior to including wav.h
+to signal that WASM SIMD128 is not required.  In this mode WAV should
+work on any target, including non-WASM targets like x86 or Arm, though
+performance may be sub-optimal since we do no use target-specific
+intrinsics.  This is primarily used to make development a bit more
+convenient, though it can also be used as an easy way to fall back on
+normal WebAssembly if SIMD128 is not suppored.
+
+Note that in this mode, modifying the target using pragmas is
+unreliable as WAV will always use the portable implementaions; LLVM may
+generate optimal instructions, but it may not.
+
 ## Future Directions
 
-WAV is fairly complete; the functionality in WAV should match the
-functionality in WASM SIMD (I may have missed a function here and
-there, please file an issue if you find one!), so it is largely
-feature complete.  There are a few function which need to be
-implemented in LLVM before we can really make use of them in WAV,
-though some can be emulated if you pass `-munimplemented-simd128` to
-the compiler.
-
-WAV is, however, not yet API stable.  Depending on feedback things
-may change.  I don't expect many API-breaking changes, but can't
-promise that yet.
+WAV is feature-complete.  The functionality in WAV should match the
+functionality in WASM SIMD.  WAV is, however, not yet API stable.
+Depending on feedback things may change.  I don't expect many
+API-breaking changes, but can't promise that yet.
 
 As I mentioned earlier, adding functionality beyond what is provided
 by WebAssembly SIMD is outside of WAV's scope, which means once
 WAV's API is stable and complete we should be done, at least until
-changes are made to the specification.
+changes are made to the specification or additional specifications
+(e.g., relaxed SIMD) are released.
