@@ -4362,7 +4362,7 @@ wav_f64x2_sqrt(wav_f64x2_t vec) {
   #if WAV_PORTABLE_SLOW(50247)
     wav_f64x2_t r;
 
-    for (int i = 0 ; i < 4 ; i++) {
+    for (int i = 0 ; i < 2 ; i++) {
       r.values[i] = __builtin_sqrt(vec.values[i]);
     }
 
@@ -4409,7 +4409,7 @@ wav_f64x2_ceil(wav_f64x2_t vec) {
   #if WAV_PORTABLE_SLOW(50247)
     wav_f64x2_t r;
 
-    for (int i = 0 ; i < 4 ; i++) {
+    for (int i = 0 ; i < 2 ; i++) {
       r.values[i] = __builtin_ceil(vec.values[i]);
     }
 
@@ -4456,7 +4456,7 @@ wav_f64x2_floor(wav_f64x2_t vec) {
   #if WAV_PORTABLE_SLOW(50247)
     wav_f64x2_t r;
 
-    for (int i = 0 ; i < 4 ; i++) {
+    for (int i = 0 ; i < 2 ; i++) {
       r.values[i] = __builtin_floor(vec.values[i]);
     }
 
@@ -4503,7 +4503,7 @@ wav_f64x2_trunc(wav_f64x2_t vec) {
   #if WAV_PORTABLE_SLOW(50247)
     wav_f64x2_t r;
 
-    for (int i = 0 ; i < 4 ; i++) {
+    for (int i = 0 ; i < 2 ; i++) {
       r.values[i] = __builtin_trunc(vec.values[i]);
     }
 
@@ -4550,7 +4550,7 @@ wav_f64x2_nearest(wav_f64x2_t vec) {
   #if WAV_PORTABLE_SLOW(50247)
     wav_f64x2_t r;
 
-    for (int i = 0 ; i < 4 ; i++) {
+    for (int i = 0 ; i < 2 ; i++) {
       r.values[i] = __builtin_round(vec.values[i]);
     }
 
@@ -4576,12 +4576,12 @@ WAV_FUNCTION_ATTRIBUTES
 wav_i16x8_t
 wav_i8x16_extend_low(wav_i8x16_t vec) {
   wav_i16x8_t r;
-  const int8_t low __attribute__((__vector_size__(8))) = {
-    vec.values[0], vec.values[1], vec.values[2], vec.values[3],
-    vec.values[4], vec.values[5], vec.values[6], vec.values[7],
-  };
 
-  r.values = __builtin_convertvector(low, __typeof__(r.values));
+  r.values =
+    __builtin_convertvector(
+      __builtin_shufflevector(vec.values, vec.values, 0, 1, 2, 3, 4, 5, 6, 7),
+      __typeof__(r.values)
+    );
 
   return r;
 }
@@ -4590,11 +4590,12 @@ WAV_FUNCTION_ATTRIBUTES
 wav_i32x4_t
 wav_i16x8_extend_low(wav_i16x8_t vec) {
   wav_i32x4_t r;
-  const int16_t low __attribute__((__vector_size__(8))) = {
-    vec.values[0], vec.values[1], vec.values[2], vec.values[3],
-  };
 
-  r.values = __builtin_convertvector(low, __typeof__(r.values));
+  r.values =
+    __builtin_convertvector(
+      __builtin_shufflevector(vec.values, vec.values, 0, 1, 2, 3),
+      __typeof__(r.values)
+    );
 
   return r;
 }
@@ -4603,11 +4604,12 @@ WAV_FUNCTION_ATTRIBUTES
 wav_i64x2_t
 wav_i32x4_extend_low(wav_i32x4_t vec) {
   wav_i64x2_t r;
-  const int32_t low __attribute__((__vector_size__(8))) = {
-    vec.values[0], vec.values[1],
-  };
 
-  r.values = __builtin_convertvector(low, __typeof__(r.values));
+  r.values =
+    __builtin_convertvector(
+      __builtin_shufflevector(vec.values, vec.values, 0, 1),
+      __typeof__(r.values)
+    );
 
   return r;
 }
@@ -4616,12 +4618,12 @@ WAV_FUNCTION_ATTRIBUTES
 wav_u16x8_t
 wav_u8x16_extend_low(wav_u8x16_t vec) {
   wav_u16x8_t r;
-  const uint8_t low __attribute__((__vector_size__(8))) = {
-    vec.values[0], vec.values[1], vec.values[2], vec.values[3],
-    vec.values[4], vec.values[5], vec.values[6], vec.values[7],
-  };
 
-  r.values = __builtin_convertvector(low, __typeof__(r.values));
+  r.values =
+    __builtin_convertvector(
+      __builtin_shufflevector(vec.values, vec.values, 0, 1, 2, 3, 4, 5, 6, 7),
+      __typeof__(r.values)
+    );
 
   return r;
 }
@@ -4630,11 +4632,12 @@ WAV_FUNCTION_ATTRIBUTES
 wav_u32x4_t
 wav_u16x8_extend_low(wav_u16x8_t vec) {
   wav_u32x4_t r;
-  const uint16_t low __attribute__((__vector_size__(8))) = {
-    vec.values[0], vec.values[1], vec.values[2], vec.values[3],
-  };
 
-  r.values = __builtin_convertvector(low, __typeof__(r.values));
+  r.values =
+    __builtin_convertvector(
+      __builtin_shufflevector(vec.values, vec.values, 0, 1, 2, 3),
+      __typeof__(r.values)
+    );
 
   return r;
 }
@@ -4643,11 +4646,12 @@ WAV_FUNCTION_ATTRIBUTES
 wav_u64x2_t
 wav_u32x4_extend_low(wav_u32x4_t vec) {
   wav_u64x2_t r;
-  const uint32_t low __attribute__((__vector_size__(8))) = {
-    vec.values[0], vec.values[1],
-  };
 
-  r.values = __builtin_convertvector(low, __typeof__(r.values));
+  r.values =
+    __builtin_convertvector(
+      __builtin_shufflevector(vec.values, vec.values, 0, 1),
+      __typeof__(r.values)
+    );
 
   return r;
 }
@@ -4688,49 +4692,85 @@ WAV_FUNCTION_ATTRIBUTES wav_f64x2_t wav_promote_low(wav_f32x4_t vec) { return wa
 WAV_FUNCTION_ATTRIBUTES
 wav_i16x8_t
 wav_i8x16_extend_high(wav_i8x16_t vec) {
-  wav_i8x16_t high;
-  high.values = __builtin_shufflevector(vec.values, vec.values, 8, 9, 10, 11, 12, 13, 14, 15, -1, -1, -1, -1, -1, -1, -1, -1);
-  return wav_i8x16_extend_low(high);
+  wav_i16x8_t r;
+
+  r.values =
+    __builtin_convertvector(
+      __builtin_shufflevector(vec.values, vec.values, 8, 9, 10, 11, 12, 13, 14, 15),
+      __typeof__(r.values)
+    );
+
+  return r;
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i32x4_t
 wav_i16x8_extend_high(wav_i16x8_t vec) {
-  wav_i16x8_t high;
-  high.values = __builtin_shufflevector(vec.values, vec.values, 4, 5, 6, 7, -1, -1, -1, -1);
-  return wav_i16x8_extend_low(high);
+  wav_i32x4_t r;
+
+  r.values =
+    __builtin_convertvector(
+      __builtin_shufflevector(vec.values, vec.values, 4, 5, 6, 7),
+      __typeof__(r.values)
+    );
+
+  return r;
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i64x2_t
 wav_i32x4_extend_high(wav_i32x4_t vec) {
-  wav_i32x4_t high;
-  high.values = __builtin_shufflevector(vec.values, vec.values, 2, 3, -1, -1);
-  return wav_i32x4_extend_low(high);
+  wav_i64x2_t r;
+
+  r.values =
+    __builtin_convertvector(
+      __builtin_shufflevector(vec.values, vec.values, 2, 3),
+      __typeof__(r.values)
+    );
+
+  return r;
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u16x8_t
 wav_u8x16_extend_high(wav_u8x16_t vec) {
-  wav_u8x16_t high;
-  high.values = __builtin_shufflevector(vec.values, vec.values, 8, 9, 10, 11, 12, 13, 14, 15, -1, -1, -1, -1, -1, -1, -1, -1);
-  return wav_u8x16_extend_low(high);
+  wav_u16x8_t r;
+
+  r.values =
+    __builtin_convertvector(
+      __builtin_shufflevector(vec.values, vec.values, 8, 9, 10, 11, 12, 13, 14, 15),
+      __typeof__(r.values)
+    );
+
+  return r;
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u32x4_t
 wav_u16x8_extend_high(wav_u16x8_t vec) {
-  wav_u16x8_t high;
-  high.values = __builtin_shufflevector(vec.values, vec.values, 4, 5, 6, 7, -1, -1, -1, -1);
-  return wav_u16x8_extend_low(high);
+  wav_u32x4_t r;
+
+  r.values =
+    __builtin_convertvector(
+      __builtin_shufflevector(vec.values, vec.values, 4, 5, 6, 7),
+      __typeof__(r.values)
+    );
+
+  return r;
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u64x2_t
 wav_u32x4_extend_high(wav_u32x4_t vec) {
-  wav_u32x4_t high;
-  high.values = __builtin_shufflevector(vec.values, vec.values, 2, 3, -1, -1);
-  return wav_u32x4_extend_low(high);
+  wav_u64x2_t r;
+
+  r.values =
+    __builtin_convertvector(
+      __builtin_shufflevector(vec.values, vec.values, 2, 3),
+      __typeof__(r.values)
+    );
+
+  return r;
 }
 
 WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t wav_extend_high(wav_i8x16_t vec) { return wav_i8x16_extend_high(vec); }
