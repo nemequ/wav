@@ -8,19 +8,19 @@
   )
  )
  (func $1 (param $0 v128) (param $1 i32)
-  (v128.store16_lane 7
+  (v128.store16_lane align=1 7
    (local.get $1)
    (local.get $0)
   )
  )
  (func $2 (param $0 v128) (param $1 i32)
-  (v128.store32_lane 3
+  (v128.store32_lane align=1 3
    (local.get $1)
    (local.get $0)
   )
  )
  (func $3 (param $0 v128) (param $1 i32)
-  (v128.store64_lane 1
+  (v128.store64_lane align=1 1
    (local.get $1)
    (local.get $0)
   )
@@ -32,31 +32,31 @@
   )
  )
  (func $5 (param $0 v128) (param $1 i32)
-  (v128.store16_lane 7
+  (v128.store16_lane align=1 7
    (local.get $1)
    (local.get $0)
   )
  )
  (func $6 (param $0 v128) (param $1 i32)
-  (v128.store32_lane 3
+  (v128.store32_lane align=1 3
    (local.get $1)
    (local.get $0)
   )
  )
  (func $7 (param $0 v128) (param $1 i32)
-  (v128.store64_lane 1
+  (v128.store64_lane align=1 1
    (local.get $1)
    (local.get $0)
   )
  )
  (func $8 (param $0 v128) (param $1 i32)
-  (v128.store32_lane 3
+  (v128.store32_lane align=1 3
    (local.get $1)
    (local.get $0)
   )
  )
  (func $9 (param $0 v128) (param $1 i32)
-  (v128.store64_lane 1
+  (v128.store64_lane align=1 1
    (local.get $1)
    (local.get $0)
   )
