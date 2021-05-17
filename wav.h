@@ -5008,9 +5008,9 @@ wav_f64x2_trunc_sat_zero_i32x4(wav_f64x2_t a) {
           wav_f64x2_min(
             wav_f64x2_max(
               a,
-              wav_f64x2_splat((float) INT32_MIN)
+              wav_f64x2_splat((double) INT32_MIN)
             ),
-            wav_f64x2_splat((float) INT32_MAX)
+            wav_f64x2_splat((double) INT32_MAX)
           ),
           wav_f64x2_eq(a, a)
         );
@@ -5047,7 +5047,7 @@ wav_f64x2_trunc_sat_zero_u32x4(wav_f64x2_t a) {
               a,
               wav_f64x2_splat(0.0)
             ),
-            wav_f64x2_splat((float) UINT32_MAX)
+            wav_f64x2_splat((double) UINT32_MAX)
           ),
           wav_f64x2_eq(a, a)
         );
@@ -5523,9 +5523,9 @@ wav_i16x8_q15mulr_sat(wav_i16x8_t a, wav_i16x8_t b) {
       INT16_MAX, INT16_MAX, INT16_MAX, INT16_MAX,
       INT16_MAX, INT16_MAX, INT16_MAX, INT16_MAX };
 
-    __typeof__(tmp) mask = tmp < min;
+    __typeof__(tmp) mask = (__typeof__(tmp)) (tmp < min);
     tmp = (tmp & ~mask) | (min & mask);
-    mask = tmp > max;
+    mask = (__typeof__(tmp)) (tmp > max);
     tmp = (tmp & ~mask) | (max & mask);
 
     r.values = __builtin_convertvector(tmp, __typeof__(r.values));
