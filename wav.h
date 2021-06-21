@@ -3464,55 +3464,55 @@ WAV_OVERLOAD_ATTRIBUTES wav_b64x2_t operator>=(wav_f64x2_t lhs, wav_f64x2_t rhs)
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i8x16_t
-wav_i8x16_bitselect(wav_i8x16_t control, wav_i8x16_t when_set, wav_i8x16_t when_unset) {
+wav_i8x16_bitselect(wav_b8x16_t control, wav_i8x16_t when_set, wav_i8x16_t when_unset) {
   return (wav_i8x16_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i16x8_t
-wav_i16x8_bitselect(wav_i16x8_t control, wav_i16x8_t when_set, wav_i16x8_t when_unset) {
+wav_i16x8_bitselect(wav_b16x8_t control, wav_i16x8_t when_set, wav_i16x8_t when_unset) {
   return (wav_i16x8_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i32x4_t
-wav_i32x4_bitselect(wav_i32x4_t control, wav_i32x4_t when_set, wav_i32x4_t when_unset) {
+wav_i32x4_bitselect(wav_b32x4_t control, wav_i32x4_t when_set, wav_i32x4_t when_unset) {
   return (wav_i32x4_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i64x2_t
-wav_i64x2_bitselect(wav_i64x2_t control, wav_i64x2_t when_set, wav_i64x2_t when_unset) {
+wav_i64x2_bitselect(wav_b64x2_t control, wav_i64x2_t when_set, wav_i64x2_t when_unset) {
   return (wav_i64x2_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u8x16_t
-wav_u8x16_bitselect(wav_u8x16_t control, wav_u8x16_t when_set, wav_u8x16_t when_unset) {
+wav_u8x16_bitselect(wav_b8x16_t control, wav_u8x16_t when_set, wav_u8x16_t when_unset) {
   return (wav_u8x16_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u16x8_t
-wav_u16x8_bitselect(wav_u16x8_t control, wav_u16x8_t when_set, wav_u16x8_t when_unset) {
+wav_u16x8_bitselect(wav_b16x8_t control, wav_u16x8_t when_set, wav_u16x8_t when_unset) {
   return (wav_u16x8_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u32x4_t
-wav_u32x4_bitselect(wav_u32x4_t control, wav_u32x4_t when_set, wav_u32x4_t when_unset) {
+wav_u32x4_bitselect(wav_b32x4_t control, wav_u32x4_t when_set, wav_u32x4_t when_unset) {
   return (wav_u32x4_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u64x2_t
-wav_u64x2_bitselect(wav_u64x2_t control, wav_u64x2_t when_set, wav_u64x2_t when_unset) {
+wav_u64x2_bitselect(wav_b64x2_t control, wav_u64x2_t when_set, wav_u64x2_t when_unset) {
   return (wav_u64x2_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_f32x4_t
-wav_f32x4_bitselect(wav_u32x4_t control, wav_f32x4_t when_set, wav_f32x4_t when_unset) {
+wav_f32x4_bitselect(wav_b32x4_t control, wav_f32x4_t when_set, wav_f32x4_t when_unset) {
   return
     wav_u32x4_as_f32x4(
       wav_u32x4_bitselect(
@@ -3525,7 +3525,7 @@ wav_f32x4_bitselect(wav_u32x4_t control, wav_f32x4_t when_set, wav_f32x4_t when_
 
 WAV_FUNCTION_ATTRIBUTES
 wav_f64x2_t
-wav_f64x2_bitselect(wav_u64x2_t control, wav_f64x2_t when_set, wav_f64x2_t when_unset) {
+wav_f64x2_bitselect(wav_b64x2_t control, wav_f64x2_t when_set, wav_f64x2_t when_unset) {
   return
     wav_u64x2_as_f64x2(
       wav_u64x2_bitselect(
@@ -3536,16 +3536,16 @@ wav_f64x2_bitselect(wav_u64x2_t control, wav_f64x2_t when_set, wav_f64x2_t when_
     );
 }
 
-WAV_OVERLOAD_ATTRIBUTES wav_i8x16_t wav_bitselect(wav_i8x16_t control, wav_i8x16_t when_set, wav_i8x16_t when_unset) { return wav_i8x16_bitselect(control, when_set, when_unset); }
-WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t wav_bitselect(wav_i16x8_t control, wav_i16x8_t when_set, wav_i16x8_t when_unset) { return wav_i16x8_bitselect(control, when_set, when_unset); }
-WAV_OVERLOAD_ATTRIBUTES wav_i32x4_t wav_bitselect(wav_i32x4_t control, wav_i32x4_t when_set, wav_i32x4_t when_unset) { return wav_i32x4_bitselect(control, when_set, when_unset); }
-WAV_OVERLOAD_ATTRIBUTES wav_i64x2_t wav_bitselect(wav_i64x2_t control, wav_i64x2_t when_set, wav_i64x2_t when_unset) { return wav_i64x2_bitselect(control, when_set, when_unset); }
-WAV_OVERLOAD_ATTRIBUTES wav_u8x16_t wav_bitselect(wav_u8x16_t control, wav_u8x16_t when_set, wav_u8x16_t when_unset) { return wav_u8x16_bitselect(control, when_set, when_unset); }
-WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t wav_bitselect(wav_u16x8_t control, wav_u16x8_t when_set, wav_u16x8_t when_unset) { return wav_u16x8_bitselect(control, when_set, when_unset); }
-WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t wav_bitselect(wav_u32x4_t control, wav_u32x4_t when_set, wav_u32x4_t when_unset) { return wav_u32x4_bitselect(control, when_set, when_unset); }
-WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_bitselect(wav_u64x2_t control, wav_u64x2_t when_set, wav_u64x2_t when_unset) { return wav_u64x2_bitselect(control, when_set, when_unset); }
-WAV_OVERLOAD_ATTRIBUTES wav_f32x4_t wav_bitselect(wav_u32x4_t control, wav_f32x4_t when_set, wav_f32x4_t when_unset) { return wav_f32x4_bitselect(control, when_set, when_unset); }
-WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_bitselect(wav_u64x2_t control, wav_f64x2_t when_set, wav_f64x2_t when_unset) { return wav_f64x2_bitselect(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_i8x16_t wav_bitselect(wav_b8x16_t control, wav_i8x16_t when_set, wav_i8x16_t when_unset) { return wav_i8x16_bitselect(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t wav_bitselect(wav_b16x8_t control, wav_i16x8_t when_set, wav_i16x8_t when_unset) { return wav_i16x8_bitselect(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_i32x4_t wav_bitselect(wav_b32x4_t control, wav_i32x4_t when_set, wav_i32x4_t when_unset) { return wav_i32x4_bitselect(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_i64x2_t wav_bitselect(wav_b64x2_t control, wav_i64x2_t when_set, wav_i64x2_t when_unset) { return wav_i64x2_bitselect(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_u8x16_t wav_bitselect(wav_b8x16_t control, wav_u8x16_t when_set, wav_u8x16_t when_unset) { return wav_u8x16_bitselect(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t wav_bitselect(wav_b16x8_t control, wav_u16x8_t when_set, wav_u16x8_t when_unset) { return wav_u16x8_bitselect(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t wav_bitselect(wav_b32x4_t control, wav_u32x4_t when_set, wav_u32x4_t when_unset) { return wav_u32x4_bitselect(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_bitselect(wav_b64x2_t control, wav_u64x2_t when_set, wav_u64x2_t when_unset) { return wav_u64x2_bitselect(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_f32x4_t wav_bitselect(wav_b32x4_t control, wav_f32x4_t when_set, wav_f32x4_t when_unset) { return wav_f32x4_bitselect(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_bitselect(wav_b64x2_t control, wav_f64x2_t when_set, wav_f64x2_t when_unset) { return wav_f64x2_bitselect(control, when_set, when_unset); }
 
 /* blend -- Lanewise select
  *
