@@ -2440,102 +2440,102 @@ WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t operator^(wav_b64x2_t a, wav_f64x2_t b) { re
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i8x16_t
-wav_i8x16_not(wav_i8x16_t a) {
-  return (wav_i8x16_t) { ~a.values };
+wav_i8x16_not(wav_i8x16_t v) {
+  return (wav_i8x16_t) { ~v.values };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i16x8_t
-wav_i16x8_not(wav_i16x8_t a) {
-  return (wav_i16x8_t) { ~a.values };
+wav_i16x8_not(wav_i16x8_t v) {
+  return (wav_i16x8_t) { ~v.values };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i32x4_t
-wav_i32x4_not(wav_i32x4_t a) {
-  return (wav_i32x4_t) { ~a.values };
+wav_i32x4_not(wav_i32x4_t v) {
+  return (wav_i32x4_t) { ~v.values };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i64x2_t
-wav_i64x2_not(wav_i64x2_t a) {
-  return (wav_i64x2_t) { ~a.values };
+wav_i64x2_not(wav_i64x2_t v) {
+  return (wav_i64x2_t) { ~v.values };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u8x16_t
-wav_u8x16_not(wav_u8x16_t a) {
-  return (wav_u8x16_t) { ~a.values };
+wav_u8x16_not(wav_u8x16_t v) {
+  return (wav_u8x16_t) { ~v.values };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u16x8_t
-wav_u16x8_not(wav_u16x8_t a) {
-  return (wav_u16x8_t) { ~a.values };
+wav_u16x8_not(wav_u16x8_t v) {
+  return (wav_u16x8_t) { ~v.values };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u32x4_t
-wav_u32x4_not(wav_u32x4_t a) {
-  return (wav_u32x4_t) { ~a.values };
+wav_u32x4_not(wav_u32x4_t v) {
+  return (wav_u32x4_t) { ~v.values };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u64x2_t
-wav_u64x2_not(wav_u64x2_t a) {
-  return (wav_u64x2_t) { ~a.values };
+wav_u64x2_not(wav_u64x2_t v) {
+  return (wav_u64x2_t) { ~v.values };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_b8x16_t
-wav_b8x16_not(wav_b8x16_t a) {
-  return (wav_b8x16_t) { ~a.values };
+wav_b8x16_not(wav_b8x16_t v) {
+  return (wav_b8x16_t) { ~v.values };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_b16x8_t
-wav_b16x8_not(wav_b16x8_t a) {
-  return (wav_b16x8_t) { ~a.values };
+wav_b16x8_not(wav_b16x8_t v) {
+  return (wav_b16x8_t) { ~v.values };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_b32x4_t
-wav_b32x4_not(wav_b32x4_t a) {
-  return (wav_b32x4_t) { ~a.values };
+wav_b32x4_not(wav_b32x4_t v) {
+  return (wav_b32x4_t) { ~v.values };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_b64x2_t
-wav_b64x2_not(wav_b64x2_t a) {
-  return (wav_b64x2_t) { ~a.values };
+wav_b64x2_not(wav_b64x2_t v) {
+  return (wav_b64x2_t) { ~v.values };
 }
 
-WAV_OVERLOAD_ATTRIBUTES wav_i8x16_t wav_not(wav_i8x16_t a) { return wav_i8x16_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t wav_not(wav_i16x8_t a) { return wav_i16x8_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_i32x4_t wav_not(wav_i32x4_t a) { return wav_i32x4_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_i64x2_t wav_not(wav_i64x2_t a) { return wav_i64x2_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_u8x16_t wav_not(wav_u8x16_t a) { return wav_u8x16_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t wav_not(wav_u16x8_t a) { return wav_u16x8_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t wav_not(wav_u32x4_t a) { return wav_u32x4_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_not(wav_u64x2_t a) { return wav_u64x2_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_b8x16_t wav_not(wav_b8x16_t a) { return wav_b8x16_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_b16x8_t wav_not(wav_b16x8_t a) { return wav_b16x8_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_b32x4_t wav_not(wav_b32x4_t a) { return wav_b32x4_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_b64x2_t wav_not(wav_b64x2_t a) { return wav_b64x2_not(a); }
+WAV_OVERLOAD_ATTRIBUTES wav_i8x16_t wav_not(wav_i8x16_t v) { return wav_i8x16_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t wav_not(wav_i16x8_t v) { return wav_i16x8_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_i32x4_t wav_not(wav_i32x4_t v) { return wav_i32x4_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_i64x2_t wav_not(wav_i64x2_t v) { return wav_i64x2_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_u8x16_t wav_not(wav_u8x16_t v) { return wav_u8x16_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t wav_not(wav_u16x8_t v) { return wav_u16x8_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t wav_not(wav_u32x4_t v) { return wav_u32x4_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_not(wav_u64x2_t v) { return wav_u64x2_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_b8x16_t wav_not(wav_b8x16_t v) { return wav_b8x16_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_b16x8_t wav_not(wav_b16x8_t v) { return wav_b16x8_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_b32x4_t wav_not(wav_b32x4_t v) { return wav_b32x4_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_b64x2_t wav_not(wav_b64x2_t v) { return wav_b64x2_not(v); }
 
 #if WAV_OPERATOR_OVERLOADING
-WAV_OVERLOAD_ATTRIBUTES wav_i8x16_t operator~(wav_i8x16_t a) { return wav_i8x16_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t operator~(wav_i16x8_t a) { return wav_i16x8_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_i32x4_t operator~(wav_i32x4_t a) { return wav_i32x4_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_i64x2_t operator~(wav_i64x2_t a) { return wav_i64x2_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_u8x16_t operator~(wav_u8x16_t a) { return wav_u8x16_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t operator~(wav_u16x8_t a) { return wav_u16x8_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t operator~(wav_u32x4_t a) { return wav_u32x4_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t operator~(wav_u64x2_t a) { return wav_u64x2_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_b8x16_t operator~(wav_b8x16_t a) { return wav_b8x16_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_b16x8_t operator~(wav_b16x8_t a) { return wav_b16x8_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_b32x4_t operator~(wav_b32x4_t a) { return wav_b32x4_not(a); }
-WAV_OVERLOAD_ATTRIBUTES wav_b64x2_t operator~(wav_b64x2_t a) { return wav_b64x2_not(a); }
+WAV_OVERLOAD_ATTRIBUTES wav_i8x16_t operator~(wav_i8x16_t v) { return wav_i8x16_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t operator~(wav_i16x8_t v) { return wav_i16x8_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_i32x4_t operator~(wav_i32x4_t v) { return wav_i32x4_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_i64x2_t operator~(wav_i64x2_t v) { return wav_i64x2_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_u8x16_t operator~(wav_u8x16_t v) { return wav_u8x16_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t operator~(wav_u16x8_t v) { return wav_u16x8_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t operator~(wav_u32x4_t v) { return wav_u32x4_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t operator~(wav_u64x2_t v) { return wav_u64x2_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_b8x16_t operator~(wav_b8x16_t v) { return wav_b8x16_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_b16x8_t operator~(wav_b16x8_t v) { return wav_b16x8_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_b32x4_t operator~(wav_b32x4_t v) { return wav_b32x4_not(v); }
+WAV_OVERLOAD_ATTRIBUTES wav_b64x2_t operator~(wav_b64x2_t v) { return wav_b64x2_not(v); }
 #endif
 
 /* andnot -- Bitwise AND-NOT */
@@ -3464,88 +3464,88 @@ WAV_OVERLOAD_ATTRIBUTES wav_b64x2_t operator>=(wav_f64x2_t lhs, wav_f64x2_t rhs)
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i8x16_t
-wav_i8x16_bitselect(wav_i8x16_t when_set, wav_i8x16_t when_unset, wav_i8x16_t control) {
+wav_i8x16_bitselect(wav_i8x16_t control, wav_i8x16_t when_set, wav_i8x16_t when_unset) {
   return (wav_i8x16_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i16x8_t
-wav_i16x8_bitselect(wav_i16x8_t when_set, wav_i16x8_t when_unset, wav_i16x8_t control) {
+wav_i16x8_bitselect(wav_i16x8_t control, wav_i16x8_t when_set, wav_i16x8_t when_unset) {
   return (wav_i16x8_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i32x4_t
-wav_i32x4_bitselect(wav_i32x4_t when_set, wav_i32x4_t when_unset, wav_i32x4_t control) {
+wav_i32x4_bitselect(wav_i32x4_t control, wav_i32x4_t when_set, wav_i32x4_t when_unset) {
   return (wav_i32x4_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i64x2_t
-wav_i64x2_bitselect(wav_i64x2_t when_set, wav_i64x2_t when_unset, wav_i64x2_t control) {
+wav_i64x2_bitselect(wav_i64x2_t control, wav_i64x2_t when_set, wav_i64x2_t when_unset) {
   return (wav_i64x2_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u8x16_t
-wav_u8x16_bitselect(wav_u8x16_t when_set, wav_u8x16_t when_unset, wav_u8x16_t control) {
+wav_u8x16_bitselect(wav_u8x16_t control, wav_u8x16_t when_set, wav_u8x16_t when_unset) {
   return (wav_u8x16_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u16x8_t
-wav_u16x8_bitselect(wav_u16x8_t when_set, wav_u16x8_t when_unset, wav_u16x8_t control) {
+wav_u16x8_bitselect(wav_u16x8_t control, wav_u16x8_t when_set, wav_u16x8_t when_unset) {
   return (wav_u16x8_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u32x4_t
-wav_u32x4_bitselect(wav_u32x4_t when_set, wav_u32x4_t when_unset, wav_u32x4_t control) {
+wav_u32x4_bitselect(wav_u32x4_t control, wav_u32x4_t when_set, wav_u32x4_t when_unset) {
   return (wav_u32x4_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u64x2_t
-wav_u64x2_bitselect(wav_u64x2_t when_set, wav_u64x2_t when_unset, wav_u64x2_t control) {
+wav_u64x2_bitselect(wav_u64x2_t control, wav_u64x2_t when_set, wav_u64x2_t when_unset) {
   return (wav_u64x2_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_f32x4_t
-wav_f32x4_bitselect(wav_f32x4_t when_set, wav_f32x4_t when_unset, wav_u32x4_t control) {
+wav_f32x4_bitselect(wav_u32x4_t control, wav_f32x4_t when_set, wav_f32x4_t when_unset) {
   return
     wav_u32x4_as_f32x4(
       wav_u32x4_bitselect(
+        control,
         wav_f32x4_as_u32x4(when_set),
-        wav_f32x4_as_u32x4(when_unset),
-        control
+        wav_f32x4_as_u32x4(when_unset)
       )
     );
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_f64x2_t
-wav_f64x2_bitselect(wav_f64x2_t when_set, wav_f64x2_t when_unset, wav_u64x2_t control) {
+wav_f64x2_bitselect(wav_u64x2_t control, wav_f64x2_t when_set, wav_f64x2_t when_unset) {
   return
     wav_u64x2_as_f64x2(
       wav_u64x2_bitselect(
+        control,
         wav_f64x2_as_u64x2(when_set),
-        wav_f64x2_as_u64x2(when_unset),
-        control
+        wav_f64x2_as_u64x2(when_unset)
       )
     );
 }
 
-WAV_OVERLOAD_ATTRIBUTES wav_i8x16_t wav_bitselect(wav_i8x16_t when_set, wav_i8x16_t when_unset, wav_i8x16_t control) { return wav_i8x16_bitselect(when_set, when_unset, control); }
-WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t wav_bitselect(wav_i16x8_t when_set, wav_i16x8_t when_unset, wav_i16x8_t control) { return wav_i16x8_bitselect(when_set, when_unset, control); }
-WAV_OVERLOAD_ATTRIBUTES wav_i32x4_t wav_bitselect(wav_i32x4_t when_set, wav_i32x4_t when_unset, wav_i32x4_t control) { return wav_i32x4_bitselect(when_set, when_unset, control); }
-WAV_OVERLOAD_ATTRIBUTES wav_i64x2_t wav_bitselect(wav_i64x2_t when_set, wav_i64x2_t when_unset, wav_i64x2_t control) { return wav_i64x2_bitselect(when_set, when_unset, control); }
-WAV_OVERLOAD_ATTRIBUTES wav_u8x16_t wav_bitselect(wav_u8x16_t when_set, wav_u8x16_t when_unset, wav_u8x16_t control) { return wav_u8x16_bitselect(when_set, when_unset, control); }
-WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t wav_bitselect(wav_u16x8_t when_set, wav_u16x8_t when_unset, wav_u16x8_t control) { return wav_u16x8_bitselect(when_set, when_unset, control); }
-WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t wav_bitselect(wav_u32x4_t when_set, wav_u32x4_t when_unset, wav_u32x4_t control) { return wav_u32x4_bitselect(when_set, when_unset, control); }
-WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_bitselect(wav_u64x2_t when_set, wav_u64x2_t when_unset, wav_u64x2_t control) { return wav_u64x2_bitselect(when_set, when_unset, control); }
-WAV_OVERLOAD_ATTRIBUTES wav_f32x4_t wav_bitselect(wav_f32x4_t when_set, wav_f32x4_t when_unset, wav_u32x4_t control) { return wav_f32x4_bitselect(when_set, when_unset, control); }
-WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_bitselect(wav_f64x2_t when_set, wav_f64x2_t when_unset, wav_u64x2_t control) { return wav_f64x2_bitselect(when_set, when_unset, control); }
+WAV_OVERLOAD_ATTRIBUTES wav_i8x16_t wav_bitselect(wav_i8x16_t control, wav_i8x16_t when_set, wav_i8x16_t when_unset) { return wav_i8x16_bitselect(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t wav_bitselect(wav_i16x8_t control, wav_i16x8_t when_set, wav_i16x8_t when_unset) { return wav_i16x8_bitselect(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_i32x4_t wav_bitselect(wav_i32x4_t control, wav_i32x4_t when_set, wav_i32x4_t when_unset) { return wav_i32x4_bitselect(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_i64x2_t wav_bitselect(wav_i64x2_t control, wav_i64x2_t when_set, wav_i64x2_t when_unset) { return wav_i64x2_bitselect(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_u8x16_t wav_bitselect(wav_u8x16_t control, wav_u8x16_t when_set, wav_u8x16_t when_unset) { return wav_u8x16_bitselect(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t wav_bitselect(wav_u16x8_t control, wav_u16x8_t when_set, wav_u16x8_t when_unset) { return wav_u16x8_bitselect(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t wav_bitselect(wav_u32x4_t control, wav_u32x4_t when_set, wav_u32x4_t when_unset) { return wav_u32x4_bitselect(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_bitselect(wav_u64x2_t control, wav_u64x2_t when_set, wav_u64x2_t when_unset) { return wav_u64x2_bitselect(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_f32x4_t wav_bitselect(wav_u32x4_t control, wav_f32x4_t when_set, wav_f32x4_t when_unset) { return wav_f32x4_bitselect(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_bitselect(wav_u64x2_t control, wav_f64x2_t when_set, wav_f64x2_t when_unset) { return wav_f64x2_bitselect(control, when_set, when_unset); }
 
 /* blend -- Lanewise select
  *
@@ -3561,88 +3561,88 @@ WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_bitselect(wav_f64x2_t when_set, wav_f64x
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i8x16_t
-wav_i8x16_blend(wav_i8x16_t when_set, wav_i8x16_t when_unset, wav_b8x16_t control) {
+wav_i8x16_blend(wav_b8x16_t control, wav_i8x16_t when_set, wav_i8x16_t when_unset) {
   return (wav_i8x16_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i16x8_t
-wav_i16x8_blend(wav_i16x8_t when_set, wav_i16x8_t when_unset, wav_b16x8_t control) {
+wav_i16x8_blend(wav_b16x8_t control, wav_i16x8_t when_set, wav_i16x8_t when_unset) {
   return (wav_i16x8_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i32x4_t
-wav_i32x4_blend(wav_i32x4_t when_set, wav_i32x4_t when_unset, wav_b32x4_t control) {
+wav_i32x4_blend(wav_b32x4_t control, wav_i32x4_t when_set, wav_i32x4_t when_unset) {
   return (wav_i32x4_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i64x2_t
-wav_i64x2_blend(wav_i64x2_t when_set, wav_i64x2_t when_unset, wav_b64x2_t control) {
+wav_i64x2_blend(wav_b64x2_t control, wav_i64x2_t when_set, wav_i64x2_t when_unset) {
   return (wav_i64x2_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u8x16_t
-wav_u8x16_blend(wav_u8x16_t when_set, wav_u8x16_t when_unset, wav_b8x16_t control) {
+wav_u8x16_blend(wav_b8x16_t control, wav_u8x16_t when_set, wav_u8x16_t when_unset) {
   return (wav_u8x16_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u16x8_t
-wav_u16x8_blend(wav_u16x8_t when_set, wav_u16x8_t when_unset, wav_b16x8_t control) {
+wav_u16x8_blend(wav_b16x8_t control, wav_u16x8_t when_set, wav_u16x8_t when_unset) {
   return (wav_u16x8_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u32x4_t
-wav_u32x4_blend(wav_u32x4_t when_set, wav_u32x4_t when_unset, wav_b32x4_t control) {
+wav_u32x4_blend(wav_b32x4_t control, wav_u32x4_t when_set, wav_u32x4_t when_unset) {
   return (wav_u32x4_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u64x2_t
-wav_u64x2_blend(wav_u64x2_t when_set, wav_u64x2_t when_unset, wav_b64x2_t control) {
+wav_u64x2_blend(wav_b64x2_t control, wav_u64x2_t when_set, wav_u64x2_t when_unset) {
   return (wav_u64x2_t) { (when_set.values & control.values) ^ (when_unset.values & ~control.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_f32x4_t
-wav_f32x4_blend(wav_f32x4_t when_set, wav_f32x4_t when_unset, wav_b32x4_t control) {
+wav_f32x4_blend(wav_b32x4_t control, wav_f32x4_t when_set, wav_f32x4_t when_unset) {
   return
     wav_u32x4_as_f32x4(
       wav_u32x4_blend(
+        control,
         wav_f32x4_as_u32x4(when_set),
-        wav_f32x4_as_u32x4(when_unset),
-        control
+        wav_f32x4_as_u32x4(when_unset)
       )
     );
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_f64x2_t
-wav_f64x2_blend(wav_f64x2_t when_set, wav_f64x2_t when_unset, wav_b64x2_t control) {
+wav_f64x2_blend(wav_b64x2_t control, wav_f64x2_t when_set, wav_f64x2_t when_unset) {
   return
     wav_u64x2_as_f64x2(
       wav_u64x2_blend(
+        control,
         wav_f64x2_as_u64x2(when_set),
-        wav_f64x2_as_u64x2(when_unset),
-        control
+        wav_f64x2_as_u64x2(when_unset)
       )
     );
 }
 
-WAV_OVERLOAD_ATTRIBUTES wav_i8x16_t wav_blend(wav_i8x16_t when_set, wav_i8x16_t when_unset, wav_b8x16_t control) { return wav_i8x16_blend(when_set, when_unset, control); }
-WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t wav_blend(wav_i16x8_t when_set, wav_i16x8_t when_unset, wav_b16x8_t control) { return wav_i16x8_blend(when_set, when_unset, control); }
-WAV_OVERLOAD_ATTRIBUTES wav_i32x4_t wav_blend(wav_i32x4_t when_set, wav_i32x4_t when_unset, wav_b32x4_t control) { return wav_i32x4_blend(when_set, when_unset, control); }
-WAV_OVERLOAD_ATTRIBUTES wav_i64x2_t wav_blend(wav_i64x2_t when_set, wav_i64x2_t when_unset, wav_b64x2_t control) { return wav_i64x2_blend(when_set, when_unset, control); }
-WAV_OVERLOAD_ATTRIBUTES wav_u8x16_t wav_blend(wav_u8x16_t when_set, wav_u8x16_t when_unset, wav_b8x16_t control) { return wav_u8x16_blend(when_set, when_unset, control); }
-WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t wav_blend(wav_u16x8_t when_set, wav_u16x8_t when_unset, wav_b16x8_t control) { return wav_u16x8_blend(when_set, when_unset, control); }
-WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t wav_blend(wav_u32x4_t when_set, wav_u32x4_t when_unset, wav_b32x4_t control) { return wav_u32x4_blend(when_set, when_unset, control); }
-WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_blend(wav_u64x2_t when_set, wav_u64x2_t when_unset, wav_b64x2_t control) { return wav_u64x2_blend(when_set, when_unset, control); }
-WAV_OVERLOAD_ATTRIBUTES wav_f32x4_t wav_blend(wav_f32x4_t when_set, wav_f32x4_t when_unset, wav_b32x4_t control) { return wav_f32x4_blend(when_set, when_unset, control); }
-WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_blend(wav_f64x2_t when_set, wav_f64x2_t when_unset, wav_b64x2_t control) { return wav_f64x2_blend(when_set, when_unset, control); }
+WAV_OVERLOAD_ATTRIBUTES wav_i8x16_t wav_blend(wav_b8x16_t control, wav_i8x16_t when_set, wav_i8x16_t when_unset) { return wav_i8x16_blend(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t wav_blend(wav_b16x8_t control, wav_i16x8_t when_set, wav_i16x8_t when_unset) { return wav_i16x8_blend(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_i32x4_t wav_blend(wav_b32x4_t control, wav_i32x4_t when_set, wav_i32x4_t when_unset) { return wav_i32x4_blend(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_i64x2_t wav_blend(wav_b64x2_t control, wav_i64x2_t when_set, wav_i64x2_t when_unset) { return wav_i64x2_blend(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_u8x16_t wav_blend(wav_b8x16_t control, wav_u8x16_t when_set, wav_u8x16_t when_unset) { return wav_u8x16_blend(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t wav_blend(wav_b16x8_t control, wav_u16x8_t when_set, wav_u16x8_t when_unset) { return wav_u16x8_blend(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t wav_blend(wav_b32x4_t control, wav_u32x4_t when_set, wav_u32x4_t when_unset) { return wav_u32x4_blend(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_blend(wav_b64x2_t control, wav_u64x2_t when_set, wav_u64x2_t when_unset) { return wav_u64x2_blend(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_f32x4_t wav_blend(wav_b32x4_t control, wav_f32x4_t when_set, wav_f32x4_t when_unset) { return wav_f32x4_blend(control, when_set, when_unset); }
+WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_blend(wav_b64x2_t control, wav_f64x2_t when_set, wav_f64x2_t when_unset) { return wav_f64x2_blend(control, when_set, when_unset); }
 
 /* min -- Lane-wise integer minimum
  *
@@ -3653,37 +3653,37 @@ WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_blend(wav_f64x2_t when_set, wav_f64x2_t 
 WAV_FUNCTION_ATTRIBUTES
 wav_i8x16_t
 wav_i8x16_min(wav_i8x16_t a, wav_i8x16_t b)  {
-  return wav_i8x16_blend(a, b, wav_i8x16_lt(a, b));
+  return wav_i8x16_blend(wav_i8x16_lt(a, b), a, b);
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i16x8_t
 wav_i16x8_min(wav_i16x8_t a, wav_i16x8_t b)  {
-  return wav_i16x8_blend(a, b, wav_i16x8_lt(a, b));
+  return wav_i16x8_blend(wav_i16x8_lt(a, b), a, b);
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i32x4_t
 wav_i32x4_min(wav_i32x4_t a, wav_i32x4_t b)  {
-  return wav_i32x4_blend(a, b, wav_i32x4_lt(a, b));
+  return wav_i32x4_blend(wav_i32x4_lt(a, b), a, b);
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u8x16_t
 wav_u8x16_min(wav_u8x16_t a, wav_u8x16_t b)  {
-  return wav_u8x16_blend(a, b, wav_u8x16_lt(a, b));
+  return wav_u8x16_blend(wav_u8x16_lt(a, b), a, b);
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u16x8_t
 wav_u16x8_min(wav_u16x8_t a, wav_u16x8_t b)  {
-  return wav_u16x8_blend(a, b, wav_u16x8_lt(a, b));
+  return wav_u16x8_blend(wav_u16x8_lt(a, b), a, b);
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u32x4_t
 wav_u32x4_min(wav_u32x4_t a, wav_u32x4_t b)  {
-  return wav_u32x4_blend(a, b, wav_u32x4_lt(a, b));
+  return wav_u32x4_blend(wav_u32x4_lt(a, b), a, b);
 }
 
 WAV_FUNCTION_ATTRIBUTES
@@ -3691,11 +3691,11 @@ wav_f32x4_t
 wav_f32x4_min(wav_f32x4_t a, wav_f32x4_t b)  {
   #if WAV_PORTABLE_SLOW(TODO)
     return wav_f32x4_blend(
-      a, b,
       wav_b32x4_or(
         wav_f32x4_lt(a, b),
         wav_b32x4_not(wav_f32x4_eq(a, a))
-      )
+      ),
+      a, b
     );
   #else
     return (wav_f32x4_t) { __builtin_wasm_min_f32x4(a.values, b.values) };
@@ -3707,11 +3707,11 @@ wav_f64x2_t
 wav_f64x2_min(wav_f64x2_t a, wav_f64x2_t b)  {
   #if WAV_PORTABLE_SLOW(TODO)
     return wav_f64x2_blend(
-      a, b,
       wav_b64x2_or(
         wav_f64x2_lt(a, b),
         wav_b64x2_not(wav_f64x2_eq(a, a))
-      )
+      ),
+      a, b
     );
   #else
     return (wav_f64x2_t) { __builtin_wasm_min_f64x2(a.values, b.values) };
@@ -3736,37 +3736,37 @@ WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_min(wav_f64x2_t a, wav_f64x2_t b) { retu
 WAV_FUNCTION_ATTRIBUTES
 wav_i8x16_t
 wav_i8x16_max(wav_i8x16_t a, wav_i8x16_t b)  {
-  return wav_i8x16_blend(a, b, wav_i8x16_gt(a, b));
+  return wav_i8x16_blend(wav_i8x16_gt(a, b), a, b);
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i16x8_t
 wav_i16x8_max(wav_i16x8_t a, wav_i16x8_t b)  {
-  return wav_i16x8_blend(a, b, wav_i16x8_gt(a, b));
+  return wav_i16x8_blend(wav_i16x8_gt(a, b), a, b);
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i32x4_t
 wav_i32x4_max(wav_i32x4_t a, wav_i32x4_t b)  {
-  return wav_i32x4_blend(a, b, wav_i32x4_gt(a, b));
+  return wav_i32x4_blend(wav_i32x4_gt(a, b), a, b);
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u8x16_t
 wav_u8x16_max(wav_u8x16_t a, wav_u8x16_t b)  {
-  return wav_u8x16_blend(a, b, wav_u8x16_gt(a, b));
+  return wav_u8x16_blend(wav_u8x16_gt(a, b), a, b);
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u16x8_t
 wav_u16x8_max(wav_u16x8_t a, wav_u16x8_t b)  {
-  return wav_u16x8_blend(a, b, wav_u16x8_gt(a, b));
+  return wav_u16x8_blend(wav_u16x8_gt(a, b), a, b);
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_u32x4_t
 wav_u32x4_max(wav_u32x4_t a, wav_u32x4_t b)  {
-  return wav_u32x4_blend(a, b, wav_u32x4_gt(a, b));
+  return wav_u32x4_blend(wav_u32x4_gt(a, b), a, b);
 }
 
 WAV_FUNCTION_ATTRIBUTES
@@ -3774,11 +3774,11 @@ wav_f32x4_t
 wav_f32x4_max(wav_f32x4_t a, wav_f32x4_t b)  {
   #if WAV_PORTABLE_SLOW(TODO)
     return wav_f32x4_blend(
-      a, b,
       wav_b32x4_or(
         wav_f32x4_gt(a, b),
         wav_b32x4_not(wav_f32x4_eq(a, a))
-      )
+      ),
+      a, b
     );
   #else
     return (wav_f32x4_t) { __builtin_wasm_max_f32x4(a.values, b.values) };
@@ -3790,11 +3790,11 @@ wav_f64x2_t
 wav_f64x2_max(wav_f64x2_t a, wav_f64x2_t b)  {
   #if WAV_PORTABLE_SLOW(TODO)
     return wav_f64x2_blend(
-      a, b,
       wav_b64x2_or(
         wav_f64x2_gt(a, b),
         wav_b64x2_not(wav_f64x2_eq(a, a))
-      )
+      ),
+      a, b
     );
   #else
     return (wav_f64x2_t) { __builtin_wasm_max_f64x2(a.values, b.values) };
@@ -5008,9 +5008,9 @@ wav_f64x2_trunc_sat_zero_i32x4(wav_f64x2_t a) {
           wav_f64x2_min(
             wav_f64x2_max(
               a,
-              wav_f64x2_splat((float) INT32_MIN)
+              wav_f64x2_splat((double) INT32_MIN)
             ),
-            wav_f64x2_splat((float) INT32_MAX)
+            wav_f64x2_splat((double) INT32_MAX)
           ),
           wav_f64x2_eq(a, a)
         );
@@ -5047,7 +5047,7 @@ wav_f64x2_trunc_sat_zero_u32x4(wav_f64x2_t a) {
               a,
               wav_f64x2_splat(0.0)
             ),
-            wav_f64x2_splat((float) UINT32_MAX)
+            wav_f64x2_splat((double) UINT32_MAX)
           ),
           wav_f64x2_eq(a, a)
         );
@@ -5327,8 +5327,6 @@ wav_i8x16_add_sat(wav_i8x16_t a, wav_i8x16_t b) {
 
     return wav_u8x16_as_i8x16(
       wav_u8x16_blend(
-        au,
-        ru,
         wav_i8x16_ge(
           wav_u8x16_as_i8x16(
             wav_u8x16_or(
@@ -5337,7 +5335,9 @@ wav_i8x16_add_sat(wav_i8x16_t a, wav_i8x16_t b) {
             )
           ),
           wav_i8x16_splat(0)
-        )
+        ),
+        au,
+        ru
       )
     );
   #else
@@ -5357,8 +5357,6 @@ wav_i16x8_add_sat(wav_i16x8_t a, wav_i16x8_t b) {
 
     return wav_u16x8_as_i16x8(
       wav_u16x8_blend(
-        au,
-        ru,
         wav_i16x8_ge(
           wav_u16x8_as_i16x8(
             wav_u16x8_or(
@@ -5367,7 +5365,9 @@ wav_i16x8_add_sat(wav_i16x8_t a, wav_i16x8_t b) {
             )
           ),
           wav_i16x8_splat(0)
-        )
+        ),
+        au,
+        ru
       )
     );
   #else
@@ -5421,8 +5421,6 @@ wav_i8x16_sub_sat(wav_i8x16_t a, wav_i8x16_t b) {
 
     return wav_u8x16_as_i8x16(
       wav_u8x16_blend(
-        au,
-        ru,
         wav_i8x16_lt(
           wav_u8x16_as_i8x16(
             wav_u8x16_and(
@@ -5431,7 +5429,9 @@ wav_i8x16_sub_sat(wav_i8x16_t a, wav_i8x16_t b) {
             )
           ),
           wav_i8x16_splat(0)
-        )
+        ),
+        au,
+        ru
       )
     );
   #else
@@ -5451,8 +5451,6 @@ wav_i16x8_sub_sat(wav_i16x8_t a, wav_i16x8_t b) {
 
     return wav_u16x8_as_i16x8(
       wav_u16x8_blend(
-        au,
-        ru,
         wav_i16x8_lt(
           wav_u16x8_as_i16x8(
             wav_u16x8_and(
@@ -5461,7 +5459,9 @@ wav_i16x8_sub_sat(wav_i16x8_t a, wav_i16x8_t b) {
             )
           ),
           wav_i16x8_splat(0)
-        )
+        ),
+        au,
+        ru
       )
     );
   #else
@@ -5523,9 +5523,9 @@ wav_i16x8_q15mulr_sat(wav_i16x8_t a, wav_i16x8_t b) {
       INT16_MAX, INT16_MAX, INT16_MAX, INT16_MAX,
       INT16_MAX, INT16_MAX, INT16_MAX, INT16_MAX };
 
-    __typeof__(tmp) mask = tmp < min;
+    __typeof__(tmp) mask = (__typeof__(tmp)) (tmp < min);
     tmp = (tmp & ~mask) | (min & mask);
-    mask = tmp > max;
+    mask = (__typeof__(tmp)) (tmp > max);
     tmp = (tmp & ~mask) | (max & mask);
 
     r.values = __builtin_convertvector(tmp, __typeof__(r.values));
@@ -5547,7 +5547,7 @@ WAV_FUNCTION_ATTRIBUTES
 wav_f32x4_t
 wav_f32x4_pmin(wav_f32x4_t a, wav_f32x4_t b)  {
   #if WAV_PORTABLE_SLOW(TODO)
-    return wav_f32x4_blend(b, a, wav_f32x4_lt(b, a));
+    return wav_f32x4_blend(wav_f32x4_lt(b, a), b, a);
   #else
     return (wav_f32x4_t) { __builtin_wasm_pmin_f32x4(a.values, b.values) };
   #endif
@@ -5557,7 +5557,7 @@ WAV_FUNCTION_ATTRIBUTES
 wav_f64x2_t
 wav_f64x2_pmin(wav_f64x2_t a, wav_f64x2_t b)  {
   #if WAV_PORTABLE_SLOW(TODO)
-    return wav_f64x2_blend(b, a, wav_f64x2_lt(b, a));
+    return wav_f64x2_blend(wav_f64x2_lt(b, a), b, a);
   #else
     return (wav_f64x2_t) { __builtin_wasm_pmin_f64x2(a.values, b.values) };
   #endif
@@ -5575,7 +5575,7 @@ WAV_FUNCTION_ATTRIBUTES
 wav_f32x4_t
 wav_f32x4_pmax(wav_f32x4_t a, wav_f32x4_t b)  {
   #if WAV_PORTABLE_SLOW(TODO)
-    return wav_f32x4_blend(b, a, wav_f32x4_lt(a, b));
+    return wav_f32x4_blend(wav_f32x4_lt(a, b), b, a);
   #else
     return (wav_f32x4_t) { __builtin_wasm_pmax_f32x4(a.values, b.values) };
   #endif
@@ -5585,7 +5585,7 @@ WAV_FUNCTION_ATTRIBUTES
 wav_f64x2_t
 wav_f64x2_pmax(wav_f64x2_t a, wav_f64x2_t b)  {
   #if WAV_PORTABLE_SLOW(TODO)
-    return wav_f64x2_blend(b, a, wav_f64x2_lt(a, b));
+    return wav_f64x2_blend(wav_f64x2_lt(a, b), b, a);
   #else
     return (wav_f64x2_t) { __builtin_wasm_pmax_f64x2(a.values, b.values) };
   #endif
