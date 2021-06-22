@@ -6247,8 +6247,7 @@ WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_load_splat(const   double* a) { return w
 
 /* loadu_splat -- Load and Splat
  *
- * Load a single element and splat to all lanes of a vector. The
- * natural alignment is the size of the element loaded.
+ * Load a single unaligned element and splat to all lanes of a vector.
  */
 
 WAV_FUNCTION_ATTRIBUTES
