@@ -3689,11 +3689,11 @@ wav_u32x4_min(wav_u32x4_t a, wav_u32x4_t b)  {
 WAV_FUNCTION_ATTRIBUTES
 wav_f32x4_t
 wav_f32x4_min(wav_f32x4_t a, wav_f32x4_t b)  {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50805)
     return wav_f32x4_blend(
       wav_b32x4_or(
-        wav_f32x4_lt(a, b),
-        wav_b32x4_not(wav_f32x4_eq(a, a))
+        wav_f32x4_ne(a, a),
+        wav_f32x4_lt(a, b)
       ),
       a, b
     );
@@ -3705,11 +3705,11 @@ wav_f32x4_min(wav_f32x4_t a, wav_f32x4_t b)  {
 WAV_FUNCTION_ATTRIBUTES
 wav_f64x2_t
 wav_f64x2_min(wav_f64x2_t a, wav_f64x2_t b)  {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50805)
     return wav_f64x2_blend(
       wav_b64x2_or(
-        wav_f64x2_lt(a, b),
-        wav_b64x2_not(wav_f64x2_eq(a, a))
+        wav_f64x2_ne(a, a),
+        wav_f64x2_lt(a, b)
       ),
       a, b
     );
@@ -3772,11 +3772,11 @@ wav_u32x4_max(wav_u32x4_t a, wav_u32x4_t b)  {
 WAV_FUNCTION_ATTRIBUTES
 wav_f32x4_t
 wav_f32x4_max(wav_f32x4_t a, wav_f32x4_t b)  {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50805)
     return wav_f32x4_blend(
       wav_b32x4_or(
-        wav_f32x4_gt(a, b),
-        wav_b32x4_not(wav_f32x4_eq(a, a))
+        wav_f32x4_ne(a, a),
+        wav_f32x4_gt(a, b)
       ),
       a, b
     );
@@ -3788,11 +3788,11 @@ wav_f32x4_max(wav_f32x4_t a, wav_f32x4_t b)  {
 WAV_FUNCTION_ATTRIBUTES
 wav_f64x2_t
 wav_f64x2_max(wav_f64x2_t a, wav_f64x2_t b)  {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50805)
     return wav_f64x2_blend(
       wav_b64x2_or(
-        wav_f64x2_gt(a, b),
-        wav_b64x2_not(wav_f64x2_eq(a, a))
+        wav_f64x2_ne(a, a),
+        wav_f64x2_gt(a, b)
       ),
       a, b
     );
@@ -4832,10 +4832,7 @@ wav_i16x8_narrow_u(wav_i16x8_t a, wav_i16x8_t b) {
     r.values = __builtin_convertvector(__builtin_shufflevector(a.values, b.values, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15), __typeof__(r.values));
     return r;
   #else
-    #pragma clang diagnostic push
-    #pragma clang diagnostic ignored "-Wvector-conversion"
     return (wav_u8x16_t) { __builtin_wasm_narrow_u_i8x16_i16x8(a.values, b.values) };
-    #pragma clang diagnostic pop
   #endif
 }
 
@@ -4849,10 +4846,7 @@ wav_i32x4_narrow_u(wav_i32x4_t a, wav_i32x4_t b) {
     r.values = __builtin_convertvector(__builtin_shufflevector(a.values, b.values, 0, 1, 2, 3, 4, 5, 6, 7), __typeof__(r.values));
     return r;
   #else
-    #pragma clang diagnostic push
-    #pragma clang diagnostic ignored "-Wvector-conversion"
     return (wav_u16x8_t) { __builtin_wasm_narrow_u_i16x8_i32x4(a.values, b.values) };
-    #pragma clang diagnostic pop
   #endif
 }
 
@@ -5082,7 +5076,19 @@ WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t wav_trunc_sat_zero_u32x4(wav_f64x2_t a) { re
 WAV_FUNCTION_ATTRIBUTES
 wav_i16x8_t
 wav_i8x16_extmul_low(wav_i8x16_t a, wav_i8x16_t b) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50806)
+    return (wav_i16x8_t) {
+      __builtin_convertvector(
+        __builtin_shufflevector(a, a, 0, 1, 2, 3, 4, 5, 6, 7),
+        __typeof__(int16_t __attribute__((__vector_size__(16))))
+      )
+      *
+      __builtin_convertvector(
+        __builtin_shufflevector(b, b, 0, 1, 2, 3, 4, 5, 6, 7),
+        __typeof__(int16_t __attribute__((__vector_size__(16))))
+      );
+    };
+  #elif WAV_PORTABLE_SLOW(50806)
     return wav_i16x8_mul(wav_i8x16_extend_low(a), wav_i8x16_extend_low(b));
   #else
     return (wav_i16x8_t) { __builtin_wasm_extmul_low_i8x16_s_i16x8(a.values, b.values) };
@@ -5092,7 +5098,7 @@ wav_i8x16_extmul_low(wav_i8x16_t a, wav_i8x16_t b) {
 WAV_FUNCTION_ATTRIBUTES
 wav_i32x4_t
 wav_i16x8_extmul_low(wav_i16x8_t a, wav_i16x8_t b) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50806)
     return wav_i32x4_mul(wav_i16x8_extend_low(a), wav_i16x8_extend_low(b));
   #else
     return (wav_i32x4_t) { __builtin_wasm_extmul_low_i16x8_s_i32x4(a.values, b.values) };
@@ -5102,7 +5108,7 @@ wav_i16x8_extmul_low(wav_i16x8_t a, wav_i16x8_t b) {
 WAV_FUNCTION_ATTRIBUTES
 wav_i64x2_t
 wav_i32x4_extmul_low(wav_i32x4_t a, wav_i32x4_t b) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50806)
     return wav_i64x2_mul(wav_i32x4_extend_low(a), wav_i32x4_extend_low(b));
   #else
     return (wav_i64x2_t) { __builtin_wasm_extmul_low_i32x4_s_i64x2(a.values, b.values) };
@@ -5112,7 +5118,7 @@ wav_i32x4_extmul_low(wav_i32x4_t a, wav_i32x4_t b) {
 WAV_FUNCTION_ATTRIBUTES
 wav_u16x8_t
 wav_u8x16_extmul_low(wav_u8x16_t a, wav_u8x16_t b) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50806)
     return (wav_u16x8_t) { wav_u8x16_extend_low(a).values * wav_u8x16_extend_low(b).values };
   #else
     return (wav_u16x8_t) { __builtin_wasm_extmul_low_i8x16_u_i16x8(a.values, b.values) };
@@ -5122,7 +5128,7 @@ wav_u8x16_extmul_low(wav_u8x16_t a, wav_u8x16_t b) {
 WAV_FUNCTION_ATTRIBUTES
 wav_u32x4_t
 wav_u16x8_extmul_low(wav_u16x8_t a, wav_u16x8_t b) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50806)
     return (wav_u32x4_t) { wav_u16x8_extend_low(a).values * wav_u16x8_extend_low(b).values };
   #else
     return (wav_u32x4_t) { __builtin_wasm_extmul_low_i16x8_u_i32x4(a.values, b.values) };
@@ -5132,7 +5138,7 @@ wav_u16x8_extmul_low(wav_u16x8_t a, wav_u16x8_t b) {
 WAV_FUNCTION_ATTRIBUTES
 wav_u64x2_t
 wav_u32x4_extmul_low(wav_u32x4_t a, wav_u32x4_t b) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50806)
     return (wav_u64x2_t) { wav_u32x4_extend_low(a).values * wav_u32x4_extend_low(b).values };
   #else
     return (wav_u64x2_t) { __builtin_wasm_extmul_low_i32x4_u_i64x2(a.values, b.values) };
@@ -5155,7 +5161,7 @@ WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_extmul_low(wav_u32x4_t a, wav_u32x4_t b)
 WAV_FUNCTION_ATTRIBUTES
 wav_i16x8_t
 wav_i8x16_extmul_high(wav_i8x16_t a, wav_i8x16_t b) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50806)
     return wav_i16x8_mul(wav_i8x16_extend_high(a), wav_i8x16_extend_high(b));
   #else
     return (wav_i16x8_t) { __builtin_wasm_extmul_high_i8x16_s_i16x8(a.values, b.values) };
@@ -5165,7 +5171,7 @@ wav_i8x16_extmul_high(wav_i8x16_t a, wav_i8x16_t b) {
 WAV_FUNCTION_ATTRIBUTES
 wav_i32x4_t
 wav_i16x8_extmul_high(wav_i16x8_t a, wav_i16x8_t b) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50806)
     return wav_i32x4_mul(wav_i16x8_extend_high(a), wav_i16x8_extend_high(b));
   #else
     return (wav_i32x4_t) { __builtin_wasm_extmul_high_i16x8_s_i32x4(a.values, b.values) };
@@ -5175,7 +5181,7 @@ wav_i16x8_extmul_high(wav_i16x8_t a, wav_i16x8_t b) {
 WAV_FUNCTION_ATTRIBUTES
 wav_i64x2_t
 wav_i32x4_extmul_high(wav_i32x4_t a, wav_i32x4_t b) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50806)
     return wav_i64x2_mul(wav_i32x4_extend_high(a), wav_i32x4_extend_high(b));
   #else
     return (wav_i64x2_t) { __builtin_wasm_extmul_high_i32x4_s_i64x2(a.values, b.values) };
@@ -5185,7 +5191,7 @@ wav_i32x4_extmul_high(wav_i32x4_t a, wav_i32x4_t b) {
 WAV_FUNCTION_ATTRIBUTES
 wav_u16x8_t
 wav_u8x16_extmul_high(wav_u8x16_t a, wav_u8x16_t b) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50806)
     return (wav_u16x8_t) { wav_u8x16_extend_high(a).values * wav_u8x16_extend_high(b).values };
   #else
     return (wav_u16x8_t) { __builtin_wasm_extmul_high_i8x16_u_i16x8(a.values, b.values) };
@@ -5195,7 +5201,7 @@ wav_u8x16_extmul_high(wav_u8x16_t a, wav_u8x16_t b) {
 WAV_FUNCTION_ATTRIBUTES
 wav_u32x4_t
 wav_u16x8_extmul_high(wav_u16x8_t a, wav_u16x8_t b) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50806)
     return (wav_u32x4_t) { wav_u16x8_extend_high(a).values * wav_u16x8_extend_high(b).values };
   #else
     return (wav_u32x4_t) { __builtin_wasm_extmul_high_i16x8_u_i32x4(a.values, b.values) };
@@ -5205,7 +5211,7 @@ wav_u16x8_extmul_high(wav_u16x8_t a, wav_u16x8_t b) {
 WAV_FUNCTION_ATTRIBUTES
 wav_u64x2_t
 wav_u32x4_extmul_high(wav_u32x4_t a, wav_u32x4_t b) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50806)
     return (wav_u64x2_t) { wav_u32x4_extend_high(a).values * wav_u32x4_extend_high(b).values };
   #else
     return (wav_u64x2_t) { __builtin_wasm_extmul_high_i32x4_u_i64x2(a.values, b.values) };
@@ -5228,7 +5234,7 @@ WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_extmul_high(wav_u32x4_t a, wav_u32x4_t b
 WAV_FUNCTION_ATTRIBUTES
 wav_i16x8_t
 wav_i8x16_extadd_pairwise(wav_i8x16_t v) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50808)
     wav_i16x8_t r;
     r.values =
       __builtin_convertvector(__builtin_shufflevector(v.values, v.values, 0, 2, 4, 6, 8, 10, 12, 14), __typeof__(r.values)) +
@@ -5242,7 +5248,7 @@ wav_i8x16_extadd_pairwise(wav_i8x16_t v) {
 WAV_FUNCTION_ATTRIBUTES
 wav_i32x4_t
 wav_i16x8_extadd_pairwise(wav_i16x8_t v) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50808)
     wav_i32x4_t r;
     r.values =
       __builtin_convertvector(__builtin_shufflevector(v.values, v.values, 0, 2, 4, 6), __typeof__(r.values)) +
@@ -5256,7 +5262,7 @@ wav_i16x8_extadd_pairwise(wav_i16x8_t v) {
 WAV_FUNCTION_ATTRIBUTES
 wav_u16x8_t
 wav_u8x16_extadd_pairwise(wav_u8x16_t v) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50808)
     wav_u16x8_t r;
     r.values =
       __builtin_convertvector(__builtin_shufflevector(v.values, v.values, 0, 2, 4, 6, 8, 10, 12, 14), __typeof__(r.values)) +
@@ -5270,7 +5276,7 @@ wav_u8x16_extadd_pairwise(wav_u8x16_t v) {
 WAV_FUNCTION_ATTRIBUTES
 wav_u32x4_t
 wav_u16x8_extadd_pairwise(wav_u16x8_t v) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50808)
     wav_u32x4_t r;
     r.values =
       __builtin_convertvector(__builtin_shufflevector(v.values, v.values, 0, 2, 4, 6), __typeof__(r.values)) +
@@ -5295,7 +5301,7 @@ WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t wav_extadd_pairwise(wav_u16x8_t v) { return 
 WAV_FUNCTION_ATTRIBUTES
 wav_i32x4_t
 wav_i16x8_dot(wav_i16x8_t a, wav_i16x8_t b) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50810)
     int32_t p __attribute__((__vector_size__(32))) =
       __builtin_convertvector(a.values, __typeof__(p)) *
       __builtin_convertvector(b.values, __typeof__(p));
@@ -5546,7 +5552,7 @@ WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t wav_q15mulr_sat(wav_i16x8_t a, wav_i16x8_t b
 WAV_FUNCTION_ATTRIBUTES
 wav_f32x4_t
 wav_f32x4_pmin(wav_f32x4_t a, wav_f32x4_t b)  {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50793)
     return wav_f32x4_blend(wav_f32x4_lt(b, a), b, a);
   #else
     return (wav_f32x4_t) { __builtin_wasm_pmin_f32x4(a.values, b.values) };
@@ -5556,7 +5562,7 @@ wav_f32x4_pmin(wav_f32x4_t a, wav_f32x4_t b)  {
 WAV_FUNCTION_ATTRIBUTES
 wav_f64x2_t
 wav_f64x2_pmin(wav_f64x2_t a, wav_f64x2_t b)  {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50793)
     return wav_f64x2_blend(wav_f64x2_lt(b, a), b, a);
   #else
     return (wav_f64x2_t) { __builtin_wasm_pmin_f64x2(a.values, b.values) };
@@ -5574,7 +5580,7 @@ WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_pmin(wav_f64x2_t a, wav_f64x2_t b) { ret
 WAV_FUNCTION_ATTRIBUTES
 wav_f32x4_t
 wav_f32x4_pmax(wav_f32x4_t a, wav_f32x4_t b)  {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50793)
     return wav_f32x4_blend(wav_f32x4_lt(a, b), b, a);
   #else
     return (wav_f32x4_t) { __builtin_wasm_pmax_f32x4(a.values, b.values) };
@@ -5584,7 +5590,7 @@ wav_f32x4_pmax(wav_f32x4_t a, wav_f32x4_t b)  {
 WAV_FUNCTION_ATTRIBUTES
 wav_f64x2_t
 wav_f64x2_pmax(wav_f64x2_t a, wav_f64x2_t b)  {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50793)
     return wav_f64x2_blend(wav_f64x2_lt(a, b), b, a);
   #else
     return (wav_f64x2_t) { __builtin_wasm_pmax_f64x2(a.values, b.values) };
@@ -5602,7 +5608,7 @@ WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_pmax(wav_f64x2_t a, wav_f64x2_t b) { ret
 WAV_FUNCTION_ATTRIBUTES
 wav_u8x16_t
 wav_u8x16_avgr(wav_u8x16_t a, wav_u8x16_t b)  {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50794)
     wav_u8x16_t r;
     r.values = (a.values + b.values + 1) >> 1;
     return r;
@@ -5614,7 +5620,7 @@ wav_u8x16_avgr(wav_u8x16_t a, wav_u8x16_t b)  {
 WAV_FUNCTION_ATTRIBUTES
 wav_u16x8_t
 wav_u16x8_avgr(wav_u16x8_t a, wav_u16x8_t b)  {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50794)
     wav_u16x8_t r;
     r.values = (a.values + b.values + 1) >> 1;
     return r;
@@ -5658,22 +5664,25 @@ wav_i32x4_abs(wav_i32x4_t a) {
 WAV_FUNCTION_ATTRIBUTES
 wav_i64x2_t
 wav_i64x2_abs(wav_i64x2_t a) {
-  #if WAV_PORTABLE_SLOW(TODO)
-    wav_i64x2_t m;
-    m.values = (__typeof__(m.values)) (a.values < ((__typeof__(m.values)) { 0, }));
-    return (wav_i64x2_t) { (-a.values & m.values) | (a.values & ~m.values) };
-  #else
-    return (wav_i64x2_t) { __builtin_wasm_abs_i64x2(a.values) };
-  #endif
+  wav_i64x2_t m;
+  m.values = (__typeof__(m.values)) (a.values < ((__typeof__(m.values)) { 0, }));
+  return (wav_i64x2_t) { (-a.values & m.values) | (a.values & ~m.values) };
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_f32x4_t
 wav_f32x4_abs(wav_f32x4_t a) {
-  #if WAV_PORTABLE_SLOW(TODO)
-    wav_i32x4_t m;
-    m.values = (__typeof__(m.values)) (a.values < ((__typeof__(a.values)) { 0.0f, 0.0f, 0.0f, 0.0f }));
-    return (wav_f32x4_t) { (((__typeof__(m.values)) (-a.values)) & m.values) | (((__typeof__(m.values)) (a.values)) & ~m.values) };
+  #if WAV_PORTABLE_SLOW(50247)
+    wav_f32x4_t r;
+
+    for (int i = 0 ; i < 4 ; i++) {
+      r.values[i] = __builtin_fabsf(a.values[i]);
+    }
+
+    #pragma clang diagnostic push /* This is a false positive */
+    #pragma clang diagnostic ignored "-Wconditional-uninitialized"
+    return r;
+    #pragma clang diagnostic pop
   #else
     return (wav_f32x4_t) { __builtin_wasm_abs_f32x4(a.values) };
   #endif
@@ -5682,10 +5691,17 @@ wav_f32x4_abs(wav_f32x4_t a) {
 WAV_FUNCTION_ATTRIBUTES
 wav_f64x2_t
 wav_f64x2_abs(wav_f64x2_t a) {
-  #if WAV_PORTABLE_SLOW(TODO)
-    wav_i64x2_t m;
-    m.values = (__typeof__(m.values)) (a.values < ((__typeof__(a.values)) { 0.0, 0.0 }));
-    return (wav_f64x2_t) { (((__typeof__(m.values)) (-a.values)) & m.values) | (((__typeof__(m.values)) (a.values)) & ~m.values) };
+  #if WAV_PORTABLE_SLOW(50247)
+    wav_f64x2_t r;
+
+    for (int i = 0 ; i < 2 ; i++) {
+      r.values[i] = __builtin_fabs(a.values[i]);
+    }
+
+    #pragma clang diagnostic push /* This is a false positive */
+    #pragma clang diagnostic ignored "-Wconditional-uninitialized"
+    return r;
+    #pragma clang diagnostic pop
   #else
     return (wav_f64x2_t) { __builtin_wasm_abs_f64x2(a.values) };
   #endif
@@ -5856,7 +5872,7 @@ WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t operator>>(wav_u64x2_t a, int count) { retur
 WAV_FUNCTION_ATTRIBUTES
 wav_i8x16_t
 wav_i8x16_popcnt(wav_i8x16_t a) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50795)
     wav_i8x16_t r;
 
     for (int i = 0 ; i < 16 ; i++) {
@@ -5889,7 +5905,7 @@ WAV_OVERLOAD_ATTRIBUTES wav_u8x16_t wav_popcnt(wav_u8x16_t a) { return wav_u8x16
 WAV_FUNCTION_ATTRIBUTES
 bool
 wav_i64x2_any_true(wav_i64x2_t value) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50796)
     int32_t r = 0;
     for (int i = 0 ; i < 2 ; i++) {
       r |= value.values[i];
@@ -5987,7 +6003,7 @@ WAV_OVERLOAD_ATTRIBUTES bool wav_any_true(wav_b64x2_t a) { return wav_b64x2_any_
 WAV_FUNCTION_ATTRIBUTES
 bool
 wav_i8x16_all_true(wav_i8x16_t value) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50798)
     bool r = 1;
     for (int i = 0 ; i < 16 ; i++)
       r &= !!(value.values[i]);
@@ -6000,7 +6016,7 @@ wav_i8x16_all_true(wav_i8x16_t value) {
 WAV_FUNCTION_ATTRIBUTES
 bool
 wav_i16x8_all_true(wav_i16x8_t value) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50798)
     bool r = 1;
     for (int i = 0 ; i < 8 ; i++)
       r &= !!(value.values[i]);
@@ -6013,7 +6029,7 @@ wav_i16x8_all_true(wav_i16x8_t value) {
 WAV_FUNCTION_ATTRIBUTES
 bool
 wav_i32x4_all_true(wav_i32x4_t value) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50798)
     bool r = 1;
     for (int i = 0 ; i < 4 ; i++)
       r &= !!(value.values[i]);
@@ -6026,7 +6042,7 @@ wav_i32x4_all_true(wav_i32x4_t value) {
 WAV_FUNCTION_ATTRIBUTES
 bool
 wav_i64x2_all_true(wav_i64x2_t value) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50798)
     bool r = 1;
     for (int i = 0 ; i < 2 ; i++)
       r &= !!(value.values[i]);
@@ -6106,34 +6122,20 @@ WAV_OVERLOAD_ATTRIBUTES bool wav_all_true(wav_b64x2_t a) { return wav_b64x2_all_
 WAV_FUNCTION_ATTRIBUTES
 wav_i32x4_t
 wav_i32x4_load_zero(const int32_t * a) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50799)
     return (wav_i32x4_t) { { *a, 0, 0, 0 } };
-  #elif WAV_PORTABLE_SLOW(TODO)
-    return (wav_i32x4_t) { __builtin_wasm_load32_zero(a) };
   #else
-    return (wav_i32x4_t) {
-      #pragma clang diagnostic push
-      #pragma clang diagnostic ignored "-Wcast-qual"
-      __builtin_wasm_load32_zero((int32_t*) a)
-      #pragma clang diagnostic pop
-    };
+    return (wav_i32x4_t) { __builtin_wasm_load32_zero(a) };
   #endif
 }
 
 WAV_FUNCTION_ATTRIBUTES
 wav_i64x2_t
 wav_i64x2_load_zero(const int64_t * a) {
-  #if WAV_PORTABLE_SLOW(TODO)
+  #if WAV_PORTABLE_SLOW(50799)
     return (wav_i64x2_t) { { *a, 0 } };
-  #elif WAV_PORTABLE_SLOW(TODO)
-    return (wav_i64x2_t) { __builtin_wasm_load64_zero(a) };
   #else
-    return (wav_i64x2_t) {
-      #pragma clang diagnostic push
-      #pragma clang diagnostic ignored "-Wcast-qual"
-      __builtin_wasm_load64_zero((int64_t*) a)
-      #pragma clang diagnostic pop
-    };
+    return (wav_i64x2_t) { __builtin_wasm_load64_zero(a) };
   #endif
 }
 
@@ -6341,7 +6343,7 @@ wav_f64x2_loadu_splat(const void * a) {
  * is not usable for it; lane must be an ICE, so this has to be
  * implemented as a macro.  */
 
-#if WAV_PORTABLE_SLOW(TODO)
+#if WAV_PORTABLE_SLOW(50792)
   WAV_FUNCTION_ATTRIBUTES wav_i8x16_t wav_i8x16_load_lane(wav_i8x16_t dest, const int lane, const   int8_t * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0, 15) { dest.values[lane] = *src; return v; }
   WAV_FUNCTION_ATTRIBUTES wav_i16x8_t wav_i16x8_load_lane(wav_i16x8_t dest, const int lane, const  int16_t * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  7) { dest.values[lane] = *src; return v; }
   WAV_FUNCTION_ATTRIBUTES wav_i32x4_t wav_i32x4_load_lane(wav_i32x4_t dest, const int lane, const  int32_t * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  3) { dest.values[lane] = *src; return v; }
@@ -6481,7 +6483,7 @@ wav_f64x2_loadu_splat(const void * a) {
  * is not usable for it; lane must be an ICE, so this has to be
  * implemented as a macro.  */
 
-#if WAV_PORTABLE_SLOW(TODO)
+#if WAV_PORTABLE_SLOW(50800)
   WAV_FUNCTION_ATTRIBUTES void wav_i8x16_store_lane(  int8_t * dest, wav_i8x16_t src, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0, 15) { *dest = src.values[lane]; }
   WAV_FUNCTION_ATTRIBUTES void wav_i16x8_store_lane( int16_t * dest, wav_i16x8_t src, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  7) { *dest = src.values[lane]; }
   WAV_FUNCTION_ATTRIBUTES void wav_i32x4_store_lane( int32_t * dest, wav_i32x4_t src, const int lane) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  3) { *dest = src.values[lane]; }
