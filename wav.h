@@ -6343,129 +6343,129 @@ wav_f64x2_loadu_splat(const void * a) {
  * implemented as a macro.  */
 
 #if WAV_PORTABLE_SLOW(TODO)
-  WAV_FUNCTION_ATTRIBUTES wav_i8x16_t wav_i8x16_load_lane(wav_i8x16_t v, const int lane, const   int8_t * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0, 15) { v.values[lane] = *value; return v; }
-  WAV_FUNCTION_ATTRIBUTES wav_i16x8_t wav_i16x8_load_lane(wav_i16x8_t v, const int lane, const  int16_t * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  7) { v.values[lane] = *value; return v; }
-  WAV_FUNCTION_ATTRIBUTES wav_i32x4_t wav_i32x4_load_lane(wav_i32x4_t v, const int lane, const  int32_t * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  3) { v.values[lane] = *value; return v; }
-  WAV_FUNCTION_ATTRIBUTES wav_i64x2_t wav_i64x2_load_lane(wav_i64x2_t v, const int lane, const  int64_t * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  1) { v.values[lane] = *value; return v; }
-  WAV_FUNCTION_ATTRIBUTES wav_u8x16_t wav_u8x16_load_lane(wav_u8x16_t v, const int lane, const  uint8_t * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0, 15) { v.values[lane] = *value; return v; }
-  WAV_FUNCTION_ATTRIBUTES wav_u16x8_t wav_u16x8_load_lane(wav_u16x8_t v, const int lane, const uint16_t * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  7) { v.values[lane] = *value; return v; }
-  WAV_FUNCTION_ATTRIBUTES wav_u32x4_t wav_u32x4_load_lane(wav_u32x4_t v, const int lane, const uint32_t * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  3) { v.values[lane] = *value; return v; }
-  WAV_FUNCTION_ATTRIBUTES wav_u64x2_t wav_u64x2_load_lane(wav_u64x2_t v, const int lane, const uint64_t * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  1) { v.values[lane] = *value; return v; }
-  WAV_FUNCTION_ATTRIBUTES wav_f32x4_t wav_f32x4_load_lane(wav_f32x4_t v, const int lane, const    float * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  3) { v.values[lane] = *value; return v; }
-  WAV_FUNCTION_ATTRIBUTES wav_f64x2_t wav_f64x2_load_lane(wav_f64x2_t v, const int lane, const   double * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  1) { v.values[lane] = *value; return v; }
+  WAV_FUNCTION_ATTRIBUTES wav_i8x16_t wav_i8x16_load_lane(wav_i8x16_t dest, const int lane, const   int8_t * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0, 15) { dest.values[lane] = *src; return v; }
+  WAV_FUNCTION_ATTRIBUTES wav_i16x8_t wav_i16x8_load_lane(wav_i16x8_t dest, const int lane, const  int16_t * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  7) { dest.values[lane] = *src; return v; }
+  WAV_FUNCTION_ATTRIBUTES wav_i32x4_t wav_i32x4_load_lane(wav_i32x4_t dest, const int lane, const  int32_t * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  3) { dest.values[lane] = *src; return v; }
+  WAV_FUNCTION_ATTRIBUTES wav_i64x2_t wav_i64x2_load_lane(wav_i64x2_t dest, const int lane, const  int64_t * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  1) { dest.values[lane] = *src; return v; }
+  WAV_FUNCTION_ATTRIBUTES wav_u8x16_t wav_u8x16_load_lane(wav_u8x16_t dest, const int lane, const  uint8_t * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0, 15) { dest.values[lane] = *src; return v; }
+  WAV_FUNCTION_ATTRIBUTES wav_u16x8_t wav_u16x8_load_lane(wav_u16x8_t dest, const int lane, const uint16_t * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  7) { dest.values[lane] = *src; return v; }
+  WAV_FUNCTION_ATTRIBUTES wav_u32x4_t wav_u32x4_load_lane(wav_u32x4_t dest, const int lane, const uint32_t * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  3) { dest.values[lane] = *src; return v; }
+  WAV_FUNCTION_ATTRIBUTES wav_u64x2_t wav_u64x2_load_lane(wav_u64x2_t dest, const int lane, const uint64_t * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  1) { dest.values[lane] = *src; return v; }
+  WAV_FUNCTION_ATTRIBUTES wav_f32x4_t wav_f32x4_load_lane(wav_f32x4_t dest, const int lane, const    float * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  3) { dest.values[lane] = *src; return v; }
+  WAV_FUNCTION_ATTRIBUTES wav_f64x2_t wav_f64x2_load_lane(wav_f64x2_t dest, const int lane, const   double * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  1) { dest.values[lane] = *src; return v; }
 
-  WAV_OVERLOAD_ATTRIBUTES wav_i8x16_t wav_load_lane(wav_i8x16_t v, const int lane, const   int8_t * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0, 15) { v.values[lane] = *value; return v; }
-  WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t wav_load_lane(wav_i16x8_t v, const int lane, const  int16_t * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  7) { v.values[lane] = *value; return v; }
-  WAV_OVERLOAD_ATTRIBUTES wav_i32x4_t wav_load_lane(wav_i32x4_t v, const int lane, const  int32_t * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  3) { v.values[lane] = *value; return v; }
-  WAV_OVERLOAD_ATTRIBUTES wav_i64x2_t wav_load_lane(wav_i64x2_t v, const int lane, const  int64_t * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  1) { v.values[lane] = *value; return v; }
-  WAV_OVERLOAD_ATTRIBUTES wav_u8x16_t wav_load_lane(wav_u8x16_t v, const int lane, const  uint8_t * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0, 15) { v.values[lane] = *value; return v; }
-  WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t wav_load_lane(wav_u16x8_t v, const int lane, const uint16_t * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  7) { v.values[lane] = *value; return v; }
-  WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t wav_load_lane(wav_u32x4_t v, const int lane, const uint32_t * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  3) { v.values[lane] = *value; return v; }
-  WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_load_lane(wav_u64x2_t v, const int lane, const uint64_t * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  1) { v.values[lane] = *value; return v; }
-  WAV_OVERLOAD_ATTRIBUTES wav_f32x4_t wav_load_lane(wav_f32x4_t v, const int lane, const    float * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  3) { v.values[lane] = *value; return v; }
-  WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_load_lane(wav_f64x2_t v, const int lane, const   double * value) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  1) { v.values[lane] = *value; return v; }
+  WAV_OVERLOAD_ATTRIBUTES wav_i8x16_t wav_load_lane(wav_i8x16_t dest, const int lane, const   int8_t * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0, 15) { dest.values[lane] = *src; return v; }
+  WAV_OVERLOAD_ATTRIBUTES wav_i16x8_t wav_load_lane(wav_i16x8_t dest, const int lane, const  int16_t * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  7) { dest.values[lane] = *src; return v; }
+  WAV_OVERLOAD_ATTRIBUTES wav_i32x4_t wav_load_lane(wav_i32x4_t dest, const int lane, const  int32_t * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  3) { dest.values[lane] = *src; return v; }
+  WAV_OVERLOAD_ATTRIBUTES wav_i64x2_t wav_load_lane(wav_i64x2_t dest, const int lane, const  int64_t * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  1) { dest.values[lane] = *src; return v; }
+  WAV_OVERLOAD_ATTRIBUTES wav_u8x16_t wav_load_lane(wav_u8x16_t dest, const int lane, const  uint8_t * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0, 15) { dest.values[lane] = *src; return v; }
+  WAV_OVERLOAD_ATTRIBUTES wav_u16x8_t wav_load_lane(wav_u16x8_t dest, const int lane, const uint16_t * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  7) { dest.values[lane] = *src; return v; }
+  WAV_OVERLOAD_ATTRIBUTES wav_u32x4_t wav_load_lane(wav_u32x4_t dest, const int lane, const uint32_t * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  3) { dest.values[lane] = *src; return v; }
+  WAV_OVERLOAD_ATTRIBUTES wav_u64x2_t wav_load_lane(wav_u64x2_t dest, const int lane, const uint64_t * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  1) { dest.values[lane] = *src; return v; }
+  WAV_OVERLOAD_ATTRIBUTES wav_f32x4_t wav_load_lane(wav_f32x4_t dest, const int lane, const    float * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  3) { dest.values[lane] = *src; return v; }
+  WAV_OVERLOAD_ATTRIBUTES wav_f64x2_t wav_load_lane(wav_f64x2_t dest, const int lane, const   double * src) WAV_REQUIRE_CONSTANT_RANGE_PARAM(lane, 0,  1) { dest.values[lane] = *src; return v; }
 #else
-  #define wav_i8x16_load_lane(v, lane, value) (__extension__({ \
+  #define wav_i8x16_load_lane(dest, lane, src) (__extension__({ \
     _Pragma("clang diagnostic push") \
     _Pragma("clang diagnostic ignored \"-Wold-style-cast\"") \
     _Pragma("clang diagnostic ignored \"-Wcast-qual\"") \
-    (wav_i8x16_t) { __builtin_wasm_load8_lane ((int8_t *) (value), (v).values, (lane)) }; \
+    (wav_i8x16_t) { __builtin_wasm_load8_lane ((int8_t *) (src), (dest).values, (lane)) }; \
     _Pragma("clang diagnostic pop") \
   }))
-  #define wav_i16x8_load_lane(v, lane, value) (__extension__({ \
+  #define wav_i16x8_load_lane(dest, lane, src) (__extension__({ \
     _Pragma("clang diagnostic push") \
     _Pragma("clang diagnostic ignored \"-Wold-style-cast\"") \
     _Pragma("clang diagnostic ignored \"-Wcast-qual\"") \
-    (wav_i16x8_t) { __builtin_wasm_load16_lane((int16_t *) (value), (v).values, (lane)) }; \
+    (wav_i16x8_t) { __builtin_wasm_load16_lane((int16_t *) (src), (dest).values, (lane)) }; \
     _Pragma("clang diagnostic pop") \
   }))
-  #define wav_i32x4_load_lane(v, lane, value) (__extension__({ \
+  #define wav_i32x4_load_lane(dest, lane, src) (__extension__({ \
     _Pragma("clang diagnostic push") \
     _Pragma("clang diagnostic ignored \"-Wold-style-cast\"") \
     _Pragma("clang diagnostic ignored \"-Wcast-qual\"") \
-    (wav_i32x4_t) { __builtin_wasm_load32_lane((int32_t *) (value), (v).values, (lane)) }; \
+    (wav_i32x4_t) { __builtin_wasm_load32_lane((int32_t *) (src), (dest).values, (lane)) }; \
     _Pragma("clang diagnostic pop") \
   }))
-  #define wav_i64x2_load_lane(v, lane, value) (__extension__({ \
+  #define wav_i64x2_load_lane(dest, lane, src) (__extension__({ \
     _Pragma("clang diagnostic push") \
     _Pragma("clang diagnostic ignored \"-Wold-style-cast\"") \
     _Pragma("clang diagnostic ignored \"-Wcast-qual\"") \
-    (wav_i64x2_t) { __builtin_wasm_load64_lane((int64_t *) (value), (v).values, (lane)) }; \
+    (wav_i64x2_t) { __builtin_wasm_load64_lane((int64_t *) (src), (dest).values, (lane)) }; \
     _Pragma("clang diagnostic pop") \
   }))
-  #define wav_u8x16_load_lane(v, lane, value) (__extension__({ \
+  #define wav_u8x16_load_lane(dest, lane, src) (__extension__({ \
     _Pragma("clang diagnostic push") \
     _Pragma("clang diagnostic ignored \"-Wold-style-cast\"") \
     _Pragma("clang diagnostic ignored \"-Wcast-qual\"") \
-    (__typeof__(v)) { \
-      (__typeof__((v).values)) __builtin_wasm_load8_lane( \
+    (__typeof__(dest)) { \
+      (__typeof__((dest).values)) __builtin_wasm_load8_lane( \
         (int8_t *) (value), \
-        (int8_t __attribute__((__vector_size__(16)))) ((v).values), \
+        (int8_t __attribute__((__vector_size__(16)))) ((dest).values), \
         (lane) \
       ) \
     }; \
     _Pragma("clang diagnostic pop") \
   }))
-  #define wav_u16x8_load_lane(v, lane, value) (__extension__({ \
+  #define wav_u16x8_load_lane(dest, lane, src) (__extension__({ \
     _Pragma("clang diagnostic push") \
     _Pragma("clang diagnostic ignored \"-Wold-style-cast\"") \
     _Pragma("clang diagnostic ignored \"-Wcast-qual\"") \
-    (__typeof__(v)) { \
-      (__typeof__((v).values)) __builtin_wasm_load16_lane( \
-        (int16_t *) (value), \
-        (int16_t __attribute__((__vector_size__(16)))) ((v).values), \
+    (__typeof__(dest)) { \
+      (__typeof__((dest).values)) __builtin_wasm_load16_lane( \
+        (int16_t *) (src), \
+        (int16_t __attribute__((__vector_size__(16)))) ((dest).values), \
         (lane) \
       ) \
     }; \
     _Pragma("clang diagnostic pop") \
   }))
-  #define wav_u32x4_load_lane(v, lane, value) (__extension__({ \
+  #define wav_u32x4_load_lane(dest, lane, src) (__extension__({ \
     _Pragma("clang diagnostic push") \
     _Pragma("clang diagnostic ignored \"-Wold-style-cast\"") \
     _Pragma("clang diagnostic ignored \"-Wcast-qual\"") \
-    (__typeof__(v)) { \
-      (__typeof__((v).values)) __builtin_wasm_load32_lane( \
-        (int32_t *) (value), \
-        (int32_t __attribute__((__vector_size__(16)))) ((v).values), \
+    (__typeof__(dest)) { \
+      (__typeof__((dest).values)) __builtin_wasm_load32_lane( \
+        (int32_t *) (src), \
+        (int32_t __attribute__((__vector_size__(16)))) ((dest).values), \
         (lane) \
       ) \
     }; \
     _Pragma("clang diagnostic pop") \
   }))
-  #define wav_u64x2_load_lane(v, lane, value) (__extension__({ \
+  #define wav_u64x2_load_lane(dest, lane, src) (__extension__({ \
     _Pragma("clang diagnostic push") \
     _Pragma("clang diagnostic ignored \"-Wold-style-cast\"") \
     _Pragma("clang diagnostic ignored \"-Wcast-qual\"") \
-    (__typeof__(v)) { \
-      (__typeof__((v).values)) __builtin_wasm_load64_lane( \
-        (int64_t *) (value), \
-        (int64_t __attribute__((__vector_size__(16)))) ((v).values), \
+    (__typeof__(dest)) { \
+      (__typeof__((dest).values)) __builtin_wasm_load64_lane( \
+        (int64_t *) (src), \
+        (int64_t __attribute__((__vector_size__(16)))) ((dest).values), \
         (lane) \
       ) \
     }; \
     _Pragma("clang diagnostic pop") \
   }))
-  #define wav_f32x4_load_lane(v, lane, value) (__extension__({ \
+  #define wav_f32x4_load_lane(dest, lane, src) (__extension__({ \
     _Pragma("clang diagnostic push") \
     _Pragma("clang diagnostic ignored \"-Wold-style-cast\"") \
     _Pragma("clang diagnostic ignored \"-Wcast-qual\"") \
-    (__typeof__(v)) { \
-      (__typeof__((v).values)) __builtin_wasm_load32_lane( \
-        (int32_t *) (value), \
-        (int32_t __attribute__((__vector_size__(16)))) ((v).values), \
+    (__typeof__(dest)) { \
+      (__typeof__((dest).values)) __builtin_wasm_load32_lane( \
+        (int32_t *) (src), \
+        (int32_t __attribute__((__vector_size__(16)))) ((dest).values), \
         (lane) \
       ) \
     }; \
     _Pragma("clang diagnostic pop") \
   }))
-  #define wav_f64x2_load_lane(v, lane, value) (__extension__({ \
+  #define wav_f64x2_load_lane(dest, lane, src) (__extension__({ \
     _Pragma("clang diagnostic push") \
     _Pragma("clang diagnostic ignored \"-Wold-style-cast\"") \
     _Pragma("clang diagnostic ignored \"-Wcast-qual\"") \
-    (__typeof__(v)) { \
-      (__typeof__((v).values)) __builtin_wasm_load64_lane( \
-        (int64_t *) (value), \
-        (int64_t __attribute__((__vector_size__(16)))) ((v).values), \
+    (__typeof__(dest)) { \
+      (__typeof__((dest).values)) __builtin_wasm_load64_lane( \
+        (int64_t *) (src), \
+        (int64_t __attribute__((__vector_size__(16)))) ((dest).values), \
         (lane) \
       ) \
     }; \
